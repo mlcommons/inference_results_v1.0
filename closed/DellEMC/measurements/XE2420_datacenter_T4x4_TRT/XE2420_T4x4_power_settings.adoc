@@ -1,0 +1,39 @@
+# Boot/BIOS Firmware Settings
+
+  - Set "Logical Processor = Enabled" in BIOS.
+  - Set "CPU Interconnect Speed = Maximum Data Rate" in BIOS.
+  - Set "Virtualization Technology = Enabled" in BIOS.
+  - Set "Adjacent Cache Line Prefetch = Enabled" in BIOS.
+  - Set "Hardware Prefetcher = Enabled" in BIOS.
+  - Set "Software Prefetcher = Enabled" in BIOS.
+  - Set "DCU Streamer Prefetcher = Enabled" in BIOS.
+  - Set "DCU IP Prefetcher = Enabled" in BIOS.
+  - Set "Sub NUMA Cluster = Disabled" in BIOS.
+  - Set "UPI Prefetch = Enabled" in BIOS.
+  - Set "LLC Prefetch = Disabled" in BIOS.
+  - Set "Dead Line LLC Alloc = Enabled" in BIOS.
+  - Set "Directory AtoS = Disabled" in BIOS.
+  - Set "Configurable TDP = Nominal" in BIOS.
+  - Set "x2APIC Mode = Enabled" in BIOS.
+  - Set "Number of Cores per Processor = All" in BIOS.
+  - Set "System Memory Testing = Disabled" in BIOS.
+  - Set "Dram Refresh Delay = Performance" in BIOS.
+  - Set "Memory Operating Mode = Optimizer Mode" in BIOS.
+  - Set "Node Interleaving = Disabled" in BIOS.
+  - Set "ADDDC Setting = Disabled" in BIOS.
+  - Set "Native tRFC Timing for 16Gb Density DIMMs = Enabled" in BIOS.
+  - Set "Correctable Memory ECC SMI = Enabled" in BIOS.
+  - Set "Opportunistic Self-Refresh = Disabled" in BIOS.
+  - Set "Correctable Error Logging = Enabled" in BIOS.
+  - Set "System Profile = Performance" in BIOS.
+
+# Management Firmware Settings
+  
+  - None
+
+# Power Management  Settings  (command line or other)
+  
+  - Benchmark started via ssh
+  - nvidia-smi -ac 5001,1590
+  - echo always | sudo tee /sys/kernel/mm/transparent_hugepage/enabled
+

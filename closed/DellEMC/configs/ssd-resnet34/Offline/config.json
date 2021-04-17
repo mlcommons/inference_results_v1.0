@@ -1,0 +1,92 @@
+{
+   "DSS8440_A100-PCIE-40GBx10": {
+        "config_ver": {
+        },
+        "gpu_batch_size": 64,
+        "gpu_copy_streams": 4,
+        "gpu_inference_streams": 2,
+        "gpu_offline_expected_qps": 8640,
+        "numa_config": "0-4:0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78&5-9:1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47,49,51,53,55,57,59,61,63,65,67,69,71,73,75,77,79",
+        "run_infer_on_copy_streams": false
+    },
+    "DSS8440_A40x10": {
+        "gpu_batch_size": 64,
+        "gpu_copy_streams": 4,
+        "gpu_inference_streams": 1,
+        "gpu_offline_expected_qps": 4800
+    },
+    "R740_A100-PCIe-40GBx3": {
+        "config_ver": {
+        },
+        "gpu_batch_size": 64,
+        "gpu_copy_streams": 4,
+        "gpu_inference_streams": 2,
+        "gpu_offline_expected_qps": 2880
+    },
+    "R750xa_A100-PCIE-40GBx4": {
+        "gpu_batch_size": 68,
+        "gpu_copy_streams": 4,
+        "gpu_inference_streams": 2,
+        "gpu_offline_expected_qps": 3370
+    },
+    "R7525_QuadroRTX8000x3": {
+        "config_ver": {
+        },
+        "gpu_batch_size": 32,
+        "gpu_copy_streams": 4,
+        "gpu_inference_streams": 1,
+        "gpu_offline_expected_qps": 1078
+     },
+    "XE2420_T4x1": {
+        "config_ver": {
+        },
+        "gpu_batch_size": 12,
+        "gpu_copy_streams": 4,
+        "gpu_inference_streams": 1,
+        "gpu_offline_expected_qps": 140
+    },
+    "XE2420_T4x4": {
+        "config_ver": {
+        },
+        "gpu_batch_size": 12,
+        "gpu_copy_streams": 4,
+        "gpu_inference_streams": 1,
+        "gpu_offline_expected_qps": 600
+    },
+    "XE8545_A100-SXM4-40GBx4": {
+        "config_ver": {
+                "7763":{
+                    "system_name": "XE8545_7763_A100-SXM4-40GBx4_TRT"
+            },
+	    "7713":{
+                    "system_name": "XE8545_7713_A100-SXM4-40GBx4_TRT"
+            }
+        },
+        "gpu_batch_size": 64,
+        "gpu_copy_streams": 4,
+        "gpu_inference_streams": 1,
+        "gpu_offline_expected_qps": 7500,
+        "start_from_device": true
+    },
+    "XE8545_A100-SXM4-80GBx4": {
+        "config_ver": {
+            "7763":{
+                    "system_name": "XE8545_7763_A100-SXM4-80GBx4_TRT"
+            }
+        },
+        "extends" : ["XE8545_A100-SXM4-40GBx4"],
+        "gpu_offline_expected_qps" : 7500,
+        "gpu_inference_streams" : 2,
+        "run_infer_on_copy_streams": false
+    },
+    "benchmark": "ssd-resnet34",
+    "default": {
+        "input_dtype": "int8",
+        "input_format": "linear",
+        "map_path": "data_maps/coco/val_map.txt",
+        "precision": "int8",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/coco/val2017/SSDResNet34/int8_linear",
+        "use_graphs": false
+    },
+    "scenario": "Offline"
+}

@@ -1,0 +1,330 @@
+{
+    "A100-PCIex1": {
+        "active_sms": 60,
+        "config_ver": {
+            "high_accuracy": {
+                "precision": "fp16",
+                "server_target_qps": 1215
+            },
+            "high_accuracy_triton": {
+                "precision": "fp16",
+                "server_target_qps": 1185,
+                "use_triton": true
+            },
+            "triton": {
+                "server_target_qps": 2195,
+                "use_triton": true
+            }
+        },
+        "enable_interleaved": false,
+        "gemm_plugin_fairshare_cache_size": 120,
+        "gpu_batch_size": 64,
+        "graphs_max_seqlen": 200,
+        "server_num_issue_query_threads": 2,
+        "server_target_qps": 2600,
+        "soft_drop": 1.0,
+        "use_small_tile_gemm_plugin": true
+    },
+    "A100-PCIex2": {
+        "active_sms": 60,
+        "config_ver": {
+            "high_accuracy": {
+                "precision": "fp16",
+                "server_target_qps": 2430
+            },
+            "high_accuracy_triton": {
+                "precision": "fp16",
+                "server_target_qps": 2370,
+                "use_triton": true
+            },
+            "triton": {
+                "server_target_qps": 4390,
+                "use_triton": true
+            }
+        },
+        "enable_interleaved": false,
+        "gemm_plugin_fairshare_cache_size": 120,
+        "gpu_batch_size": 64,
+        "graphs_max_seqlen": 200,
+        "server_num_issue_query_threads": 2,
+        "server_target_qps": 5160,
+        "soft_drop": 1.0,
+        "use_small_tile_gemm_plugin": true
+    },
+    "A100-PCIex8": {
+        "scales": {
+            "A100-PCIex1": {
+                "server_target_qps": 8.0
+            }
+        }
+    },
+    "A100-SXM-80GBx1": {
+        "extends": [
+            "A100-SXM4-40GBx1"
+        ]
+    },
+    "A100-SXM-80GBx1-MIG_1x1g.10gb": {
+        "extends": [
+            "T4x1"
+        ]
+    },
+    "A100-SXM-80GBx8": {
+        "extends": [
+            "A100-SXM4-40GBx8"
+        ]
+    },
+    "A100-SXM-80GBx8-MIG_56x1g.10gb": {
+        "scales": {
+            "A100-SXM-80GBx1-MIG_1x1g.10gb": {
+                "server_target_qps": 56
+            }
+        }
+    },
+    "A100-SXM4-40GBx1": {
+        "active_sms": 60,
+        "config_ver": {
+            "high_accuracy": {
+                "precision": "fp16",
+                "server_target_qps": 1550
+            },
+            "high_accuracy_triton": {
+                "precision": "fp16",
+                "server_target_qps": 1395,
+                "use_triton": true
+            },
+            "triton": {
+                "server_target_qps": 2790,
+                "use_triton": true
+            }
+        },
+        "enable_interleaved": false,
+        "gemm_plugin_fairshare_cache_size": 120,
+        "gpu_batch_size": 64,
+        "graphs_max_seqlen": 200,
+        "server_num_issue_query_threads": 2,
+        "server_target_qps": 3100,
+        "soft_drop": 0.99,
+        "use_small_tile_gemm_plugin": true
+    },
+    "A100-SXM4-40GBx8": {
+        "active_sms": 60,
+        "config_ver": {
+            "high_accuracy": {
+                "gpu_batch_size": 64,
+                "precision": "fp16",
+                "server_target_qps": 11500
+            },
+            "high_accuracy_triton": {
+                "gpu_batch_size": 64,
+                "precision": "fp16",
+                "server_target_qps": 11205,
+                "use_triton": true
+            },
+            "triton": {
+                "server_target_qps": 22455,
+                "use_triton": true
+            }
+        },
+        "enable_interleaved": false,
+        "gemm_plugin_fairshare_cache_size": 120,
+        "gpu_batch_size": 96,
+        "graphs_max_seqlen": 240,
+        "server_num_issue_query_threads": 0,
+        "server_target_qps": 24750,
+        "soft_drop": 0.99,
+        "use_small_tile_gemm_plugin": true
+    },
+    "A10x1": {
+        "active_sms": 100,
+        "config_ver": {
+            "high_accuracy": {
+                "gpu_batch_size": 8,
+                "precision": "fp16",
+                "server_target_qps": 160
+            },
+            "high_accuracy_triton": {
+                "gpu_batch_size": 8,
+                "precision": "fp16",
+                "server_target_qps": 160,
+                "use_triton": true
+            },
+            "triton": {
+                "server_target_qps": 324,
+                "use_triton": true
+            }
+        },
+        "enable_interleaved": false,
+        "gemm_plugin_fairshare_cache_size": 120,
+        "gpu_batch_size": 16,
+        "graphs_max_seqlen": 240,
+        "server_num_issue_query_threads": 0,
+        "server_target_qps": 360,
+        "soft_drop": 0.993,
+        "use_small_tile_gemm_plugin": true
+    },
+    "A10x8": {
+        "scales": {
+            "A10x1": {
+                "server_target_qps": 8.0
+            }
+        }
+    },
+    "T4x1": {
+        "active_sms": 100,
+        "config_ver": {
+            "high_accuracy": {
+                "active_sms": 100,
+                "gpu_batch_size": 8,
+                "gpu_inference_streams": 1,
+                "graph_specs": "(128, 4, 256, 4), (192, 128, 512, 4), (256, 192, 1536, 8), (384, 256, 2048, 16)",
+                "precision": "fp16",
+                "server_num_issue_query_threads": 0,
+                "server_target_qps": 160
+            },
+            "high_accuracy_triton": {
+                "active_sms": 100,
+                "gpu_batch_size": 8,
+                "gpu_inference_streams": 1,
+                "graph_specs": "(128, 4, 256, 4), (192, 128, 512, 4), (256, 192, 1536, 8), (384, 256, 2048, 16)",
+                "precision": "fp16",
+                "server_num_issue_query_threads": 0,
+                "server_target_qps": 144,
+                "use_triton": true
+            },
+            "triton": {
+                "server_target_qps": 324,
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 16,
+        "graphs_max_seqlen": 240,
+        "server_num_issue_query_threads": 0,
+        "server_target_qps": 360,
+        "soft_drop": 0.993
+    },
+    "T4x20": {
+        "active_sms": 100,
+        "config_ver": {
+            "high_accuracy": {
+                "active_sms": 100,
+                "gpu_batch_size": 8,
+                "gpu_inference_streams": 1,
+                "precision": "fp16",
+                "server_num_issue_query_threads": 20,
+                "server_target_qps": 3300,
+                "soft_drop": 0.992
+            },
+            "high_accuracy_triton": {
+                "active_sms": 100,
+                "gpu_batch_size": 8,
+                "gpu_inference_streams": 1,
+                "precision": "fp16",
+                "server_num_issue_query_threads": 20,
+                "server_target_qps": 3300,
+                "soft_drop": 0.992,
+                "use_triton": true
+            },
+            "triton": {
+                "server_target_qps": 5000,
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 14,
+        "graphs_max_seqlen": 260,
+        "server_num_issue_query_threads": 40,
+        "server_target_qps": 5000,
+        "soft_drop": 0.995
+    },
+    "T4x8": {
+        "active_sms": 100,
+        "config_ver": {
+            "high_accuracy": {
+                "active_sms": 100,
+                "gpu_batch_size": 8,
+                "gpu_inference_streams": 1,
+                "precision": "fp16",
+                "server_num_issue_query_threads": 8,
+                "server_target_qps": 1330
+            },
+            "high_accuracy_triton": {
+                "active_sms": 100,
+                "gpu_batch_size": 8,
+                "gpu_inference_streams": 1,
+                "precision": "fp16",
+                "server_num_issue_query_threads": 8,
+                "server_target_qps": 1330,
+                "use_triton": true
+            },
+            "triton": {
+                "server_target_qps": 2200,
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 14,
+        "graphs_max_seqlen": 260,
+        "server_num_issue_query_threads": 16,
+        "server_target_qps": 2200,
+        "soft_drop": 0.992
+    },
+    "TitanRTXx1": {
+        "active_sms": 100,
+        "config_ver": {
+            "high_accuracy": {
+                "precision": "fp16",
+                "server_target_qps": 580
+            },
+            "high_accuracy_triton": {
+                "precision": "fp16",
+                "server_target_qps": 520,
+                "use_triton": true
+            },
+            "triton": {
+                "server_target_qps": 1000,
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 32,
+        "graphs_max_seqlen": 200,
+        "server_num_issue_query_threads": 2,
+        "server_target_qps": 1110,
+        "soft_drop": 0.993
+    },
+    "TitanRTXx4": {
+        "active_sms": 100,
+        "config_ver": {
+            "high_accuracy": {
+                "precision": "fp16",
+                "server_target_qps": 2500
+            },
+            "high_accuracy_triton": {
+                "gpu_batch_size": 32,
+                "precision": "fp16",
+                "server_target_qps": 2250,
+                "use_triton": true
+            },
+            "triton": {
+                "server_target_qps": 4700,
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 32,
+        "graphs_max_seqlen": 200,
+        "server_num_issue_query_threads": 8,
+        "server_target_qps": 4700,
+        "soft_drop": 0.993
+    },
+    "benchmark": "bert",
+    "default": {
+        "coalesced_tensor": true,
+        "enable_interleaved": true,
+        "gpu_copy_streams": 1,
+        "gpu_inference_streams": 2,
+        "input_dtype": "int32",
+        "input_format": "linear",
+        "precision": "int8",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/squad_tokenized/input_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/segment_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/input_mask.npy",
+        "use_cuda_thread_per_device": false,
+        "use_graphs": true
+    },
+    "scenario": "Server"
+}

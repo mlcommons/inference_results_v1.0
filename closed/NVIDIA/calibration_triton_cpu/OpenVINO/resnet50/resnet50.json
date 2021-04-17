@@ -1,0 +1,22 @@
+{
+    "model": {
+        "model_name": "resnet50_int8",
+        "model": "FP16/resnet50_fp16.xml",
+        "weights": "FP16/resnet50_fp16.bin"
+    },
+    "engine": {
+        "config": "resnet50.yml"
+      },
+    "compression": {
+        "target_device": "CPU",
+        "algorithms": [
+            {
+                "name": "DefaultQuantization",
+                "preset": "performance",
+                "params": {
+                    "stat_subset_size": 500
+                }
+            }
+        ]
+    }
+}

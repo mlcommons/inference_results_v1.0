@@ -1,0 +1,26 @@
+{
+    "XE2420_T4x1": {
+        "config_ver": {
+        },
+        "gpu_single_stream_expected_latency_ns": 7757000,
+        "use_graphs": true
+    },
+    "XE2420_T4x4": {
+        "config_ver": {
+        },
+        "gpu_single_stream_expected_latency_ns": 7757000,
+        "use_graphs": true
+    },
+    "benchmark": "ssd-resnet34",
+    "default": {
+        "gpu_batch_size": 1,
+        "gpu_copy_streams": 1,
+        "gpu_inference_streams": 1,
+        "input_dtype": "int8",
+        "input_format": "linear",
+        "map_path": "data_maps/coco/val_map.txt",
+        "precision": "int8",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/coco/val2017/SSDResNet34/int8_linear"
+    },
+    "scenario": "SingleStream"
+}

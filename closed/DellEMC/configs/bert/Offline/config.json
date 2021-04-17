@@ -1,0 +1,179 @@
+{
+    "DSS8440_A100-PCIE-40GBx10": {
+        "config_ver": {
+            "high_accuracy": {
+                "gpu_offline_expected_qps": 17500,
+                "precision": "fp16"
+            }
+        },
+        "enable_interleaved": false,
+        "gemm_plugin_fairshare_cache_size": 120,
+        "gpu_batch_size": 1024,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams": 2,
+        "gpu_offline_expected_qps": 34000,
+        "use_small_tile_gemm_plugin": true,
+        "workspace_size": 7516192768
+    },
+    "DSS8440_A40x10": {
+        "config_ver": {
+            "high_accuracy": {
+                "gpu_offline_expected_qps": 14000,
+                "precision": "fp16"
+            }
+        },
+        "gpu_batch_size": 640,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams": 2,
+        "gpu_offline_expected_qps": 16300
+    },
+    "R740_A100-PCIe-40GBx3": {
+        "config_ver": {
+            "high_accuracy": {
+                "gpu_offline_expected_qps": 3080,
+                "precision": "fp16"
+            }
+        },
+        "enable_interleaved": false,
+        "gemm_plugin_fairshare_cache_size": 120,
+        "gpu_batch_size": 256,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams": 2,
+        "gpu_offline_expected_qps": 9000,
+        "use_small_tile_gemm_plugin": true
+    },
+    "R750xa_A100-PCIE-40GBx4": {
+        "config_ver": {
+            "high_accuracy": {
+                "gpu_offline_expected_qps": 9800,
+                "precision": "fp16"
+            }
+        },
+        "enable_interleaved": false,
+        "gemm_plugin_fairshare_cache_size": 120,
+        "gpu_batch_size": 512,
+        "gpu_copy_streams": 1,
+        "gpu_inference_streams": 2,
+        "gpu_offline_expected_qps": 11700,
+        "use_small_tile_gemm_plugin": true,
+        "workspace_size": 7516192768
+    },
+    "R7525_A100-PCIe-40GBx2": {
+        "config_ver": {
+            "high_accuracy": {
+                "gpu_offline_expected_qps": 3080,
+                "precision": "fp16"
+            }
+        },
+        "enable_interleaved": false,
+        "gemm_plugin_fairshare_cache_size": 120,
+        "gpu_batch_size": 256,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams": 2,
+        "gpu_offline_expected_qps": 6000,
+        "use_small_tile_gemm_plugin": true
+    },
+    "R7525_QuadroRTX8000x3": {
+        "coalesced_tensor": true,
+        "config_ver": {
+            "high_accuracy": {
+                "gpu_offline_expected_qps": 1874,
+                "precision": "fp16"
+            }
+        },
+        "gpu_batch_size": 512,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams": 2,
+        "gpu_offline_expected_qps": 3599,
+        "min_query_count": 24576
+    },
+    "XE2420_T4x1": {
+        "config_ver": {
+            "high_accuracy": {
+                "gpu_batch_size": 256,
+                "gpu_inference_streams": 1,
+                "gpu_offline_expected_qps": 210,
+                "precision": "fp16"
+            }
+        },
+        "gpu_batch_size": 256,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams": 2,
+        "gpu_offline_expected_qps": 430
+    },
+    "XE2420_T4x4": {
+        "config_ver": {
+            "high_accuracy": {
+                "gpu_batch_size": 256,
+                "gpu_inference_streams": 1,
+                "gpu_offline_expected_qps": 1680,
+                "precision": "fp16"
+            }
+        },
+        "gpu_batch_size": 256,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams": 2,
+        "gpu_offline_expected_qps": 3500
+    },
+    "XE8545_A100-SXM4-40GBx4": {
+        "config_ver": {
+            "7763": {
+                    "system_name": "XE8545_7763_A100-SXM4-40GBx4_TRT"
+            },
+            "high_accuracy_7763": {
+                "system_name": "XE8545_7763_A100-SXM4-40GBx4_TRT",
+                "gpu_offline_expected_qps": 7500,
+                "precision": "fp16"
+            },
+	    "7713": {
+                    "system_name": "XE8545_7713_A100-SXM4-40GBx4_TRT"
+            },
+            "high_accuracy_7713": {
+                "system_name": "XE8545_7713_A100-SXM4-40GBx4_TRT",
+                "gpu_offline_expected_qps": 7500,
+                "precision": "fp16"
+            }
+        },
+        "enable_interleaved": false,
+        "gemm_plugin_fairshare_cache_size": 120,
+        "gpu_batch_size": 1024,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams": 2,
+        "gpu_offline_expected_qps": 15000,
+        "use_small_tile_gemm_plugin": true,
+        "workspace_size": 7516192768,
+	"start_from_device": true
+    },
+    "XE8545_A100-SXM4-80GBx4": {
+        "config_ver": {
+            "7763": {
+                    "system_name": "XE8545_7763_A100-SXM4-80GBx4_TRT"
+            },
+            "high_accuracy_7763": {
+                "system_name": "XE8545_7763_A100-SXM4-80GBx4_TRT",
+                "gpu_batch_size": 512,
+                "precision": "fp16",
+                "gpu_offline_expected_qps": 9000
+            }
+        },
+        "extends": [
+            "XE8545_A100-SXM4-40GBx4"
+        ],
+        "gpu_batch_size": 1280,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams": 1,
+        "gpu_offline_expected_qps": 18000
+    },
+    "benchmark": "bert",
+    "default": {
+        "coalesced_tensor": true,
+        "enable_interleaved": true,
+        "input_dtype": "int32",
+        "input_format": "linear",
+        "precision": "int8",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/squad_tokenized/input_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/segment_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/input_mask.npy",
+        "use_graphs": false,
+        "use_small_tile_gemm_plugin": false
+    },
+    "scenario": "Offline"
+}

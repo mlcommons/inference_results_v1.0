@@ -1,0 +1,85 @@
+{
+    "DSS8440_A40x10": {
+        "complete_threads": 1,
+        "config_ver": {
+            "high_accuracy": {}
+        },
+        "deque_timeout_us": 1,
+        "enable_interleaved_top_mlp": false,
+        "gemm_plugin_fairshare_cache_size": 18,
+        "gpu_batch_size": 262100,
+        "gpu_copy_streams": 1,
+        "gpu_inference_streams": 1,
+        "gpu_offline_expected_qps": 1300000,
+        "max_pairs_per_staging_thread": 262100,
+        "num_staging_batches": 20,
+        "num_staging_threads": 20,
+        "use_jemalloc": true,
+        "use_small_tile_gemm_plugin": false
+    },
+    "R740_A100-PCIe-40GBx3": {
+        "complete_threads": 1,
+        "config_ver": {
+            "high_accuracy": {}
+        },
+        "deque_timeout_us": 1,
+        "enable_interleaved_top_mlp": false,
+        "gemm_plugin_fairshare_cache_size": 18,
+        "gpu_batch_size": 262100,
+        "gpu_offline_expected_qps": 760000,
+        "max_pairs_per_staging_thread": 262100,
+        "num_staging_batches": 8,
+        "num_staging_threads": 8,
+        "use_jemalloc": true,
+        "use_small_tile_gemm_plugin": true
+    },
+    "R7525_QuadroRTX8000x3": {
+        "complete_threads": 2,
+        "config_ver": {
+            "high_accuracy": {}
+        },
+        "deque_timeout_us": 1,
+	"enable_interleaved_top_mlp": false,
+        "gemm_plugin_fairshare_cache_size": 18,
+        "gpu_batch_size": 262100,
+        "gpu_offline_expected_qps": 269588,
+        "use_jemalloc": true,
+        "max_pairs_per_staging_thread": 262100,
+        "num_staging_batches": 4,
+        "num_staging_threads": 4,
+        "use_small_tile_gemm_plugin": true
+    },
+    "XE2420_T4x4": {
+        "complete_threads": 8,
+        "config_ver": {
+            "high_accuracy": {}
+        },
+        "deque_timeout_us": 1,
+        "embedding_weights_on_gpu_part": 0.5,
+        "gpu_batch_size": 262100,
+        "gpu_offline_expected_qps": 272000,
+        "max_pairs_per_staging_thread": 262100,
+        "num_staging_batches": 16,
+        "num_staging_threads": 16,
+        "output_padding_granularity": 32,
+        "use_jemalloc": true
+    },
+    "benchmark": "dlrm",
+    "default": {
+        "check_contiguity": true,
+        "coalesced_tensor": true,
+        "enable_interleaved_top_mlp": true,
+        "gpu_copy_streams": 1,
+        "gpu_inference_streams": 1,
+        "gpu_num_bundles": 2,
+        "input_dtype": "int8",
+        "input_format": "chw4",
+        "output_padding_granularity": 128,
+        "precision": "int8",
+        "sample_partition_path": "${PREPROCESSED_DATA_DIR}/criteo/full_recalib/sample_partition.npy",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/criteo/full_recalib/numeric_int8_chw4.npy,${PREPROCESSED_DATA_DIR}/criteo/full_recalib/categorical_int32.npy",
+        "use_graphs": false,
+        "use_small_tile_gemm_plugin": false
+    },
+    "scenario": "Offline"
+}

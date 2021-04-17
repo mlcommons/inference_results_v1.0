@@ -1,0 +1,63 @@
+{
+    "A100-SXM4-40GBx1": {
+        "config_ver": {
+            "triton": {
+                "server_target_qps": 27700,
+                "use_triton": true
+            }
+        },
+        "deque_timeout_us": 2000,
+        "gpu_batch_size": 64,
+        "gpu_copy_streams": 4,
+        "gpu_inference_streams": 4,
+        "server_target_qps": 30800,
+        "start_from_device": true,
+        "use_cuda_thread_per_device": true,
+        "use_graphs": true
+    },
+    "A100-SXM4-40GBx8": {
+        "config_ver": {
+            "triton": {
+                "server_target_qps": 160000,
+                "start_from_device": false,
+                "use_graphs": false,
+                "use_triton": true
+            }
+        },
+        "deque_timeout_us": 4000,
+        "gpu_batch_size": 128,
+        "gpu_copy_streams": 4,
+        "gpu_inference_streams": 2,
+        "server_target_qps": 245000,
+        "start_from_device": true,
+        "use_cuda_thread_per_device": true,
+        "use_graphs": true
+    },
+    "A10x2": {
+        "config_ver": {
+            "triton": {
+                "server_target_qps": 10000,
+                "use_triton": true
+            }
+        },
+        "deque_timeout_us": 2000,
+        "gpu_batch_size": 128,
+        "gpu_copy_streams": 4,
+        "gpu_inference_streams": 4,
+        "server_target_qps": 22000,
+        "start_from_device": false,
+        "use_cuda_thread_per_device": true,
+        "use_graphs": true
+    },
+    "benchmark": "resnet50",
+    "default": {
+        "active_sms": 100,
+        "input_dtype": "int8",
+        "input_format": "linear",
+        "map_path": "data_maps/imagenet/val_map.txt",
+        "precision": "int8",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/imagenet/ResNet50/int8_linear",
+        "use_deque_limit": true
+    },
+    "scenario": "Server"
+}

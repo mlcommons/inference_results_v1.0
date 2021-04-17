@@ -1,0 +1,19 @@
+In our BERT non-SingleStream tests, the SUT selects the Multi-Head Attention
+CUDA kernels depending on the maximum sequence length within the batch at run time.
+These are several different CUDA kernels with slightly different numerical
+properties. Reported test failure is due to a sample being batched together
+with different samples in accuracy mode and in performance mode, causing different
+Multi-Head Attention CUDA kernels to be selected and, hence, slightly different
+output values. To provide assurances that all the Multi-Head Attention CUDA kernels
+return satisfactory accuracy, we use https://github.com/mlperf/inference/blob/master/compliance/nvidia/TEST01/create_accuracy_baseline.sh
+to isolate the samples in the accuracy mode log that correspond to the samples 
+found in the performance mode log. The accuracy metric calculation script can 
+then be run on this subset of accuracy mode results in order to make a 
+meaningful apples-to-apples comparison with the performance mode results.
+ 
+For example:
+closed/NVIDIA/compliance/T4x8_TRT/bert-99.9/Offline/TEST01/accuracy/baseline_accuracy.txt
+closed/NVIDIA/compliance/T4x8_TRT/bert-99.9/Offline/TEST01/accuracy/compliance_accuracy.txt
+
+As shown in our logs, for every run, the two logs differ by no more than 0.1% for bert-99.9
+benchmark and no more than 1% for bert-99 benchmark.

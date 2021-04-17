@@ -1,0 +1,454 @@
+{
+    "A100-PCIex1": {
+        "complete_threads": 1,
+        "config_ver": {
+            "high_accuracy": {},
+            "high_accuracy_triton": {
+                "buffer_manager_thread_count": 8,
+                "max_queue_delay_usec": 10000,
+                "use_triton": true
+            },
+            "triton": {
+                "buffer_manager_thread_count": 8,
+                "max_queue_delay_usec": 10000,
+                "use_triton": true
+            }
+        },
+        "deque_timeout_us": 1,
+        "enable_interleaved_top_mlp": false,
+        "gemm_plugin_fairshare_cache_size": 18,
+        "gpu_batch_size": 274000,
+        "gpu_num_bundles": 2,
+        "num_staging_batches": 4,
+        "num_staging_threads": 4,
+        "server_target_qps": 180000,
+        "use_jemalloc": true,
+        "use_small_tile_gemm_plugin": true
+    },
+    "A100-PCIex2": {
+        "complete_threads": 1,
+        "config_ver": {
+            "high_accuracy": {},
+            "high_accuracy_triton": {
+                "max_queue_delay_usec": 10000,
+                "server_target_qps": 80000,
+                "use_triton": true
+            },
+            "triton": {
+                "max_queue_delay_usec": 10000,
+                "server_target_qps": 80000,
+                "use_triton": true
+            }
+        },
+        "deque_timeout_us": 1,
+        "enable_interleaved_top_mlp": false,
+        "gemm_plugin_fairshare_cache_size": 18,
+        "gpu_batch_size": 262100,
+        "gpu_num_bundles": 2,
+        "num_staging_batches": 8,
+        "num_staging_threads": 8,
+        "numa_config": "0:0-63&1:64-127",
+        "server_target_qps": 385000,
+        "use_jemalloc": true,
+        "use_small_tile_gemm_plugin": true
+    },
+    "A100-PCIex8": {
+        "config_ver": {
+            "maxq": {},
+            "maxq_high_accuracy": {},
+            "maxq_high_accuracy_triton": {
+                "buffer_manager_thread_count": 8,
+                "max_queue_delay_usec": 10000,
+                "use_triton": true
+            },
+            "maxq_triton": {
+                "buffer_manager_thread_count": 8,
+                "max_queue_delay_usec": 10000,
+                "use_triton": true
+            }
+        },
+        "extends": [
+            "A100-PCIex1"
+        ],
+        "gpu_batch_size": 274000,
+        "numa_config": "3:0-15&2:16-31&1:32-47&0:48-63&7:64-79&6:80-95&5:96-111&4:112-127",
+        "server_target_qps": 1450000
+    },
+    "A100-SXM-80GBx1": {
+        "extends": [
+            "A100-SXM4-40GBx1"
+        ],
+        "server_target_qps": 286000
+    },
+    "A100-SXM-80GBx4": {
+        "config_ver": {
+            "maxq": {},
+            "maxq_high_accuracy": {},
+            "maxq_high_accuracy_triton": {
+                "buffer_manager_thread_count": 8,
+                "max_queue_delay_usec": 10000,
+                "use_triton": true
+            },
+            "maxq_triton": {
+                "buffer_manager_thread_count": 8,
+                "max_queue_delay_usec": 10000,
+                "use_triton": true
+            }
+        },
+        "scales": {
+            "A100-PCIex1": {
+                "server_target_qps": 4
+            }
+        }
+    },
+    "A100-SXM-80GBx8": {
+        "config_ver": {
+            "high_accuracy": {},
+            "high_accuracy_triton": {
+                "max_queue_delay_usec": 10000,
+                "start_from_device": false,
+                "use_triton": true
+            },
+            "triton": {
+                "max_queue_delay_usec": 10000,
+                "start_from_device": false,
+                "use_triton": true
+            }
+        },
+        "extends": [
+            "A100-SXM4-40GBx8"
+        ],
+        "server_target_qps": 182000
+    },
+    "A100-SXM4-40GBx1": {
+        "complete_threads": 1,
+        "config_ver": {
+            "high_accuracy": {},
+            "high_accuracy_triton": {
+                "buffer_manager_thread_count": 0,
+                "gather_kernel_buffer_threshold": 64,
+                "gpu_copy_streams": 2,
+                "max_queue_delay_usec": 10000,
+                "server_target_qps": 205000,
+                "use_triton": true
+            },
+            "triton": {
+                "buffer_manager_thread_count": 0,
+                "gather_kernel_buffer_threshold": 64,
+                "gpu_copy_streams": 2,
+                "max_queue_delay_usec": 10000,
+                "server_target_qps": 205000,
+                "use_triton": true
+            }
+        },
+        "deque_timeout_us": 1,
+        "enable_interleaved_top_mlp": false,
+        "gemm_plugin_fairshare_cache_size": 18,
+        "gpu_batch_size": 262100,
+        "gpu_num_bundles": 2,
+        "num_staging_batches": 4,
+        "num_staging_threads": 4,
+        "server_target_qps": 255000,
+        "start_from_device": true,
+        "use_jemalloc": true,
+        "use_small_tile_gemm_plugin": true
+    },
+    "A100-SXM4-40GBx8": {
+        "complete_threads": 1,
+        "config_ver": {
+            "high_accuracy": {},
+            "high_accuracy_triton": {
+                "max_queue_delay_usec": 10000,
+                "server_target_qps": 80000,
+                "start_from_device": false,
+                "use_triton": true
+            },
+            "triton": {
+                "max_queue_delay_usec": 10000,
+                "server_target_qps": 80000,
+                "start_from_device": false,
+                "use_triton": true
+            }
+        },
+        "enable_interleaved_top_mlp": false,
+        "gemm_plugin_fairshare_cache_size": 18,
+        "gpu_batch_size": 262100,
+        "gpu_num_bundles": 2,
+        "server_target_qps": 2100000,
+        "start_from_device": false,
+        "use_jemalloc": true,
+        "use_small_tile_gemm_plugin": false
+    },
+    "A100-SXM-80GB-MIG_1x1g.10gb": {
+        "complete_threads": 1,
+        "config_ver": {
+            "high_accuracy": {},
+            "high_accuracy_triton": {
+                "buffer_manager_thread_count": 8,
+                "server_target_qps": 20000,
+                "use_triton": true
+            },
+            "triton": {
+                "buffer_manager_thread_count": 8,
+                "server_target_qps": 20000,
+                "use_triton": true
+            },
+            "hetero": {},
+            "hetero_high_accuracy": {}
+        },
+        "deque_timeout_us": 1,
+        "embedding_weights_on_gpu_part": 0.3,
+        "enable_interleaved_top_mlp": false,
+        "gemm_plugin_fairshare_cache_size": 18,
+        "gpu_batch_size": 65500,
+        "gpu_num_bundles": 2,
+        "num_staging_batches": 4,
+        "num_staging_threads": 4,
+        "server_target_qps": 36000,
+        "use_jemalloc": true,
+        "use_small_tile_gemm_plugin": true
+    },
+    "A10x1": {
+        "complete_threads": 1,
+        "config_ver": {
+            "high_accuracy": {},
+            "high_accuracy_triton": {
+                "buffer_manager_thread_count": 8,
+                "server_target_qps": 66000,
+                "use_triton": true
+            },
+            "triton": {
+                "buffer_manager_thread_count": 8,
+                "server_target_qps": 66000,
+                "use_triton": true
+            }
+        },
+        "deque_timeout_us": 1,
+        "embedding_weights_on_gpu_part": 0.8,
+        "enable_interleaved_top_mlp": false,
+        "gemm_plugin_fairshare_cache_size": 18,
+        "gpu_batch_size": 65500,
+        "gpu_num_bundles": 2,
+        "num_staging_batches": 2,
+        "num_staging_threads": 4,
+        "server_target_qps": 68000,
+        "use_jemalloc": true,
+        "use_small_tile_gemm_plugin": true
+    },
+    "A10x8": {
+        "config_ver": {
+            "high_accuracy": {},
+            "high_accuracy_triton": {
+                "buffer_manager_thread_count": 8,
+                "server_target_qps": 120000,
+                "use_triton": true
+            },
+            "triton": {
+                "buffer_manager_thread_count": 8,
+                "gpu_batch_size": 262000,
+                "server_target_qps": 600000,
+                "use_triton": true
+            }
+        },
+        "extends": [
+            "A10x1"
+        ],
+        "numa_config": "0-3:0-27,56-83&4-7:28-55,84-111",
+        "num_staging_batches": 8,
+        "num_staging_threads": 8,
+        "gpu_batch_size": 65000,
+        "server_target_qps": 700000
+    },
+    "A30x1": {
+        "complete_threads": 1,
+        "config_ver": {
+            "high_accuracy": {},
+            "high_accuracy_triton": {
+                "buffer_manager_thread_count": 8,
+                "server_target_qps": 120000,
+                "use_triton": true
+            },
+            "triton": {
+                "buffer_manager_thread_count": 8,
+                "server_target_qps": 120000,
+                "use_triton": true
+            }
+        },
+        "deque_timeout_us": 1,
+        "embedding_weights_on_gpu_part": 0.8,
+        "enable_interleaved_top_mlp": false,
+        "gemm_plugin_fairshare_cache_size": 18,
+        "gpu_batch_size": 226000,
+        "gpu_num_bundles": 2,
+        "num_staging_batches": 2,
+        "num_staging_threads": 4,
+        "server_target_qps": 132000,
+        "use_jemalloc": true,
+        "use_small_tile_gemm_plugin": true
+    },
+    "A30x8": {
+        "config_ver": {
+            "maxq": {},
+            "maxq_high_accuracy": {},
+            "maxq_high_accuracy_triton": {
+                "buffer_manager_thread_count": 8,
+                "server_target_qps": 630000,
+                "use_triton": true
+            },
+            "maxq_triton": {
+                "buffer_manager_thread_count": 8,
+                "server_target_qps": 630000,
+                "use_triton": true
+            }
+        },
+        "scales": {
+            "A30x1": {
+                "server_target_qps": 8.0
+            }
+        },
+        "gpu_batch_size": 131000,
+        "num_staging_batches": 8,
+        "num_staging_threads": 8,
+        "numa_config": "3:0-15&2:16-31&1:32-47&0:48-63&7:64-79&6:80-95&5:96-111&4:112-127",
+        "server_target_qps": 900000
+    },
+    "A30-MIG_1x1g.3gb": {
+        "config_ver": {
+            "hetero": {},
+            "hetero_high_accuracy": {}
+        },
+        "embedding_weights_on_gpu_part": 0.02,
+        "scales": {
+            "A30x1": {
+                "server_target_qps": 0.25
+            }
+        }
+    },
+    "T4x1": {
+        "complete_threads": 1,
+        "config_ver": {
+            "high_accuracy": {},
+            "high_accuracy_triton": {
+                "buffer_manager_thread_count": 8,
+                "use_triton": true
+            },
+            "triton": {
+                "buffer_manager_thread_count": 8,
+                "use_triton": true
+            }
+        },
+        "deque_timeout_us": 1,
+        "embedding_weights_on_gpu_part": 0.5,
+        "gpu_batch_size": 65500,
+        "gpu_num_bundles": 2,
+        "num_staging_batches": 2,
+        "num_staging_threads": 4,
+        "server_target_qps": 24000,
+        "use_jemalloc": true
+    },
+    "T4x20": {
+        "complete_threads": 1,
+        "config_ver": {
+            "high_accuracy": {},
+            "high_accuracy_triton": {
+                "server_target_qps": 60000,
+                "use_triton": true
+            },
+            "triton": {
+                "server_target_qps": 60000,
+                "use_triton": true
+            }
+        },
+        "embedding_weights_on_gpu_part": 0.5,
+        "gpu_batch_size": 65800,
+        "gpu_num_bundles": 2,
+        "num_staging_batches": 16,
+        "num_staging_threads": 8,
+        "server_target_qps": 600000,
+        "use_jemalloc": false
+    },
+    "T4x8": {
+        "complete_threads": 1,
+        "config_ver": {
+            "high_accuracy": {},
+            "high_accuracy_triton": {
+                "server_target_qps": 55000,
+                "use_triton": true
+            },
+            "triton": {
+                "server_target_qps": 55000,
+                "use_triton": true
+            }
+        },
+        "deque_timeout_us": 1,
+        "embedding_weights_on_gpu_part": 0.5,
+        "gpu_batch_size": 65500,
+        "gpu_num_bundles": 1,
+        "num_staging_batches": 8,
+        "num_staging_threads": 4,
+        "server_target_qps": 250000,
+        "use_jemalloc": true
+    },
+    "TitanRTXx1": {
+        "complete_threads": 2,
+        "config_ver": {
+            "high_accuracy": {},
+            "high_accuracy_triton": {
+                "buffer_manager_thread_count": 8,
+                "max_queue_delay_usec": 10000,
+                "server_target_qps": 60000,
+                "use_triton": true
+            },
+            "triton": {
+                "buffer_manager_thread_count": 8,
+                "max_queue_delay_usec": 10000,
+                "server_target_qps": 60000,
+                "use_triton": true
+            }
+        },
+        "deque_timeout_us": 1,
+        "embedding_weights_on_gpu_part": 0.5,
+        "gpu_batch_size": 262144,
+        "gpu_num_bundles": 2,
+        "server_target_qps": 6000,
+        "use_jemalloc": true
+    },
+    "TitanRTXx4": {
+        "complete_threads": 2,
+        "config_ver": {
+            "high_accuracy": {},
+            "high_accuracy_triton": {
+                "max_queue_delay_usec": 10000,
+                "server_target_qps": 60000,
+                "use_triton": true
+            },
+            "triton": {
+                "max_queue_delay_usec": 10000,
+                "server_target_qps": 60000,
+                "use_triton": true
+            }
+        },
+        "deque_timeout_us": 1,
+        "embedding_weights_on_gpu_part": 0.5,
+        "gpu_batch_size": 262144,
+        "gpu_num_bundles": 2,
+        "server_target_qps": 330000,
+        "use_jemalloc": true
+    },
+    "benchmark": "dlrm",
+    "default": {
+        "coalesced_tensor": true,
+        "enable_interleaved_top_mlp": true,
+        "gpu_copy_streams": 1,
+        "gpu_inference_streams": 1,
+        "input_dtype": "int8",
+        "input_format": "chw4",
+        "output_padding_granularity": 128,
+        "precision": "int8",
+        "sample_partition_path": "${PREPROCESSED_DATA_DIR}/criteo/full_recalib/sample_partition.npy",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/criteo/full_recalib/numeric_int8_chw4.npy,${PREPROCESSED_DATA_DIR}/criteo/full_recalib/categorical_int32.npy",
+        "use_cuda_thread_per_device": false,
+        "use_graphs": false
+    },
+    "scenario": "Server"
+}

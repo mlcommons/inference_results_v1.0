@@ -1,0 +1,45 @@
+{
+    "XE2420_T4x1": {
+        "config_ver": {
+            "high_accuracy": {}
+        },
+        "extends": [
+            "int8_base"
+        ],
+        "gpu_single_stream_expected_latency_ns": 160000000
+    },
+    "XE2420_T4x4": {
+        "config_ver": {
+            "high_accuracy": {}
+        },
+        "extends": [
+            "int8_base"
+        ],
+        "gpu_single_stream_expected_latency_ns": 160000000
+    },
+    "benchmark": "3d-unet",
+    "default": {
+        "gpu_batch_size": 1,
+        "gpu_copy_streams": 1,
+        "gpu_inference_streams": 1,
+        "map_path": "data_maps/brats/val_map.txt",
+        "precision": "int8",
+        "use_graphs": false
+    },
+    "fp16_dhwc8": {
+        "input_dtype": "fp16",
+        "input_format": "dhwc8",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/brats/brats_npy/fp16_dhwc8"
+    },
+    "fp16_linear": {
+        "input_dtype": "fp16",
+        "input_format": "linear",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/brats/brats_npy/fp16_linear"
+    },
+    "int8_base": {
+        "input_dtype": "int8",
+        "input_format": "cdhw32",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/brats/brats_npy/int8_cdhw32"
+    },
+    "scenario": "SingleStream"
+}

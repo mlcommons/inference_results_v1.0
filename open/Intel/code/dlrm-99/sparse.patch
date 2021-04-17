@@ -1,0 +1,239 @@
+diff --git a/closed/Intel/code/dlrm-99.9/pytorch/README.md b/closed/Intel/code/dlrm-99.9/pytorch/README.md
+index 9ba19d9..bdb8e1c 100644
+--- a/closed/Intel/code/dlrm-99.9/pytorch/README.md
++++ b/closed/Intel/code/dlrm-99.9/pytorch/README.md
+@@ -4,8 +4,8 @@
+ ### 1. HW requirements
+ | HW | configuration |
+ | -: | :- |
+-| CPU | CPX-6 @ 8 sockets/Node |
+-| DDR | 384G/socket @ 3200 MT/s |
++| CPU | ICX-6 @ 2 sockets/Node |
++| DDR | 504G/socket @ 3200 MT/s |
+ | SSD | 1 SSD/Node @ >= 1T |
+ 
+ ### 2. SW requirements
+@@ -31,6 +31,8 @@
+   git clone https://gitlab.devtools.intel.com/mlperf/mlperf-inference-v1.0-dc-dev.git
+   cp mlperf-inference-v1.0-dc-dev/closed/Intel/code/dlrm-99.9/pytorch/prepare_env.sh .
+   bash prepare_env.sh
++  wget https://zenodo.org/record/4620529/files/sparse_mlp-0.0.0-cp37-cp37m-linux_x86_64.whl
++  pip install sparse_mlp-0.0.0-cp37-cp37m-linux_x86_64.whl
+ ```
+ ### 3. Prepare DLRM dataset and code    
+ (1) Prepare DLRM dataset
+@@ -41,7 +43,10 @@
+ ```
+    ln -s mlperf-inference-v1.0-dc-dev/closed/Intel/code/dlrm-99.9/pytorch dlrm_pytorch
+    cd dlrm_pytorch/python/model
+-   wget https://dlrm.s3-us-west-1.amazonaws.com/models/tb00_40M.pt -O dlrm_terabyte.pytorch
++   wget https://drive.google.com/drive/u/1/folders/1CJ3M_yGAjQJN9le5UheC8ubafP5gA4gU?ths=true/new* 
++   cat new* > dlrm_terabyte.pytorch
++   wget https://zenodo.org/record/4620529/files/dlrm_mlp_sparse.pt
++   
+ ```
+ ### 4. Run command for server and offline mode
+ 
+diff --git a/closed/Intel/code/dlrm-99.9/pytorch/python/backend_pytorch_native.py b/closed/Intel/code/dlrm-99.9/pytorch/python/backend_pytorch_native.py
+index 20d0e1c..337f21a 100644
+--- a/closed/Intel/code/dlrm-99.9/pytorch/python/backend_pytorch_native.py
++++ b/closed/Intel/code/dlrm-99.9/pytorch/python/backend_pytorch_native.py
+@@ -65,7 +65,7 @@ class BackendPytorchNative(backend.Backend):
+             qr_threshold=None,
+             md_flag=False,
+             md_threshold=None,
+-            bf16=True if self.use_ipex else False,
++            bf16=False,
+             use_ipex=self.use_ipex,
+         )
+         if self.use_gpu:
+@@ -92,6 +92,17 @@ class BackendPytorchNative(backend.Backend):
+             ld_model = torch.load(model_path, map_location=torch.device('cpu'))
+         # debug print
+         # print(ld_model)
++        sparse_model_dir = model_path.split('/')[:-1]
++        sparse_model_path = ''
++        for s in sparse_model_dir:
++            sparse_model_path += s
++            sparse_model_path += '/'
++        sparse_model_path += 'dlrm_mlp_sparse.pt'
++        sparse_weight = torch.load(sparse_model_path)
++        for key in sparse_weight:
++            if key in ['top_l.2.weight', 'top_l.2.bias', 'top_l.4.weight', 'top_l.4.bias', 'top_l.6.weight', 'top_l.6.bias']:
++                ld_model["state_dict"][key] = sparse_weight[key]
++
+         dlrm.load_state_dict(ld_model["state_dict"])
+         if self.use_ipex:
+             dlrm = model_util(dlrm, self.server)
+diff --git a/closed/Intel/code/dlrm-99.9/pytorch/python/model/dlrm_model.py b/closed/Intel/code/dlrm-99.9/pytorch/python/model/dlrm_model.py
+index 928b80f..e6172a4 100644
+--- a/closed/Intel/code/dlrm-99.9/pytorch/python/model/dlrm_model.py
++++ b/closed/Intel/code/dlrm-99.9/pytorch/python/model/dlrm_model.py
+@@ -55,6 +55,7 @@ import numpy as np
+ import torch
+ import torch.nn as nn
+ import intel_pytorch_extension as ipex
++from sparse_mlp import SparseLinear
+ 
+ class Cast(nn.Module):
+      __constants__ = ['to_dtype']
+@@ -72,13 +73,17 @@ class Cast(nn.Module):
+  
+ ### define dlrm in PyTorch ###
+ class DLRM_Net(nn.Module):
+-    def create_mlp(self, ln, sigmoid_layer):
++    def create_mlp(self, ln, sigmoid_layer, top=False):
+         # build MLP layer by layer
+         layers = nn.ModuleList()
+         for i in range(0, ln.size - 1):
+             n = ln[i]
+             m = ln[i + 1]
+-            LL = nn.Linear(int(n), int(m), bias=True)
++            if top and i in [1, 2, 3]:
++                LL = SparseLinear(int(n), int(m), bias=True, name="sparse{}{}".format(top, i))
++            else:
++                LL = nn.Linear(int(n), int(m), bias=True)
++
+             layers.append(LL)
+ 
+             # construct sigmoid or relu operator
+@@ -155,7 +160,7 @@ class DLRM_Net(nn.Module):
+             if ndevices <= 1:
+                 self.emb_l = self.create_emb(m_spa, ln_emb)
+             self.bot_l = self.create_mlp(ln_bot, sigmoid_bot)
+-            self.top_l = self.create_mlp(ln_top, sigmoid_top)
++            self.top_l = self.create_mlp(ln_top, sigmoid_top, top=True)
+ 
+     def apply_mlp(self, x, layers):
+         return layers(x)
+@@ -174,30 +179,8 @@ class DLRM_Net(nn.Module):
+ 
+     def interact_features(self, x, ly):
+         if self.arch_interaction_op == "dot":
+-            if self.bf16:
+-                T = [x] + ly
+-                R = ipex.interaction(*T)
+-            else:
+-                # concatenate dense and sparse features
+-                (batch_size, d) = x.shape
+-                T = torch.cat([x] + ly, dim=1).view((batch_size, -1, d))
+-                # perform a dot product
+-                Z = torch.bmm(T, torch.transpose(T, 1, 2))
+-                # append dense feature with the interactions (into a row vector)
+-                # approach 1: all
+-                # Zflat = Z.view((batch_size, -1))
+-                # approach 2: unique
+-                _, ni, nj = Z.shape
+-                # approach 1: tril_indices
+-                # offset = 0 if self.arch_interaction_itself else -1
+-                # li, lj = torch.tril_indices(ni, nj, offset=offset)
+-                # approach 2: custom
+-                offset = 1 if self.arch_interaction_itself else 0
+-                li = torch.tensor([i for i in range(ni) for j in range(i + offset)])
+-                lj = torch.tensor([j for i in range(nj) for j in range(i + offset)])
+-                Zflat = Z[:, li, lj]
+-                # concatenate dense features and interactions
+-                R = torch.cat([x] + [Zflat], dim=1)
++            T = [x] + ly
++            R = ipex.interaction(*T)
+         elif self.arch_interaction_op == "cat":
+             # concatenation features (into a row vector)
+             R = torch.cat([x] + ly, dim=1)
+@@ -250,17 +233,20 @@ def fuse_model(layers):
+             else:
+                 fuse_layers.append(layers[i])
+ 
+-        if isinstance(layers[i+1], nn.ReLU):
+-            continue
+-        elif isinstance(layers[i+1], nn.Sigmoid):
+-            fuse_layers.append(Cast(torch.float32))
+-            fuse_layers.append(nn.Sigmoid())
++            if isinstance(layers[i+1], nn.ReLU):
++                continue
++            elif isinstance(layers[i+1], nn.Sigmoid):
++                fuse_layers.append(nn.Sigmoid())
++            else:
++                assert False, "Unexpected operators"
+         else:
+-            assert False, "Unexpected operators"
++            fuse_layers.append(layers[i])
++            fuse_layers.append(layers[i+1])
++
+     return torch.nn.Sequential(*fuse_layers)
+ 
+ def model_util(model, server):
+-    model = model.to(torch.bfloat16)
+-    model.bot_l = fuse_model(model.bot_l)
+-    model.top_l = fuse_model(model.top_l)
++    # model = model.to(torch.bfloat16)
++    # model.bot_l = fuse_model(model.bot_l)
++    # model.top_l = fuse_model(model.top_l)
+     return model.cpu().share_memory().to('dpcpp')
+diff --git a/closed/Intel/code/dlrm-99.9/pytorch/run_main.sh b/closed/Intel/code/dlrm-99.9/pytorch/run_main.sh
+index 10578d5..54a54fa 100755
+--- a/closed/Intel/code/dlrm-99.9/pytorch/run_main.sh
++++ b/closed/Intel/code/dlrm-99.9/pytorch/run_main.sh
+@@ -15,7 +15,7 @@ if [ $# == 1 ]; then
+         ./run_local.sh pytorch dlrm terabyte cpu --scenario Offline --max-ind-range=40000000 --samples-to-aggregate-quantile-file=../tools/dist_quantile.txt --max-batchsize=420000 --samples-per-query-offline=300000 --mlperf-bin-loader
+     elif [ $1 == "server" ]; then
+         echo "Running sever performance mode"
+-        ./run_local.sh pytorch dlrm terabyte cpu --scenario Server  --max-ind-range=40000000 --samples-to-aggregate-quantile-file=../tools/dist_quantile.txt --max-sample-size=30 --max-batchsize=9000 --mlperf-bin-loader
++        ./run_local.sh pytorch dlrm terabyte cpu --scenario Server  --max-ind-range=40000000 --samples-to-aggregate-quantile-file=../tools/dist_quantile.txt --max-sample-size=30 --max-batchsize=5000 --mlperf-bin-loader
+     else
+         echo "Only offline/server are valid"
+     fi
+@@ -25,7 +25,7 @@ elif [ $# == 2 ]; then
+         ./run_local.sh pytorch dlrm terabyte cpu --scenario Offline --max-ind-range=40000000 --samples-to-aggregate-quantile-file=../tools/dist_quantile.txt --max-batchsize=420000 --samples-per-query-offline=300000 --accuracy --mlperf-bin-loader
+     elif [ $1 == "server" ] && [ $2 == "accuracy" ]; then
+         echo "Running sever accuracy mode"
+-        ./run_local.sh pytorch dlrm terabyte cpu --scenario Server  --max-ind-range=40000000 --samples-to-aggregate-quantile-file=../tools/dist_quantile.txt --max-sample-size=30  --max-batchsize=9000 --accuracy --mlperf-bin-loader
++        ./run_local.sh pytorch dlrm terabyte cpu --scenario Server  --max-ind-range=40000000 --samples-to-aggregate-quantile-file=../tools/dist_quantile.txt --max-sample-size=30  --max-batchsize=3000 --accuracy --mlperf-bin-loader
+     else
+         echo "Only offline/server accuray are valid"
+     fi
+diff --git a/closed/Intel/code/dlrm-99.9/pytorch/setup_dataset.sh b/closed/Intel/code/dlrm-99.9/pytorch/setup_dataset.sh
+index 5250044..b6b56ef 100644
+--- a/closed/Intel/code/dlrm-99.9/pytorch/setup_dataset.sh
++++ b/closed/Intel/code/dlrm-99.9/pytorch/setup_dataset.sh
+@@ -1,2 +1,2 @@
+-export DATA_DIR=$HOME/DLRM_TEST/dataset/terabyte_input # the path of dlrm dataset
+-export MODEL_DIR=$HOME/DLRM_TEST/dlrm_pytorch/python/model # the path of dlrm pre-trained model
++export DATA_DIR=$HOME/hengyu/dlrm_datasets # the path of dlrm dataset
++export MODEL_DIR=$HOME/hengyu # the path of dlrm pre-trained model
+diff --git a/closed/Intel/code/dlrm-99.9/pytorch/setup_env_offline.sh b/closed/Intel/code/dlrm-99.9/pytorch/setup_env_offline.sh
+index 076786c..a8190ba 100755
+--- a/closed/Intel/code/dlrm-99.9/pytorch/setup_env_offline.sh
++++ b/closed/Intel/code/dlrm-99.9/pytorch/setup_env_offline.sh
+@@ -1,4 +1,4 @@
+-export NUM_SOCKETS=4        # i.e. 8
+-export CPUS_PER_SOCKET=28   # i.e. 28
+-export CPUS_PER_PROCESS=28  # which determine how much processes will be used 
+-export CPUS_PER_INSTANCE=7  # instance number=28/7=4  
++export NUM_SOCKETS=2        # i.e. 8
++export CPUS_PER_SOCKET=40   # i.e. 28
++export CPUS_PER_PROCESS=40  # which determine how much processes will be used 
++export CPUS_PER_INSTANCE=10  # instance number=28/7=4  
+diff --git a/closed/Intel/code/dlrm-99.9/pytorch/setup_env_server.sh b/closed/Intel/code/dlrm-99.9/pytorch/setup_env_server.sh
+index dc01a44..fb38258 100755
+--- a/closed/Intel/code/dlrm-99.9/pytorch/setup_env_server.sh
++++ b/closed/Intel/code/dlrm-99.9/pytorch/setup_env_server.sh
+@@ -1,4 +1,4 @@
+-export NUM_SOCKETS=4        # i.e. 8
+-export CPUS_PER_SOCKET=28   # i.e. 28
+-export CPUS_PER_PROCESS=14  # i.e. 14.
+-export CPUS_PER_INSTANCE=14  # i.e. 14.
++export NUM_SOCKETS=2        # i.e. 8
++export CPUS_PER_SOCKET=40   # i.e. 28
++export CPUS_PER_PROCESS=20  # i.e. 14.
++export CPUS_PER_INSTANCE=20  # i.e. 14.
+diff --git a/closed/Intel/code/dlrm-99.9/pytorch/user.conf b/closed/Intel/code/dlrm-99.9/pytorch/user.conf
+index a8ff3df..69450e8 100644
+--- a/closed/Intel/code/dlrm-99.9/pytorch/user.conf
++++ b/closed/Intel/code/dlrm-99.9/pytorch/user.conf
+@@ -1,4 +1,3 @@
+-dlrm.Server.target_qps = 12200.0
+-dlrm.Server.min_query_count = 12288000
+-
++dlrm.Server.target_qps = 5500 
++dlrm.Server.min_query_count = 6144000
+ dlrm.Offline.target_qps = 25243.0

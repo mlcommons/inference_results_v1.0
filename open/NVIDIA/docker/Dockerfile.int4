@@ -1,0 +1,108 @@
+# Copyright (c) 2018-2021, NVIDIA CORPORATION. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions
+# are met:
+#  * Redistributions of source code must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+#  * Redistributions in binary form must reproduce the above copyright
+#    notice, this list of conditions and the following disclaimer in the
+#    documentation and/or other materials provided with the distribution.
+#  * Neither the name of NVIDIA CORPORATION nor the names of its
+#    contributors may be used to endorse or promote products derived
+#    from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS ``AS IS'' AND ANY
+# EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+# PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+# CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+# EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+# PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+# PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY
+# OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+ARG BASE_IMAGE
+FROM ${BASE_IMAGE}
+# Explicitly use bash instead of sh ('echo' behaves differently on some shells)
+SHELL ["/bin/bash", "-c"]
+
+RUN echo "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /" > /etc/apt/sources.list.d/cuda.list \
+ && apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub \
+ && apt-get update \
+ && apt-get install -y --no-install-recommends build-essential autoconf libtool git \
+        curl wget pkg-config sudo ca-certificates vim-tiny automake libssl-dev \
+        bc python3-dev python3-pip python2.7-dev google-perftools gdb libglib2.0-dev clang python-pip sshfs libre2-dev \
+ && apt-get remove -y cmake \
+ && apt-get remove -y libgflags-dev \
+ && apt-get remove -y libprotobuf-dev \
+ && apt-get -y autoremove \
+ && rm -rf /var/lib/apt/lists/*
+
+ENV LC_ALL=C.UTF-8
+ENV LANG=C.UTF-8
+
+WORKDIR /tmp
+
+# Needed by LoadGen
+RUN python2 -m pip install --upgrade setuptools \
+ && python2 -m pip install absl-py==0.7.1
+
+RUN python3 -m pip install --upgrade pip \
+ && python3 -m pip install --upgrade setuptools wheel virtualenv \
+ && python3 -m pip install cmake==3.11.0 \
+ && python3 -m pip install pillow==6.0.0 \
+ && python3 -m pip install opencv-python-headless
+
+# install gflags
+# -DBUILD_SHARED_LIBS=ON -DBUILD_STATIC_LIBS=ON -DBUILD_gflags_LIB=ON .. \
+RUN git clone -b v2.2.1 https://github.com/gflags/gflags.git \
+ && cd gflags \
+ && mkdir build && cd build \
+ && cmake -DBUILD_SHARED_LIBS=ON -DBUILD_STATIC_LIBS=ON -DBUILD_gflags_LIB=ON .. \
+ && make -j \
+ && make install \
+ && cd /tmp && rm -rf gflags
+
+# install glog
+RUN git clone -b v0.3.5 https://github.com/google/glog.git \
+ && cd glog \
+ && cmake -H. -Bbuild -G "Unix Makefiles" -DBUILD_SHARED_LIBS=ON -DBUILD_STATIC_LIBS=ON \
+ && cmake --build build \
+ && cmake --build build --target install \
+ && cd /tmp && rm -rf glog
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    pkg-config zip g++ zlib1g-dev unzip python \
+ && rm -rf /var/lib/apt/lists/*
+
+# Install TensorFlow, needed by SSDMobileNet benchmark
+# Install CPU version since we don't actually need to run TensorFlow.
+RUN python3 -m pip install tensorflow==1.13.1
+
+# Install pytorch and torchvision CPU version since the GPU version causes cudnn linking issue
+RUN python3 -m pip install torch==1.4.0+cpu torchvision==0.5.0+cpu -f https://download.pytorch.org/whl/torch_stable.html \
+ && python3 -m pip install onnx==1.6.0 \
+ && python3 -m pip install pycuda==2019.1.2 \
+ && python3 -m pip install Cython==0.29.10 \
+ && python3 -m pip install pycocotools==2.0.0 \
+ && python3 -m pip install scikit-learn==0.22.2 \
+ && python3 -m pip install numpy==1.16.0 \
+ && python3 -m pip install pytest==4.6.2 \
+ && python3 -m pip install matplotlib==3.0.2
+
+# Install CUB, needed by NMS OPT plugin
+RUN wget https://github.com/NVlabs/cub/archive/1.8.0.zip -O cub-1.8.0.zip \
+ && unzip cub-1.8.0.zip \
+ && mv cub-1.8.0/cub /usr/include/x86_64-linux-gnu/ \
+ && rm -rf cub-1.8.0.zip cub-1.8.0
+
+# Install libjemalloc2
+RUN echo 'deb http://archive.ubuntu.com/ubuntu focal main restricted universe multiverse' | tee -a /etc/apt/sources.list.d/focal.list \
+  && echo 'Package: *\nPin: release a=focal\nPin-Priority: -10\n' | tee -a /etc/apt/preferences.d/focal.pref \
+  && apt-get update \
+  && apt-get install --no-install-recommends -t focal -y libjemalloc2 libtcmalloc-minimal4
+
+WORKDIR /work

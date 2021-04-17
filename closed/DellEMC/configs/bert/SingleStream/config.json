@@ -1,0 +1,33 @@
+{
+    "XE2420_T4x1": {
+        "config_ver": {
+            "high_accuracy": {
+                "precision": "fp16"
+            }
+        },
+        "gpu_single_stream_expected_latency_ns": 6400000,
+        "use_graphs": true
+    },
+    "XE2420_T4x4": {
+        "config_ver": {
+            "high_accuracy": {
+                "precision": "fp16"
+            }
+        },
+        "gpu_single_stream_expected_latency_ns": 6400000,
+        "use_graphs": true
+    },
+    "benchmark": "bert",
+    "default": {
+        "coalesced_tensor": true,
+        "gpu_batch_size": 1,
+        "gpu_copy_streams": 1,
+        "gpu_inference_streams": 1,
+        "input_dtype": "int32",
+        "input_format": "linear",
+        "precision": "int8",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/squad_tokenized/input_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/segment_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/input_mask.npy",
+        "use_small_tile_gemm_plugin": false
+    },
+    "scenario": "SingleStream"
+}

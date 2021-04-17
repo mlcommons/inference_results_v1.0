@@ -1,0 +1,43 @@
+client 2021-03-19 01:18:47,214 [WARNING] Removing old loadgen logs directory '/work/build/power_logs_temp'
+client 2021-03-19 01:18:47,224 [INFO] Sending command to the server: 'mlcommons/power client v3'
+client 2021-03-19 01:18:47,229 [INFO] Got response: 'mlcommons/power server v3'
+client 2021-03-19 01:18:47,230 [INFO] Sending command to the server: 'stop'
+client 2021-03-19 01:18:47,230 [INFO] Got response: 'OK'
+client 2021-03-19 01:18:47,230 [INFO] Synchronizing with the server and with ib-01.dc4-in.nvidia.com...
+client 2021-03-19 01:18:47,438 [INFO] NTP:offset = 0.000 s, delay = 0.202 s 
+client 2021-03-19 01:18:47,438 [INFO] Sending command to the server: 'time'
+client 2021-03-19 01:18:47,439 [INFO] Got response: '1616141927.5064378'
+client 2021-03-19 01:18:47,439 [INFO] The time difference between the client and the server is within range -67.961 ms..-66.662 ms
+client 2021-03-19 01:18:47,439 [INFO] Sending command to the server: 'new,,3b0cca75-7911-40a0-aa3c-5b4cdc855a76'
+client 2021-03-19 01:18:47,441 [INFO] Got response: 'OK 2021-03-19_01-18-47,6cad8ad3-d86f-400b-bdfb-83a2f018f5d5'
+client 2021-03-19 01:18:47,441 [INFO] Session id is '2021-03-19_01-18-47'
+client 2021-03-19 01:18:47,441 [INFO] Sources: {"sources": {"client.py": "d1e75cb4b26101220ebd242e584cf3ca5d8f1996", "lib/__init__.py": "da39a3ee5e6b4b0d3255bfef95601890afd80709", "lib/client.py": "d42bebf5b74cb6ff3997e2a6c68422afac111a28", "lib/common.py": "b0bad80d8fa328a7636027d4d66ff453f8dd7889", "lib/external/ntplib.py": "4da8f970656505a40483206ef2b5d3dd5e81711d", "lib/server.py": "2ed36471c7af565d6c8438b2134edad1d7ddf166", "lib/source_hashes.py": "4cedff274c661cb1504052018fd4f00dfbf624ef", "lib/summary.py": "0db15d783907aa92038281af4e465545c0648ddb", "lib/time_sync.py": "76051226ec89287839723352f4162aaa24e0546a", "server.py": "99e1310e3f76292aef1b8792ce6b8c82f1d44d8b", "tests/unit/test_server.py": "64f11775bfed35232a0e8bb9593c0ff992432c59", "tests/unit/test_source_hashes.py": "cb41a7261eaf7d94ba5c0aae9c523174f6204be3"}, "modules": {"__main__": "client.py", "lib.client": "lib/client.py", "lib.common": "lib/common.py", "lib.external.ntplib": "lib/external/ntplib.py", "lib.source_hashes": "lib/source_hashes.py", "lib.summary": "lib/summary.py", "lib.time_sync": "lib/time_sync.py"}}
+client 2021-03-19 01:18:47,445 [INFO] Running workload in ranging mode
+client 2021-03-19 01:18:47,445 [INFO] Synchronizing with the server and with ib-01.dc4-in.nvidia.com...
+client 2021-03-19 01:18:47,648 [INFO] NTP:offset = 0.000 s, delay = 0.201 s 
+client 2021-03-19 01:18:47,648 [INFO] Sending command to the server: 'time'
+client 2021-03-19 01:18:47,649 [INFO] Got response: '1616141927.7251468'
+client 2021-03-19 01:18:47,649 [INFO] The time difference between the client and the server is within range -76.639 ms..-75.470 ms
+client 2021-03-19 01:18:47,649 [INFO] Sending command to the server: 'session,2021-03-19_01-18-47,start,ranging'
+client 2021-03-19 01:19:28,414 [INFO] Got response: 'OK'
+client 2021-03-19 01:19:28,414 [INFO] Running the workload 'LOG_DIR=/work/build/power_logs_temp python3 code/main.py --benchmarks=resnet50 --scenarios=Offline --config_ver=maxq --action="run_harness" \\\n\t\t&& cp -v /work/build/power_logs_temp/*/*/*/mlperf_log_detail.txt /work/build/power_logs_temp/ \\\n\t\t&& cp -v /work/build/power_logs_temp/*/*/*/mlperf_log_summary.txt /work/build/power_logs_temp/'
+client 2021-03-19 01:31:23,471 [INFO] Sending command to the server: 'session,2021-03-19_01-18-47,stop,ranging'
+client 2021-03-19 01:31:33,971 [INFO] Got response: 'OK'
+client 2021-03-19 01:31:33,981 [INFO] Packing logs into zip and uploading to the server
+client 2021-03-19 01:31:34,013 [INFO] Zip file size: 22.9 kB
+client 2021-03-19 01:31:34,035 [INFO] Got response: 'OK'
+client 2021-03-19 01:31:34,038 [INFO] Running workload in testing mode
+client 2021-03-19 01:31:34,038 [INFO] Synchronizing with the server and with ib-01.dc4-in.nvidia.com...
+client 2021-03-19 01:31:34,243 [INFO] NTP:offset = 0.001 s, delay = 0.203 s 
+client 2021-03-19 01:31:34,243 [INFO] Sending command to the server: 'time'
+client 2021-03-19 01:31:34,244 [INFO] Got response: '1616142694.3219292'
+client 2021-03-19 01:31:34,244 [INFO] The time difference between the client and the server is within range -78.499 ms..-77.220 ms
+client 2021-03-19 01:31:34,244 [INFO] Sending command to the server: 'session,2021-03-19_01-18-47,start,testing'
+client 2021-03-19 01:31:56,121 [INFO] Got response: 'OK'
+client 2021-03-19 01:31:56,121 [INFO] Running the workload 'LOG_DIR=/work/build/power_logs_temp python3 code/main.py --benchmarks=resnet50 --scenarios=Offline --config_ver=maxq --action="run_harness" \\\n\t\t&& cp -v /work/build/power_logs_temp/*/*/*/mlperf_log_detail.txt /work/build/power_logs_temp/ \\\n\t\t&& cp -v /work/build/power_logs_temp/*/*/*/mlperf_log_summary.txt /work/build/power_logs_temp/'
+client 2021-03-19 01:44:19,579 [INFO] Sending command to the server: 'session,2021-03-19_01-18-47,stop,testing'
+client 2021-03-19 01:44:29,816 [INFO] Got response: 'OK'
+client 2021-03-19 01:44:29,825 [INFO] Packing logs into zip and uploading to the server
+client 2021-03-19 01:44:29,854 [INFO] Zip file size: 22.9 kB
+client 2021-03-19 01:44:29,872 [INFO] Got response: 'OK'
+client 2021-03-19 01:44:29,874 [INFO] Done runs

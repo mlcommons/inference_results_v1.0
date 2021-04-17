@@ -1,0 +1,6 @@
+export BATCH_SIZE=1
+export NUM_INSTANCE=10
+export CPUS_PER_INSTANCE=8
+export DNNL_PRIMITIVE_CACHE_CAPACITY=10485760
+export KMP_BLOCKTIME=1
+export KMP_AFFINITY=granularity=fine,compact,1,0

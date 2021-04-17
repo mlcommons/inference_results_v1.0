@@ -1,0 +1,41 @@
+{
+    "T4x1": {
+        "gpu_batch_size": 512,
+        "gpu_offline_expected_qps": 8000,
+        "autotuningFile": "code/resnet50/int4/autoconfig_t4"
+    },
+    "A10x1": {
+        "gpu_batch_size": 1024,
+        "gpu_offline_expected_qps": 18000,
+        "autotuningFile": "code/resnet50/int4/autoconfig_a10x1_bs1024"
+    },
+    "A10x8": {
+        "scales": {
+            "A10x1": {
+                "gpu_offline_expected_qps": 8.0
+            }
+        }
+    },
+    "T4x8": {
+        "extends": [
+            "T4x1"
+        ],
+        "gpu_offline_expected_qps": 71000
+    },
+    "T4x20": {
+        "extends": [
+            "T4x1"
+        ],
+        "gpu_offline_expected_qps": 181000
+    },
+    "TitanRTXx4" : {
+        "gpu_batch_size": 1024,
+        "gpu_offline_expected_qps": 100000,
+        "autotuningFile": "code/resnet50/int4/autoconfig_rtx"
+    },
+    "default": {
+        "precision": "int4"
+    },
+    "benchmark": "resnet50",
+    "scenario": "Offline"
+}

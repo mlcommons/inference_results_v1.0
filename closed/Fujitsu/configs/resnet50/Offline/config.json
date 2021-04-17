@@ -1,0 +1,57 @@
+{
+    "A100-PCIex1": {
+        "config_ver": {
+            "triton": {
+                "batch_triton_requests": true,
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 2048,
+        "gpu_copy_streams": 4,
+        "gpu_offline_expected_qps": 36800,
+        "run_infer_on_copy_streams": true
+    },
+    "A100-PCIex2": {
+        "config_ver": {
+            "triton": {
+                "batch_triton_requests": true,
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 2048,
+        "gpu_copy_streams": 4,
+        "gpu_offline_expected_qps": 66240,
+        "run_infer_on_copy_streams": true
+    },
+    "A100-PCIex4": {
+        "config_ver": {
+            "maxq": {},
+            "maxq_triton": {
+                "use_triton": true
+            }
+        },
+        "scales": {
+            "A100-PCIex1": {
+                "gpu_offline_expected_qps": 4.0
+            }
+        }
+    },
+    "A10x1": {
+        "config_ver": {
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 1024,
+        "gpu_copy_streams": 2,
+        "gpu_offline_expected_qps": 13000
+    },
+    "A10x4": {
+        "scales": {
+            "A10x1": {
+                "gpu_offline_expected_qps": 4.0
+            }
+        }
+    },
+    "scenario": "Offline"
+}

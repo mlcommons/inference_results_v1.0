@@ -1,0 +1,218 @@
+{
+    "A100-PCIex1": {
+        "config_ver": {
+            "high_accuracy": {
+                "precision": "fp16"
+            },
+            "high_accuracy_triton": {
+                "precision": "fp16",
+                "use_triton": true
+            },
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "enable_interleaved": false,
+        "gemm_plugin_fairshare_cache_size": 120,
+        "gpu_single_stream_expected_latency_ns": 1700000,
+        "use_graphs": true,
+        "use_small_tile_gemm_plugin": true
+    },
+    "A100-SXM-80GBx1": {
+        "extends": [
+            "A100-SXM4-40GBx1"
+        ]
+    },
+    "A100-SXM-80GBx1-MIG_1x1g.10gb": {
+        "extends": [
+            "A100-SXM4-40GBx1-MIG_1x1g.5gb"
+        ]
+    },
+    "A100-SXM-80GBx1-MIG_1x2g.20gb": {
+        "extends": [
+            "A100-SXM4-40GBx1-MIG_1x2g.10gb"
+        ]
+    },
+    "A100-SXM-80GBx1-MIG_1x3g.40gb": {
+        "extends": [
+            "A100-SXM4-40GBx1-MIG_1x3g.20gb"
+        ]
+    },
+    "A100-SXM4-40GBx1": {
+        "config_ver": {
+            "high_accuracy": {
+                "precision": "fp16"
+            },
+            "high_accuracy_triton": {
+                "precision": "fp16",
+                "use_triton": true
+            },
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "enable_interleaved": false,
+        "gemm_plugin_fairshare_cache_size": 120,
+        "gpu_single_stream_expected_latency_ns": 1700000,
+        "use_graphs": true,
+        "use_small_tile_gemm_plugin": true
+    },
+    "A100-SXM4-40GBx1-MIG_1x1g.5gb": {
+        "config_ver": {
+            "high_accuracy": {
+                "precision": "fp16"
+            },
+            "high_accuracy_triton": {
+                "precision": "fp16",
+                "use_triton": true
+            },
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "gpu_single_stream_expected_latency_ns": 1700000,
+        "use_graphs": true,
+        "workspace_size": 2147483648
+    },
+    "A100-SXM4-40GBx1-MIG_1x2g.10gb": {
+        "config_ver": {
+            "high_accuracy": {
+                "precision": "fp16"
+            },
+            "high_accuracy_triton": {
+                "precision": "fp16",
+                "use_triton": true
+            },
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "gpu_single_stream_expected_latency_ns": 1700000,
+        "use_graphs": true,
+        "workspace_size": 2147483648
+    },
+    "A100-SXM4-40GBx1-MIG_1x3g.20gb": {
+        "config_ver": {
+            "high_accuracy": {
+                "precision": "fp16"
+            },
+            "high_accuracy_triton": {
+                "precision": "fp16",
+                "use_triton": true
+            },
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "gpu_single_stream_expected_latency_ns": 1700000,
+        "use_graphs": true,
+        "workspace_size": 2147483648
+    },
+    "A10x1": {
+        "config_ver": {
+            "high_accuracy": {
+                "precision": "fp16"
+            },
+            "high_accuracy_triton": {
+                "precision": "fp16",
+                "use_triton": true
+            },
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "enable_interleaved": false,
+        "gemm_plugin_fairshare_cache_size": 120,
+        "gpu_single_stream_expected_latency_ns": 3200000,
+        "use_graphs": true,
+        "use_small_tile_gemm_plugin": true
+    },
+    "AGX_Xavier": {
+        "gpu_single_stream_expected_latency_ns": 31000000,
+        "use_graphs": false
+    },
+    "GeForceRTX3080x1": {
+        "config_ver": {
+            "high_accuracy": {
+                "precision": "fp16"
+            },
+            "high_accuracy_triton": {
+                "precision": "fp16",
+                "use_triton": true
+            },
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "enable_interleaved": true,
+        "gpu_single_stream_expected_latency_ns": 1700000,
+        "use_graphs": true
+    },
+    "T4x1": {
+        "config_ver": {
+            "high_accuracy": {
+                "precision": "fp16"
+            },
+            "high_accuracy_triton": {
+                "precision": "fp16",
+                "use_triton": true
+            },
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "gpu_single_stream_expected_latency_ns": 6400000,
+        "use_graphs": true
+    },
+    "TitanRTXx1": {
+        "config_ver": {
+            "high_accuracy": {
+                "precision": "fp16"
+            },
+            "high_accuracy_triton": {
+                "precision": "fp16",
+                "use_triton": true
+            },
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "gpu_single_stream_expected_latency_ns": 4600000,
+        "use_graphs": true
+    },
+    "TitanRTXx4": {
+        "config_ver": {
+            "high_accuracy": {
+                "precision": "fp16"
+            },
+            "high_accuracy_triton": {
+                "precision": "fp16",
+                "use_triton": true
+            },
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "devices": 0,
+        "gpu_single_stream_expected_latency_ns": 4600000,
+        "use_graphs": true
+    },
+    "Xavier_NX": {
+        "gpu_single_stream_expected_latency_ns": 50000000,
+        "use_graphs": false,
+        "workspace_size": 1073741824
+    },
+    "benchmark": "bert",
+    "default": {
+        "coalesced_tensor": true,
+        "gpu_batch_size": 1,
+        "gpu_copy_streams": 1,
+        "gpu_inference_streams": 1,
+        "input_dtype": "int32",
+        "input_format": "linear",
+        "precision": "int8",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/squad_tokenized/input_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/segment_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/input_mask.npy",
+        "use_small_tile_gemm_plugin": false
+    },
+    "scenario": "SingleStream"
+}

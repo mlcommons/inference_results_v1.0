@@ -1,0 +1,124 @@
+{
+    "A100-PCIex1": {
+        "config_ver": {
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "gpu_single_stream_expected_latency_ns": 460000,
+        "input_format": "linear",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/coco/val2017/SSDMobileNet/int8_linear"
+    },
+    "A100-SXM-80GB-MIG_1x1g.10gb": {
+        "extends": [
+            "A100-SXM4-40GB-MIG_1x1g.5gb"
+        ]
+    },
+    "A100-SXM-80GB-MIG_56x1g.10gb": {
+        "extends": [
+            "A100-SXM-80GB-MIG_1x1g.10gb"
+        ]
+    },
+    "A100-SXM-80GBx1": {
+        "extends": [
+            "A100-SXM4-40GBx1"
+        ]
+    },
+    "A100-SXM4-40GB-MIG_1x1g.5gb": {
+        "config_ver": {
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "gpu_single_stream_expected_latency_ns": 460000,
+        "input_format": "chw4",
+        "start_from_device": true,
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/coco/val2017/SSDMobileNet/int8_chw4",
+        "workspace_size": 1073741824
+    },
+    "A100-SXM4-40GBx1": {
+        "config_ver": {
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "gpu_single_stream_expected_latency_ns": 460000,
+        "input_format": "linear",
+        "start_from_device": true,
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/coco/val2017/SSDMobileNet/int8_linear"
+    },
+    "A10x1": {
+        "config_ver": {
+            "triton": {
+                "gpu_single_stream_expected_latency_ns": 373000,
+                "use_triton": true
+            }
+        },
+        "gpu_single_stream_expected_latency_ns": 373000,
+        "input_format": "chw4",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/coco/val2017/SSDMobileNet/int8_chw4"
+    },
+    "A30-MIG_1x1g.3gb": {
+        "config_ver": {
+            "triton": {
+                "gpu_single_stream_expected_latency_ns": 532491,
+                "use_triton": true
+            }
+        },
+        "extends": [
+            "A30x1"
+        ],
+        "gpu_single_stream_expected_latency_ns": 512501,
+        "workspace_size": 8388608
+    },
+    "A30-MIG_32x1g.3gb": {
+        "extends": [
+            "A30-MIG_1x1g.3gb"
+        ]
+    },
+    "A30x1": {
+        "extends": [
+            "A100-PCIex1"
+        ],
+        "gpu_single_stream_expected_latency_ns": 340000
+    },
+    "AGX_Xavier": {
+        "config_ver": {
+            "maxq": {}
+        },
+        "gpu_single_stream_expected_latency_ns": 1500000,
+        "input_format": "chw4",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/coco/val2017/SSDMobileNet/int8_chw4",
+        "use_direct_host_access": false
+    },
+    "T4x1": {
+        "config_ver": {
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "gpu_single_stream_expected_latency_ns": 753452,
+        "input_format": "chw4",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/coco/val2017/SSDMobileNet/int8_chw4"
+    },
+    "Xavier_NX": {
+        "config_ver": {
+            "maxq": {}
+        },
+        "gpu_single_stream_expected_latency_ns": 2000000,
+        "input_format": "chw4",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/coco/val2017/SSDMobileNet/int8_chw4",
+        "use_direct_host_access": false
+    },
+    "benchmark": "ssd-mobilenet",
+    "default": {
+        "gpu_batch_size": 1,
+        "gpu_copy_streams": 1,
+        "gpu_inference_streams": 1,
+        "input_dtype": "int8",
+        "map_path": "data_maps/coco/val_map.txt",
+        "precision": "int8",
+        "use_graphs": true
+    },
+    "scenario": "SingleStream"
+}

@@ -1,0 +1,117 @@
+{
+    "DSS8440_A100-PCIE-40GBx10": {
+	 "config_ver": {
+	 },
+	 "deque_timeout_us": 2000,
+	 "gpu_batch_size": 64,
+	 "gpu_copy_streams": 4,
+	 "gpu_inference_streams": 3,
+	 "server_target_qps": 264000,
+	 "numa_config": "0-4:0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78&5-9:1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47,49,51,53,55,57,59,61,63,65,67,69,71,73,75,77,79",
+	 "use_cuda_thread_per_device": true,
+	 "use_graphs": true
+	 },
+    "DSS8440_A40x10": {
+        "deque_timeout_us": 2000,
+        "gpu_batch_size": 160,
+        "gpu_copy_streams": 4,
+        "gpu_inference_streams": 1,
+        "server_target_qps": 177000,
+        "use_cuda_thread_per_device": true,
+        "use_graphs": false
+    },
+    "R740_A100-PCIe-40GBx3": {
+        "config_ver": {
+		"R7525": {
+	 	 "system_name": "R7525_A100_PCIe-40GBx3_TRT"
+		}
+         },
+        "deque_timeout_us": 2000,
+        "gpu_batch_size": 64,
+        "gpu_copy_streams": 4,
+        "gpu_inference_streams": 3,
+        "server_target_qps": 78000,
+        "use_cuda_thread_per_device": true,
+        "use_graphs": true
+    },
+    "R750xa_A100-PCIE-40GBx4": {
+        "deque_timeout_us": 2000,
+        "gpu_batch_size": 448,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams": 1,
+        "server_target_qps": 113000,
+        "use_cuda_thread_per_device": true,
+        "use_graphs": true
+    },
+    "R7525_A100-PCIe-40GBx2": {
+        "config_ver": {
+        },
+        "deque_timeout_us": 2000,
+        "gpu_batch_size": 64,
+        "gpu_copy_streams": 4,
+        "gpu_inference_streams": 3,
+        "server_target_qps": 52000,
+        "use_cuda_thread_per_device": true,
+        "use_graphs": true
+    },
+    "R7525_QuadroRTX8000x3": {
+        "config_ver": {
+          },
+        "deque_timeout_us": 2000,
+        "gpu_batch_size": 64,
+        "gpu_copy_streams": 3,
+        "gpu_inference_streams": 2,
+        "server_target_qps": 35000,
+        "use_cuda_thread_per_device": true,
+        "use_graphs": false
+    },
+    "XE2420_T4x4": {
+        "config_ver": {
+        },
+        "deque_timeout_us": 2000,
+        "gpu_batch_size": 26,
+        "gpu_copy_streams": 4,
+        "gpu_inference_streams": 2,
+        "server_target_qps": 21700,
+        "use_cuda_thread_per_device": false,
+        "use_graphs": false
+    },
+    "XE8545_A100-SXM4-40GBx4": {
+        "config_ver": {
+            "7763": {
+                "system_name": "XE8545_7763_A100-SXM4-40GBx4_TRT"
+            },
+	    "7713": {
+                "system_name": "XE8545_7713_A100-SXM4-40GBx4_TRT"
+            }
+        },
+        "deque_timeout_us": 6513,
+        "gpu_batch_size": 148,
+        "gpu_copy_streams": 14,
+        "gpu_inference_streams": 6,
+        "server_target_qps": 133500,
+        "start_from_device": true,
+        "use_cuda_thread_per_device": true,
+        "use_graphs": true
+    },
+    "XE8545_A100-SXM4-80GBx4": {
+            "config_ver": {
+            "7763":{
+                    "system_name": "XE8545_7763_A100-SXM4-80GBx4_TRT"
+            }
+        },
+        "extends" : ["XE8545_A100-SXM4-40GBx4"],
+        "server_target_qps" : 137750 
+    },
+    "benchmark": "resnet50",
+    "default": {
+        "active_sms": 100,
+        "input_dtype": "int8",
+        "input_format": "linear",
+        "map_path": "data_maps/imagenet/val_map.txt",
+        "precision": "int8",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/imagenet/ResNet50/int8_linear",
+        "use_deque_limit": true
+    },
+    "scenario": "Server"
+}

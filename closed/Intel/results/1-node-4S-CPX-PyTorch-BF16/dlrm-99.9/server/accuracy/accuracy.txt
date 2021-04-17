@@ -1,0 +1,27 @@
+{
+    "TestScenario.Server": {
+        "accuracy": 96.60913068296344,
+        "count": 9905,
+        "good_items": 86114789,
+        "mean": 0.020093415037421854,
+        "percentiles": {
+            "50.0": 0.019602298736572266,
+            "80.0": 0.020732259750366213,
+            "90.0": 0.021802806854248048,
+            "95.0": 0.022866916656494138,
+            "99.0": 0.0252295970916748,
+            "99.9": 0.03682855796814157
+        },
+        "qps": 86.11980462918487,
+        "roc_auc": 80.26857042258752,
+        "took": 115.01419496536255,
+        "total_items": 89137319
+    },
+    "cmdline": "Namespace(accuracy=True, backend='pytorch-native', cache=0, config='./mlperf.conf', count_queries=None, count_samples=None, data_sub_sample_rate=0.0, dataset='terabyte', dataset_path='/home/mlperf_val/DLRM_TEST/dataset/terabyte_input', duration=None, enable_profiling=False, find_peak_performance=False, inputs=['continuous and categorical features'], max_batchsize=9000, max_ind_range=40000000, max_latency=None, max_sample_size=30, mlperf_bin_loader=True, model='dlrm', model_path='/home/mlperf_val/DLRM_TEST/dlrm_pytorch/python/model/dlrm_terabyte.pytorch', numpy_rand_seed=123, output='/home/mlperf_val/dlrm_ww12_3/mlperf-inference-v1.0-dc-dev/closed/Intel/code/dlrm-99.9/pytorch/output/pytorch-cpu/dlrm', outputs=['probability'], profile='dlrm-terabyte-pytorch', samples_per_query_multistream=None, samples_per_query_offline=2048, samples_to_aggregate_fix=None, samples_to_aggregate_max=None, samples_to_aggregate_min=None, samples_to_aggregate_quantile_file='../tools/dist_quantile.txt', samples_to_aggregate_trace_file='dlrm_trace_of_aggregated_samples.txt', scenario='Server', target_qps=None, test_num_workers=0, threads=1, use_gpu=False, use_ipex=True, user_config='./user.conf')",
+    "runtime": "pytorch-native-dlrm",
+    "time": 1616038185,
+    "version": "1.5.0a0+b58f89b"
+}
+
+AUC=80.26857042258752
+hash=4030fee0ba418d8a843ec823dc81d4af22e0ceaa10151b9e77e4f27900d67610

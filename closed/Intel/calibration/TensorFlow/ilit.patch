@@ -1,0 +1,101 @@
+From 192b3d1bd0effeab900b29f25293e67a6dca96e7 Mon Sep 17 00:00:00 2001
+From: Feng Tian <feng.tian@intel.com>
+Date: Wed, 9 Sep 2020 01:58:39 +0800
+Subject: [PATCH] fix metric, pad+conv and graph_load bug
+
+---
+ ilit/adaptor/tensorflow.py                            | 14 +++++++++++---
+ .../tf_utils/quantize_graph/quantize_graph_pad.py     | 19 ++++++-------------
+ ilit/metric/metric.py                                 |  2 --
+ 3 files changed, 17 insertions(+), 18 deletions(-)
+
+diff --git a/ilit/adaptor/tensorflow.py b/ilit/adaptor/tensorflow.py
+index 2e58bac..9c94b65 100644
+--- a/ilit/adaptor/tensorflow.py
++++ b/ilit/adaptor/tensorflow.py
+@@ -31,11 +31,12 @@ class TensorFlowAdaptor(Adaptor):
+         self.bf16_ops = []
+         self.fp32_ops = []
+ 
+-    def evaluate(self, graph, dataloader, postprocess=None, metric=None):
++    def evaluate(self, input_graph, dataloader, postprocess=None, metric=None):
+         """Evaluate the model for specified metric on validation dataset.
+ 
+         Args:
+-            graph (tf.compat.v1.GraphDef): the model for evaluate/
++            input_graph ([Graph, GraphDef or Path String]): The model could be the graph,
++                          graph_def object, the frozen pb or ckpt/savedmodel folder path.
+             dataloader (generator): generate the data and labels.
+             metric (object, optional): Depends on model category. Defaults to None.
+ 
+@@ -43,12 +44,19 @@ class TensorFlowAdaptor(Adaptor):
+             [float]: evaluation result, the larger is better.
+         """
+         logger.info("start to evaluate model....")
++        from .tf_utils.util import get_graph_def
++        import tensorflow as tf
++        graph = tf.Graph()
++        graph_def = get_graph_def(input_graph)
++        assert graph_def
++        with graph.as_default():
++            tf.import_graph_def(graph_def, name='') 
++
+         input_tensor = graph.get_tensor_by_name(self.inputs[0] + ":0")
+         output_tensor = [
+             graph.get_tensor_by_name(x + ":0") for x in self.outputs
+         ]
+ 
+-        import tensorflow as tf
+ 
+         num_inter_threads = 2
+         num_intra_threads = int(
+diff --git a/ilit/adaptor/tf_utils/quantize_graph/quantize_graph_pad.py b/ilit/adaptor/tf_utils/quantize_graph/quantize_graph_pad.py
+index 7c134b7..cbd254d 100644
+--- a/ilit/adaptor/tf_utils/quantize_graph/quantize_graph_pad.py
++++ b/ilit/adaptor/tf_utils/quantize_graph/quantize_graph_pad.py
+@@ -25,22 +25,15 @@ class FuseNodeStartWithPad(QuantizeNodeBase):
+     def _apply_pad_conv_fusion(self):
+         for _, value in self.node_name_mapping.items():
+             if value.node.op in ("Pad") and self.node_name_mapping[
+-                    value.
+-                    output[0]].node.op == "Conv2D" and self._find_relu_node(
+-                        value.node):
++                    value.output[0]].node.op == "Conv2D":
+                 paddings_tensor = tensor_util.MakeNdarray(
+                     self.node_name_mapping[value.node.input[1]].node.
+                     attr["value"].tensor).flatten()
+-                if any(paddings_tensor):
+-                    new_node = node_def_pb2.NodeDef()
+-                    new_node.CopyFrom(value.node)
+-                    self.add_output_graph_node(new_node)
+-                else:
+-                    self.node_name_mapping[
+-                        value.output[0]].node.input[0] = value.node.input[0]
+-                    helper.set_attr_int_list(
+-                        self.node_name_mapping[value.output[0]].node,
+-                        "padding_list", paddings_tensor)
++                self.node_name_mapping[
++                    value.output[0]].node.input[0] = value.node.input[0]
++                helper.set_attr_int_list(
++                    self.node_name_mapping[value.output[0]].node,
++                    "padding_list", paddings_tensor)
+             else:
+                 new_node = node_def_pb2.NodeDef()
+                 new_node.CopyFrom(value.node)
+diff --git a/ilit/metric/metric.py b/ilit/metric/metric.py
+index 03204dd..42e5c9b 100644
+--- a/ilit/metric/metric.py
++++ b/ilit/metric/metric.py
+@@ -235,9 +235,7 @@ class TopK(Metric):
+         self.num_sample = 0
+ 
+     def update(self, preds, labels, sample_weight=None):
+-
+         preds = preds.argsort()[..., -self.k:]
+-        preds = np.squeeze(preds)
+         if self.k == 1:
+             correct = accuracy_score(preds, labels, normalize=False)
+             self.num_correct += correct
+-- 
+1.8.3.1
+

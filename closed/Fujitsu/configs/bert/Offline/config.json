@@ -1,0 +1,74 @@
+{
+    "A100-PCIex2": {
+        "config_ver": {
+            "high_accuracy": {
+                "gpu_offline_expected_qps": 3140,
+                "precision": "fp16"
+            },
+            "high_accuracy_triton": {
+                "gpu_offline_expected_qps": 3080,
+                "precision": "fp16",
+                "use_triton": true
+            },
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "enable_interleaved": false,
+        "gemm_plugin_fairshare_cache_size": 120,
+        "gpu_batch_size": 512,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams": 2,
+        "gpu_offline_expected_qps": 6400,
+        "use_small_tile_gemm_plugin": true
+    },
+    "A100-PCIex4": {
+        "config_ver": {
+            "high_accuracy": {
+                "gpu_offline_expected_qps": 7000,
+                "precision": "fp16"
+            },
+            "high_accuracy_triton": {
+                "gpu_offline_expected_qps": 3080,
+                "precision": "fp16",
+                "use_triton": true
+            },
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "enable_interleaved": false,
+        "gemm_plugin_fairshare_cache_size": 120,
+        "gpu_batch_size": 256,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams": 2,
+        "gpu_offline_expected_qps": 13400,
+        "use_small_tile_gemm_plugin": true
+    },
+    "A10x4": {
+        "config_ver": {
+            "high_accuracy": {
+                "gpu_batch_size": 256,
+                "gpu_inference_streams": 1,
+                "gpu_offline_expected_qps": 2228,
+                "precision": "fp16"
+            },
+            "high_accuracy_triton": {
+                "gpu_offline_expected_qps": 532,
+                "precision": "fp16",
+                "use_triton": true
+            },
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "enable_interleaved": false,
+        "gemm_plugin_fairshare_cache_size": 120,
+        "gpu_batch_size": 256,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams": 2,
+        "gpu_offline_expected_qps": 4000,
+        "use_small_tile_gemm_plugin": true
+    },
+    "scenario": "Offline"
+}

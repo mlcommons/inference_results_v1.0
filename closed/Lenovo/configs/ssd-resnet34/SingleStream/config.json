@@ -1,0 +1,195 @@
+{
+    "A100-PCIex1": {
+        "config_ver": {
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "gpu_single_stream_expected_latency_ns": 1900000,
+        "use_graphs": true
+    },
+    "A100-SXM-80GB-MIG_1x1g.10gb": {
+        "extends": [
+            "A100-SXM4-40GB-MIG_1x1g.5gb"
+        ]
+    },
+    "A100-SXM-80GB-MIG_1x2g.20gb": {
+        "extends": [
+            "A100-SXM4-40GB-MIG_1x2g.10gb"
+        ]
+    },
+    "A100-SXM-80GB-MIG_1x3g.40gb": {
+        "extends": [
+            "A100-SXM4-40GB-MIG_1x3g.20gb"
+        ]
+    },
+    "A100-SXM-80GB-MIG_56x1g.10gb": {
+        "extends": [
+            "A100-SXM-80GB-MIG_1x1g.10gb"
+        ]
+    },
+    "A100-SXM-80GBx1": {
+        "extends": [
+            "A100-SXM4-40GBx1"
+        ]
+    },
+    "A100-SXM4-40GB-MIG_1x1g.5gb": {
+        "config_ver": {
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "gpu_single_stream_expected_latency_ns": 1900000,
+        "start_from_device": true,
+        "use_graphs": true
+    },
+    "A100-SXM4-40GB-MIG_1x2g.10gb": {
+        "config_ver": {
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "gpu_single_stream_expected_latency_ns": 1900000,
+        "start_from_device": true,
+        "use_graphs": true
+    },
+    "A100-SXM4-40GB-MIG_1x3g.20gb": {
+        "config_ver": {
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "gpu_single_stream_expected_latency_ns": 1900000,
+        "start_from_device": true,
+        "use_graphs": true
+    },
+    "A100-SXM4-40GBx1": {
+        "config_ver": {
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "gpu_single_stream_expected_latency_ns": 1900000,
+        "start_from_device": true,
+        "use_graphs": true
+    },
+    "A10x1": {
+        "config_ver": {
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "gpu_single_stream_expected_latency_ns": 4370000,
+        "use_graphs": true
+    },
+    "A30x1": {
+        "extends": [
+            "A100-PCIex1"
+        ],
+        "gpu_single_stream_expected_latency_ns": 3063603,
+        "use_graphs": true
+    },
+    "A30-MIG_1x1g.3gb": {
+        "config_ver": {
+            "triton": {
+                "gpu_single_stream_expected_latency_ns": 9285651,
+                "use_triton": true
+            }
+        },
+        "workspace_size": 1610612736,
+        "gpu_single_stream_expected_latency_ns": 9079664,
+        "extends": [
+            "A30x1"
+        ]
+    },
+    "A30-MIG_32x1g.3gb": {
+        "extends": [
+            "A30-MIG_1x1g.3gb"
+        ]
+    },
+    "AGX_Xavier": {
+        "config_ver": {
+            "maxq": {}
+        },
+        "gpu_single_stream_expected_latency_ns": 29478000,
+        "use_graphs": false
+    },
+    "T4x1": {
+        "config_ver": {
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "gpu_single_stream_expected_latency_ns": 7757000,
+        "use_graphs": true
+    },
+    "TitanRTXx1": {
+        "config_ver": {
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "gpu_single_stream_expected_latency_ns": 4507000,
+        "use_graphs": true
+    },
+    "TitanRTXx4": {
+        "config_ver": {
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "devices": 0,
+        "gpu_single_stream_expected_latency_ns": 4236711,
+        "use_graphs": true
+    },
+    "Xavier_NX": {
+        "config_ver": {
+            "maxq": {}
+        },
+        "gpu_single_stream_expected_latency_ns": 58956000,
+        "use_direct_host_access": true,
+        "use_graphs": false
+    },
+    "Triton_CPU_2S_6258Rx1": {
+        "config_ver": {
+            "openvino": {
+                "model_name": "ssd-resnet34_int8_openvino",
+                "start_from_device": false,
+                "use_triton": true,
+                "input_dtype": "fp32",
+                "map_path": "data_maps/coco/val_map.txt",
+                "tensor_path": "${PREPROCESSED_DATA_DIR}/coco/val2017/SSDResNet34/fp32_nomean",
+                "num_instances": 56,
+                "ov_parameters" : {"CPU_THROUGHPUT_STREAMS" : "56", "SKIP_OV_DYNAMIC_BATCHSIZE": "YES"}
+            }
+        },
+        "single_stream_expected_latency_ns": 100000000
+    },
+    "Triton_CPU_4S_8380Hx1": {
+        "config_ver": {
+            "openvino": {
+                "model_name": "ssd-resnet34_int8_openvino",
+                "start_from_device": false,
+                "use_triton": true,
+                "input_dtype": "fp32",
+                "map_path": "data_maps/coco/val_map.txt",
+                "tensor_path": "${PREPROCESSED_DATA_DIR}/coco/val2017/SSDResNet34/fp32_nomean",
+                "num_instances": 56,
+                "ov_parameters" : {"CPU_THROUGHPUT_STREAMS" : "56", "SKIP_OV_DYNAMIC_BATCHSIZE": "YES"}
+            }
+        },
+        "single_stream_expected_latency_ns": 100000000
+    },
+    "benchmark": "ssd-resnet34",
+    "default": {
+        "gpu_batch_size": 1,
+        "gpu_copy_streams": 1,
+        "gpu_inference_streams": 1,
+        "input_dtype": "int8",
+        "input_format": "linear",
+        "map_path": "data_maps/coco/val_map.txt",
+        "precision": "int8",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/coco/val2017/SSDResNet34/int8_linear"
+    },
+    "scenario": "SingleStream"
+}

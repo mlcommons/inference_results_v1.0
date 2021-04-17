@@ -1,0 +1,49 @@
+client 2021-03-17 12:04:33,933 [WARNING] Removing old loadgen logs directory '/home/scratch.mlperf_inf_ci/mlPerf/L1/A100x8_MaxQ-Computelab-A100x8-MaxQ-L1-1-2021-03-17-14-11-35-UTC/mlperf-inference/closed/NVIDIA/build/power_logs_temp'
+client 2021-03-17 12:04:33,937 [INFO] Sending command to the server: 'mlcommons/power client v3'
+client 2021-03-17 12:04:33,938 [INFO] Got response: 'mlcommons/power server v3'
+client 2021-03-17 12:04:33,938 [INFO] Sending command to the server: 'stop'
+client 2021-03-17 12:04:33,940 [INFO] Got response: 'OK'
+client 2021-03-17 12:04:33,940 [INFO] Synchronizing with the server and with ib-01.dc4-in.nvidia.com...
+client 2021-03-17 12:04:34,162 [INFO] NTP:offset = 10.515 s, delay = 0.201 s 
+client 2021-03-17 12:04:34,162 [WARNING] The time offset between the system time and ib-01.dc4-in.nvidia.com is more then 200 ms (10514.954 ms)
+client 2021-03-17 12:04:34,162 [INFO] Sending command to the server: 'set_ntp'
+client 2021-03-17 12:04:35,411 [INFO] Got response: 'OK'
+client 2021-03-17 12:04:35,411 [INFO] Synchronizing with ib-01.dc4-in.nvidia.com time using NTP...
+client 2021-03-17 12:04:54,038 [INFO] Set system time at 2021-03-17 12:04:54.038070
+client 2021-03-17 12:04:54,240 [INFO] NTP:offset = 0.000 s, delay = 0.201 s 
+client 2021-03-17 12:04:54,240 [INFO] Sending command to the server: 'time'
+client 2021-03-17 12:04:54,246 [INFO] Got response: '1616007894.238773'
+client 2021-03-17 12:04:54,246 [INFO] The time difference between the client and the server is within range 2.076 ms..7.903 ms
+client 2021-03-17 12:04:54,246 [INFO] Sending command to the server: 'new,,5b37045b-8291-47d7-a922-0ebea60ff391'
+client 2021-03-17 12:04:54,248 [INFO] Got response: 'OK 2021-03-17_12-04-54,c5dff24f-9732-4d4c-9937-80a9f3ded59d'
+client 2021-03-17 12:04:54,248 [INFO] Session id is '2021-03-17_12-04-54'
+client 2021-03-17 12:04:54,248 [INFO] Sources: {"sources": {"client.py": "d1e75cb4b26101220ebd242e584cf3ca5d8f1996", "lib/__init__.py": "da39a3ee5e6b4b0d3255bfef95601890afd80709", "lib/client.py": "d42bebf5b74cb6ff3997e2a6c68422afac111a28", "lib/common.py": "b0bad80d8fa328a7636027d4d66ff453f8dd7889", "lib/external/ntplib.py": "4da8f970656505a40483206ef2b5d3dd5e81711d", "lib/server.py": "2ed36471c7af565d6c8438b2134edad1d7ddf166", "lib/source_hashes.py": "4cedff274c661cb1504052018fd4f00dfbf624ef", "lib/summary.py": "0db15d783907aa92038281af4e465545c0648ddb", "lib/time_sync.py": "76051226ec89287839723352f4162aaa24e0546a", "server.py": "99e1310e3f76292aef1b8792ce6b8c82f1d44d8b", "tests/unit/test_server.py": "64f11775bfed35232a0e8bb9593c0ff992432c59", "tests/unit/test_source_hashes.py": "cb41a7261eaf7d94ba5c0aae9c523174f6204be3"}, "modules": {"__main__": "client.py", "lib.client": "lib/client.py", "lib.common": "lib/common.py", "lib.external.ntplib": "lib/external/ntplib.py", "lib.source_hashes": "lib/source_hashes.py", "lib.summary": "lib/summary.py", "lib.time_sync": "lib/time_sync.py"}}
+client 2021-03-17 12:04:54,250 [INFO] Running workload in ranging mode
+client 2021-03-17 12:04:54,250 [INFO] Synchronizing with the server and with ib-01.dc4-in.nvidia.com...
+client 2021-03-17 12:04:54,452 [INFO] NTP:offset = 0.000 s, delay = 0.201 s 
+client 2021-03-17 12:04:54,452 [INFO] Sending command to the server: 'time'
+client 2021-03-17 12:04:54,453 [INFO] Got response: '1616007894.4431882'
+client 2021-03-17 12:04:54,453 [INFO] The time difference between the client and the server is within range 8.956 ms..10.198 ms
+client 2021-03-17 12:04:54,453 [INFO] Sending command to the server: 'session,2021-03-17_12-04-54,start,ranging'
+client 2021-03-17 12:05:35,011 [INFO] Got response: 'OK'
+client 2021-03-17 12:05:35,011 [INFO] Running the workload 'LOG_DIR=/home/scratch.mlperf_inf_ci/mlPerf/L1/A100x8_MaxQ-Computelab-A100x8-MaxQ-L1-1-2021-03-17-14-11-35-UTC/mlperf-inference/closed/NVIDIA/build/power_logs_temp python3 code/main.py --benchmarks=bert --scenarios=Offline --test_mode=PerformanceOnly --config_ver=maxq_high_accuracy --action="run_harness" \\\n\t\t&& cp -v /home/scratch.mlperf_inf_ci/mlPerf/L1/A100x8_MaxQ-Computelab-A100x8-MaxQ-L1-1-2021-03-17-14-11-35-UTC/mlperf-inference/closed/NVIDIA/build/power_logs_temp/*/*/*/mlperf_log_detail.txt /home/scratch.mlperf_inf_ci/mlPerf/L1/A100x8_MaxQ-Computelab-A100x8-MaxQ-L1-1-2021-03-17-14-11-35-UTC/mlperf-inference/closed/NVIDIA/build/power_logs_temp/ \\\n\t\t&& cp -v /home/scratch.mlperf_inf_ci/mlPerf/L1/A100x8_MaxQ-Computelab-A100x8-MaxQ-L1-1-2021-03-17-14-11-35-UTC/mlperf-inference/closed/NVIDIA/build/power_logs_temp/*/*/*/mlperf_log_summary.txt /home/scratch.mlperf_inf_ci/mlPerf/L1/A100x8_MaxQ-Computelab-A100x8-MaxQ-L1-1-2021-03-17-14-11-35-UTC/mlperf-inference/closed/NVIDIA/build/power_logs_temp/'
+client 2021-03-17 12:21:14,578 [INFO] Sending command to the server: 'session,2021-03-17_12-04-54,stop,ranging'
+client 2021-03-17 12:21:24,634 [INFO] Got response: 'OK'
+client 2021-03-17 12:21:24,639 [INFO] Packing logs into zip and uploading to the server
+client 2021-03-17 12:21:24,662 [INFO] Zip file size: 63.8 kB
+client 2021-03-17 12:21:24,683 [INFO] Got response: 'OK'
+client 2021-03-17 12:21:24,684 [INFO] Running workload in testing mode
+client 2021-03-17 12:21:24,684 [INFO] Synchronizing with the server and with ib-01.dc4-in.nvidia.com...
+client 2021-03-17 12:21:24,886 [INFO] NTP:offset = 0.014 s, delay = 0.201 s 
+client 2021-03-17 12:21:24,886 [INFO] Sending command to the server: 'time'
+client 2021-03-17 12:21:24,888 [INFO] Got response: '1616008884.8806653'
+client 2021-03-17 12:21:24,888 [INFO] The time difference between the client and the server is within range 6.079 ms..7.418 ms
+client 2021-03-17 12:21:24,888 [INFO] Sending command to the server: 'session,2021-03-17_12-04-54,start,testing'
+client 2021-03-17 12:21:46,705 [INFO] Got response: 'OK'
+client 2021-03-17 12:21:46,705 [INFO] Running the workload 'LOG_DIR=/home/scratch.mlperf_inf_ci/mlPerf/L1/A100x8_MaxQ-Computelab-A100x8-MaxQ-L1-1-2021-03-17-14-11-35-UTC/mlperf-inference/closed/NVIDIA/build/power_logs_temp python3 code/main.py --benchmarks=bert --scenarios=Offline --test_mode=PerformanceOnly --config_ver=maxq_high_accuracy --action="run_harness" \\\n\t\t&& cp -v /home/scratch.mlperf_inf_ci/mlPerf/L1/A100x8_MaxQ-Computelab-A100x8-MaxQ-L1-1-2021-03-17-14-11-35-UTC/mlperf-inference/closed/NVIDIA/build/power_logs_temp/*/*/*/mlperf_log_detail.txt /home/scratch.mlperf_inf_ci/mlPerf/L1/A100x8_MaxQ-Computelab-A100x8-MaxQ-L1-1-2021-03-17-14-11-35-UTC/mlperf-inference/closed/NVIDIA/build/power_logs_temp/ \\\n\t\t&& cp -v /home/scratch.mlperf_inf_ci/mlPerf/L1/A100x8_MaxQ-Computelab-A100x8-MaxQ-L1-1-2021-03-17-14-11-35-UTC/mlperf-inference/closed/NVIDIA/build/power_logs_temp/*/*/*/mlperf_log_summary.txt /home/scratch.mlperf_inf_ci/mlPerf/L1/A100x8_MaxQ-Computelab-A100x8-MaxQ-L1-1-2021-03-17-14-11-35-UTC/mlperf-inference/closed/NVIDIA/build/power_logs_temp/'
+client 2021-03-17 12:37:29,054 [INFO] Sending command to the server: 'session,2021-03-17_12-04-54,stop,testing'
+client 2021-03-17 12:37:39,087 [INFO] Got response: 'OK'
+client 2021-03-17 12:37:39,092 [INFO] Packing logs into zip and uploading to the server
+client 2021-03-17 12:37:39,115 [INFO] Zip file size: 63.8 kB
+client 2021-03-17 12:37:39,136 [INFO] Got response: 'OK'
+client 2021-03-17 12:37:39,136 [INFO] Done runs

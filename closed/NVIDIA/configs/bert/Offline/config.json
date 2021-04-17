@@ -1,0 +1,533 @@
+{
+    "A100-PCIe-MIG_1x1g.5gb": {
+        "extends": [
+            "A100-SXM4-40GB-MIG_1x1g.5gb"
+        ]
+    },
+    "A100-PCIex1": {
+        "config_ver": {
+            "high_accuracy": {
+                "gpu_offline_expected_qps": 1750,
+                "precision": "fp16"
+            },
+            "high_accuracy_triton": {
+                "gpu_offline_expected_qps": 1750,
+                "precision": "fp16",
+                "use_triton": true
+            },
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "enable_interleaved": false,
+        "gemm_plugin_fairshare_cache_size": 120,
+        "gpu_batch_size": 1024,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams": 2,
+        "gpu_offline_expected_qps": 3400,
+        "use_small_tile_gemm_plugin": true,
+        "workspace_size": 7516192768
+    },
+    "A100-PCIex2": {
+        "config_ver": {
+            "high_accuracy": {
+                "gpu_offline_expected_qps": 3080,
+                "precision": "fp16"
+            },
+            "high_accuracy_triton": {
+                "gpu_offline_expected_qps": 3080,
+                "precision": "fp16",
+                "use_triton": true
+            },
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "enable_interleaved": false,
+        "gemm_plugin_fairshare_cache_size": 120,
+        "gpu_batch_size": 256,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams": 2,
+        "gpu_offline_expected_qps": 6000,
+        "use_small_tile_gemm_plugin": true
+    },
+    "A100-PCIex8": {
+        "config_ver": {
+            "high_accuracy": {
+                "gpu_offline_expected_qps": 11168,
+                "precision": "fp16"
+            },
+            "maxq": {
+                "gpu_offline_expected_qps": 18000
+            },
+            "maxq_high_accuracy": {
+                "gpu_offline_expected_qps": 8000,
+                "precision": "fp16"
+            },
+            "maxq_high_accuracy_triton": {
+                "gpu_offline_expected_qps": 11168,
+                "precision": "fp16",
+                "use_triton": true
+            },
+            "maxq_triton": {
+                "use_triton": true
+            }
+        },
+        "scales": {
+            "A100-PCIex1": {
+                "gpu_offline_expected_qps": 8.0
+            }
+        }
+    },
+    "A100-SXM-80GB-MIG_1x1g.10gb": {
+        "config_ver": {
+            "hetero": {},
+            "hetero_high_accuracy": {
+                "gpu_offline_expected_qps": 225,
+                "precision": "fp16"
+            },
+            "high_accuracy": {
+                "gpu_offline_expected_qps": 248
+            }
+        },
+        "extends": [
+            "A100-SXM4-40GB-MIG_1x1g.5gb"
+        ]
+    },
+    "A100-SXM-80GB-MIG_28x1g.10gb": {
+        "scales": {
+            "A100-SXM4-40GB-MIG_1x1g.5gb": {
+                "gpu_offline_expected_qps": 28
+            }
+        }
+    },
+    "A100-SXM-80GB-MIG_56x1g.10gb": {
+        "scales": {
+            "A100-SXM4-40GB-MIG_1x1g.5gb": {
+                "gpu_offline_expected_qps": 56
+            }
+        }
+    },
+    "A100-SXM-80GBx1": {
+        "config_ver": {
+            "high_accuracy": {
+                "gpu_batch_size": 512,
+                "gpu_offline_expected_qps": 1750,
+                "precision": "fp16"
+            }
+        },
+        "extends": [
+            "A100-SXM4-40GBx1"
+        ],
+        "gpu_batch_size": 1280,
+        "gpu_inference_streams": 1,
+        "gpu_offline_expected_qps": 3500
+    },
+    "A100-SXM-80GBx4": {
+        "config_ver": {
+            "high_accuracy": {
+                "gpu_offline_expected_qps": 5700,
+                "precision": "fp16"
+            },
+            "high_accuracy_triton": {
+                "gpu_offline_expected_qps": 5700,
+                "precision": "fp16",
+                "use_triton": true
+            },
+            "maxq": {
+                "gpu_offline_expected_qps": 10000
+            },
+            "maxq_high_accuracy": {
+                "gpu_offline_expected_qps": 5000,
+                "precision": "fp16"
+            },
+            "maxq_high_accuracy_triton": {
+                "gpu_offline_expected_qps": 10000,
+                "precision": "fp16",
+                "use_triton": true
+            },
+            "maxq_triton": {
+                "gpu_offline_expected_qps": 5000,
+                "use_triton": true
+            },
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "extends": [
+            "A100-SXM4-40GBx8"
+        ],
+        "gpu_batch_size": 1280,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams": 1,
+        "gpu_offline_expected_qps": 12000,
+        "start_from_device": false
+    },
+    "A100-SXM-80GBx8": {
+        "config_ver": {
+            "high_accuracy": {
+                "gpu_batch_size": 512,
+                "precision": "fp16"
+            },
+            "maxq": {},
+            "maxq_high_accuracy": {
+                "gpu_batch_size": 512,
+                "gpu_offline_expected_qps": 15000,
+                "precision": "fp16"
+            },
+            "maxq_high_accuracy_triton": {
+                "gpu_batch_size": 512,
+                "gpu_offline_expected_qps": 15000,
+                "precision": "fp16",
+                "use_triton": true
+            },
+            "maxq_triton": {
+                "use_triton": true
+            },
+            "triton": {
+                "batch_triton_requests": false,
+                "gpu_offline_expected_qps": 29000
+            }
+        },
+        "extends": [
+            "A100-SXM4-40GBx8"
+        ],
+        "gpu_batch_size": 1280,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams": 1
+    },
+    "A100-SXM4-40GB-MIG_1x1g.5gb": {
+        "config_ver": {
+            "high_accuracy": {
+                "gpu_offline_expected_qps": 225,
+                "precision": "fp16"
+            },
+            "high_accuracy_triton": {
+                "gpu_batch_size": 32,
+                "gpu_offline_expected_qps": 225,
+                "precision": "fp16",
+                "use_triton": true
+            },
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "enable_interleaved": false,
+        "gemm_plugin_fairshare_cache_size": 120,
+        "gpu_batch_size": 64,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams": 2,
+        "gpu_offline_expected_qps": 500,
+        "use_small_tile_gemm_plugin": true,
+        "workspace_size": 2147483648
+    },
+    "A100-SXM4-40GBx1": {
+        "config_ver": {
+            "high_accuracy": {
+                "gpu_offline_expected_qps": 1750,
+                "precision": "fp16"
+            },
+            "high_accuracy_triton": {
+                "gpu_offline_expected_qps": 1750,
+                "precision": "fp16",
+                "use_triton": true
+            },
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "enable_interleaved": false,
+        "gemm_plugin_fairshare_cache_size": 120,
+        "gpu_batch_size": 1024,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams": 2,
+        "gpu_offline_expected_qps": 3400,
+        "use_small_tile_gemm_plugin": true
+    },
+    "A100-SXM4-40GBx8": {
+        "config_ver": {
+            "high_accuracy": {
+                "gpu_offline_expected_qps": 15000,
+                "precision": "fp16"
+            },
+            "high_accuracy_triton": {
+                "gpu_offline_expected_qps": 15000,
+                "precision": "fp16",
+                "use_triton": true
+            },
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "enable_interleaved": false,
+        "gemm_plugin_fairshare_cache_size": 120,
+        "gpu_batch_size": 1024,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams": 2,
+        "gpu_offline_expected_qps": 30000,
+        "use_small_tile_gemm_plugin": true,
+        "workspace_size": 7516192768
+    },
+    "A10x1": {
+        "config_ver": {
+            "high_accuracy": {
+                "gpu_batch_size": 256,
+                "gpu_inference_streams": 1,
+                "gpu_offline_expected_qps": 532,
+                "precision": "fp16"
+            },
+            "high_accuracy_triton": {
+                "gpu_offline_expected_qps": 532,
+                "precision": "fp16",
+                "use_triton": true
+            },
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "enable_interleaved": false,
+        "gemm_plugin_fairshare_cache_size": 120,
+        "gpu_batch_size": 256,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams": 2,
+        "gpu_offline_expected_qps": 1000,
+        "use_small_tile_gemm_plugin": true
+    },
+    "A10x8": {
+        "scales": {
+            "A10x1": {
+                "gpu_offline_expected_qps": 8.0
+            }
+        }
+    },
+    "A30-MIG_1x1g.3gb": {
+        "config_ver": {
+            "hetero": {},
+            "hetero_high_accuracy": {
+                "gpu_offline_expected_qps": 250,
+                "precision": "fp16"
+            },
+            "high_accuracy_triton": {
+                "gpu_batch_size": 64,
+                "gpu_offline_expected_qps": 100,
+                "precision": "fp16",
+                "use_triton": true
+            },
+            "triton": {
+                "gpu_offline_expected_qps": 330,
+                "use_triton": true
+            }
+        },
+        "enable_interleaved": false,
+        "gemm_plugin_fairshare_cache_size": 120,
+        "gpu_batch_size": 96,
+        "gpu_copy_streams": 1,
+        "gpu_inference_streams": 1,
+        "gpu_offline_expected_qps": 330,
+        "use_small_tile_gemm_plugin": true,
+        "workspace_size": 805306368
+    },
+    "A30-MIG_32x1g.3gb": {
+        "scales": {
+            "A30-MIG_1x1g.3gb": {
+                "gpu_offline_expected_qps": 32
+            }
+        }
+    },
+    "A30x1": {
+        "scales": {
+            "A100-PCIex1": {
+                "gpu_offline_expected_qps": 0.58
+            }
+        }
+    },
+    "A30x8": {
+        "config_ver": {
+            "maxq": {},
+            "maxq_high_accuracy": {
+                "gpu_offline_expected_qps": 6477,
+                "precision": "fp16"
+            },
+            "maxq_high_accuracy_triton": {
+                "gpu_offline_expected_qps": 6477,
+                "precision": "fp16",
+                "use_triton": true
+            },
+            "maxq_triton": {
+                "use_triton": true
+            }
+        },
+        "gpu_offline_expected_qps": 13000,
+        "scales": {
+            "A30x1": {
+                "gpu_offline_expected_qps": 8.0
+            }
+        }
+    },
+    "AGX_Xavier": {
+        "config_ver": {
+            "high_accuracy": {
+                "gpu_offline_expected_qps": 44,
+                "precision": "fp16"
+            },
+            "maxq": {
+                "gpu_offline_expected_qps": 61
+            },
+            "maxq_high_accuracy": {
+                "gpu_offline_expected_qps": 31,
+                "precision": "fp16"
+            }
+        },
+        "gpu_batch_size": 4,
+        "gpu_copy_streams": 1,
+        "gpu_inference_streams": 1,
+        "gpu_offline_expected_qps": 86
+    },
+    "T4x1": {
+        "config_ver": {
+            "high_accuracy": {
+                "gpu_batch_size": 256,
+                "gpu_inference_streams": 1,
+                "gpu_offline_expected_qps": 210,
+                "precision": "fp16"
+            },
+            "high_accuracy_triton": {
+                "gpu_offline_expected_qps": 189,
+                "precision": "fp16",
+                "use_triton": true
+            },
+            "triton": {
+                "gpu_offline_expected_qps": 430,
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 256,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams": 2,
+        "gpu_offline_expected_qps": 430
+    },
+    "T4x20": {
+        "config_ver": {
+            "high_accuracy": {
+                "gpu_batch_size": 256,
+                "gpu_inference_streams": 1,
+                "gpu_offline_expected_qps": 4400,
+                "precision": "fp16"
+            },
+            "high_accuracy_triton": {
+                "gpu_offline_expected_qps": 3960,
+                "precision": "fp16",
+                "use_triton": true
+            },
+            "triton": {
+                "gpu_offline_expected_qps": 7920,
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 256,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams": 2,
+        "gpu_offline_expected_qps": 8800
+    },
+    "T4x8": {
+        "config_ver": {
+            "high_accuracy": {
+                "gpu_batch_size": 256,
+                "gpu_inference_streams": 1,
+                "gpu_offline_expected_qps": 1680,
+                "precision": "fp16"
+            },
+            "high_accuracy_triton": {
+                "gpu_offline_expected_qps": 1512,
+                "precision": "fp16",
+                "use_triton": true
+            },
+            "triton": {
+                "gpu_offline_expected_qps": 3150,
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 256,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams": 2,
+        "gpu_offline_expected_qps": 3500
+    },
+    "Triton_CPU_2S_6258Rx1": {
+        "batch_size": 0,
+        "config_ver": {
+            "openvino": {
+                "batch_size": 0,
+                "input_dtype": "fp32",
+                "max_queue_delay_usec": 100,
+                "model_name": "bert_int8_openvino",
+                "num_instances": 28,
+                "ov_parameters": {
+                    "CPU_THREADS_NUM": "56",
+                    "CPU_THROUGHPUT_STREAMS": "14",
+                    "ENABLE_BATCH_PADDING": "NO",
+                    "SKIP_OV_DYNAMIC_BATCHSIZE": "YES"
+                },
+                "precision": "fp32",
+                "start_from_device": false,
+                "tensor_path": "${PREPROCESSED_DATA_DIR}/squad_tokenized/input_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/input_mask.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/segment_ids.npy",
+                "use_triton": true
+            }
+        },
+        "offline_expected_qps": 36
+    },
+    "Triton_CPU_4S_8380Hx1": {
+        "batch_size": 0,
+        "config_ver": {
+            "openvino": {
+                "batch_size": 0,
+                "input_dtype": "fp32",
+                "max_queue_delay_usec": 100,
+                "model_name": "bert_int8_openvino",
+                "num_instances": 56,
+                "ov_parameters": {
+                    "CPU_THREADS_NUM": "112",
+                    "CPU_THROUGHPUT_STREAMS": "28",
+                    "ENABLE_BATCH_PADDING": "NO",
+                    "SKIP_OV_DYNAMIC_BATCHSIZE": "YES"
+                },
+                "precision": "fp32",
+                "start_from_device": false,
+                "tensor_path": "${PREPROCESSED_DATA_DIR}/squad_tokenized/input_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/input_mask.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/segment_ids.npy",
+                "use_triton": true
+            }
+        },
+        "offline_expected_qps": 83
+    },
+    "Xavier_NX": {
+        "config_ver": {
+            "high_accuracy": {
+                "gpu_offline_expected_qps": 23,
+                "precision": "fp16"
+            },
+            "maxq": {
+                "gpu_offline_expected_qps": 44
+            },
+            "maxq_high_accuracy": {
+                "gpu_offline_expected_qps": 23,
+                "precision": "fp16"
+            }
+        },
+        "gpu_batch_size": 2,
+        "gpu_copy_streams": 1,
+        "gpu_inference_streams": 1,
+        "gpu_offline_expected_qps": 52,
+        "workspace_size": 1073741824
+    },
+    "benchmark": "bert",
+    "default": {
+        "coalesced_tensor": true,
+        "enable_interleaved": true,
+        "input_dtype": "int32",
+        "input_format": "linear",
+        "precision": "int8",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/squad_tokenized/input_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/segment_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/input_mask.npy",
+        "use_graphs": false,
+        "use_small_tile_gemm_plugin": false
+    },
+    "scenario": "Offline"
+}

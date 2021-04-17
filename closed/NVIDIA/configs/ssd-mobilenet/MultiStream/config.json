@@ -1,0 +1,117 @@
+{
+    "A100-PCIex1": {
+        "config_ver": {
+            "triton": {
+                "gpu_batch_size": 80,
+                "gpu_multi_stream_samples_per_query": 1520,
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 80,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams": 2,
+        "gpu_multi_stream_samples_per_query": 1540,
+        "input_format": "linear",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/coco/val2017/SSDMobileNet/int8_linear"
+    },
+    "A100-SXM-80GBx1": {
+        "extends": [
+            "A100-SXM4-40GBx1"
+        ]
+    },
+    "A100-SXM4-40GBx1": {
+        "config_ver": {
+            "triton": {
+                "gpu_batch_size": 384,
+                "gpu_multi_stream_samples_per_query": 1920,
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 1184,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams": 2,
+        "gpu_multi_stream_samples_per_query": 2368,
+        "input_format": "linear",
+        "start_from_device": true,
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/coco/val2017/SSDMobileNet/int8_linear"
+    },
+    "A10x1": {
+        "config_ver": {
+            "triton": {
+                "gpu_batch_size": 96,
+                "gpu_multi_stream_samples_per_query": 800,
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 96,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams": 1,
+        "gpu_multi_stream_samples_per_query": 800,
+        "input_format": "chw4",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/coco/val2017/SSDMobileNet/int8_chw4"
+    },
+    "A30x1": {
+        "extends": [
+            "A100-PCIex1"
+        ],
+        "gpu_batch_size": 256,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams": 2,
+        "gpu_multi_stream_samples_per_query": 1050
+    },
+    "AGX_Xavier": {
+        "concurrent_multi_stream_samples_per_query": 107,
+        "config_ver": {
+            "maxq": {}
+        },
+        "dla_batch_size": 13,
+        "dla_copy_streams": 2,
+        "dla_core": 0,
+        "dla_inference_streams": 2,
+        "dla_multi_stream_samples_per_query": 11,
+        "gpu_batch_size": 81,
+        "gpu_copy_streams": 3,
+        "gpu_inference_streams": 3,
+        "gpu_multi_stream_samples_per_query": 80,
+        "input_format": "chw4",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/coco/val2017/SSDMobileNet/int8_chw4"
+    },
+    "T4x1": {
+        "config_ver": {
+            "triton": {
+                "gpu_batch_size": 90,
+                "gpu_multi_stream_samples_per_query": 360,
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 92,
+        "gpu_multi_stream_samples_per_query": 368,
+        "input_format": "chw4",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/coco/val2017/SSDMobileNet/int8_chw4"
+    },
+    "Xavier_NX": {
+        "concurrent_multi_stream_samples_per_query": 60,
+        "config_ver": {
+            "maxq": {}
+        },
+        "dla_batch_size": 10,
+        "dla_copy_streams": 2,
+        "dla_core": 0,
+        "dla_inference_streams": 1,
+        "dla_multi_stream_samples_per_query": 10,
+        "gpu_batch_size": 40,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams": 2,
+        "gpu_multi_stream_samples_per_query": 40,
+        "input_format": "chw4",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/coco/val2017/SSDMobileNet/int8_chw4"
+    },
+    "benchmark": "ssd-mobilenet",
+    "default": {
+        "input_dtype": "int8",
+        "map_path": "data_maps/coco/val_map.txt",
+        "precision": "int8",
+        "use_graphs": false
+    },
+    "scenario": "MultiStream"
+}

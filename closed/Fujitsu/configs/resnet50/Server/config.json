@@ -1,0 +1,82 @@
+{
+    "A100-PCIex1": {
+        "config_ver": {
+            "triton": {
+                "server_target_qps": 20000,
+                "use_graphs": false,
+                "use_triton": true
+            }
+        },
+        "deque_timeout_us": 2000,
+        "gpu_batch_size": 64,
+        "gpu_copy_streams": 4,
+        "gpu_inference_streams": 3,
+        "server_target_qps": 26750,
+        "use_cuda_thread_per_device": true,
+        "use_graphs": true
+    },
+    "A100-PCIex2": {
+        "config_ver": {
+            "triton": {
+                "server_target_qps": 40000,
+                "use_graphs": false,
+                "use_triton": true
+            }
+        },
+        "deque_timeout_us": 2000,
+        "gpu_batch_size": 64,
+        "gpu_copy_streams": 4,
+        "gpu_inference_streams": 3,
+        "server_target_qps": 56500,
+        "use_cuda_thread_per_device": true,
+        "use_graphs": true
+    },
+    "A100-PCIex4": {
+        "config_ver": {
+            "maxq": {},
+            "maxq_triton": {
+                "server_target_qps": 80000,
+                "use_graphs": false,
+                "use_triton": true
+            }
+        },
+        "scales": {
+            "A100-PCIex1": {
+                "server_target_qps": 4.0
+            }
+        }
+    },
+    "A10x1": {
+        "config_ver": {
+            "triton": {
+                "server_target_qps": 10000,
+                "use_triton": true
+            }
+        },
+        "deque_timeout_us": 2000,
+        "gpu_batch_size": 128,
+        "gpu_copy_streams": 4,
+        "gpu_inference_streams": 4,
+        "server_target_qps": 11350,
+        "start_from_device": true,
+        "use_cuda_thread_per_device": true,
+        "use_graphs": true
+    },
+    "A10x4": {
+        "scales": {
+            "A10x1": {
+                "server_target_qps": 4.0
+            }
+        },
+        "config_ver": {
+            "triton": {
+                "server_target_qps": 40000,
+                "use_graphs": false,
+                "start_from_device": false,
+                "max_queue_delay_usec":500,
+                "gather_kernel_buffer_threshold": 32
+            }
+        }
+    },
+    "scenario": "Server"
+}

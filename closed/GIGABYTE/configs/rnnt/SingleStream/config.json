@@ -1,0 +1,165 @@
+{
+    "A100-PCIex1": {
+        "audio_batch_size": 1,
+        "audio_buffer_num_lines": 1,
+        "audio_fp16_input": true,
+        "dali_batches_issue_ahead": 1,
+        "dali_pipeline_depth": 1,
+        "gpu_single_stream_expected_latency_ns": 10000000,
+        "nobatch_sorting": true,
+        "nopipelined_execution": false,
+        "nouse_copy_kernel": false,
+        "num_warmups": 32,
+        "start_from_device": false
+    },
+    "A100-SXM-80GB-MIG_1x1g.10gb": {
+        "extends": [
+            "A100-SXM4-40GB-MIG_1x1g.5gb"
+        ]
+    },
+    "A100-SXM-80GB-MIG_1x2g.20gb": {
+        "extends": [
+            "A100-SXM4-40GB-MIG_1x2g.10gb"
+        ]
+    },
+    "A100-SXM-80GB-MIG_1x3g.40gb": {
+        "extends": [
+            "A100-SXM4-40GB-MIG_1x3g.20gb"
+        ]
+    },
+    "A100-SXM-80GBx1": {
+        "extends": [
+            "A100-SXM4-40GBx1"
+        ]
+    },
+    "A100-SXM4-40GB-MIG_1x1g.5gb": {
+        "audio_batch_size": 1,
+        "audio_buffer_num_lines": 4,
+        "audio_fp16_input": true,
+        "dali_batches_issue_ahead": 1,
+        "dali_pipeline_depth": 1,
+        "gpu_single_stream_expected_latency_ns": 10000000,
+        "nobatch_sorting": true,
+        "nopipelined_execution": false,
+        "nouse_copy_kernel": true,
+        "num_warmups": 32,
+        "start_from_device": false,
+        "workspace_size": 1073741824
+    },
+    "A100-SXM4-40GB-MIG_1x2g.10gb": {
+        "audio_batch_size": 1,
+        "audio_buffer_num_lines": 4,
+        "audio_fp16_input": true,
+        "dali_batches_issue_ahead": 1,
+        "dali_pipeline_depth": 1,
+        "gpu_single_stream_expected_latency_ns": 10000000,
+        "nobatch_sorting": true,
+        "nopipelined_execution": false,
+        "nouse_copy_kernel": true,
+        "num_warmups": 32,
+        "start_from_device": false,
+        "workspace_size": 1073741824
+    },
+    "A100-SXM4-40GB-MIG_1x3g.20gb": {
+        "audio_batch_size": 1,
+        "audio_buffer_num_lines": 4,
+        "audio_fp16_input": true,
+        "dali_batches_issue_ahead": 1,
+        "dali_pipeline_depth": 1,
+        "gpu_single_stream_expected_latency_ns": 10000000,
+        "nobatch_sorting": true,
+        "nopipelined_execution": false,
+        "nouse_copy_kernel": true,
+        "num_warmups": 32,
+        "start_from_device": false,
+        "workspace_size": 1073741824
+    },
+    "A100-SXM4-40GBx1": {
+        "audio_batch_size": 1,
+        "audio_buffer_num_lines": 4,
+        "audio_fp16_input": true,
+        "dali_batches_issue_ahead": 1,
+        "dali_pipeline_depth": 1,
+        "gpu_single_stream_expected_latency_ns": 10000000,
+        "nobatch_sorting": true,
+        "nopipelined_execution": false,
+        "nouse_copy_kernel": true,
+        "num_warmups": 32,
+        "start_from_device": true
+    },
+    "A10x1": {
+        "audio_batch_size": 1,
+        "audio_buffer_num_lines": 1,
+        "audio_fp16_input": true,
+        "dali_batches_issue_ahead": 1,
+        "dali_pipeline_depth": 1,
+        "gpu_single_stream_expected_latency_ns": 25000000,
+        "nobatch_sorting": true,
+        "nopipelined_execution": false,
+        "nouse_copy_kernel": true,
+        "num_warmups": 32
+    },
+    "A30x1": {
+        "extends": [
+            "A100-PCIex1"
+        ]
+    },
+    "A30-MIG_1x1g.3gb": {
+        "workspace_size": 1610612736,
+        "gpu_single_stream_expected_latency_ns": 7452826,
+        "extends": [
+            "A30x1"
+        ]
+    },
+    "A30-MIG_32x1g.3gb": {
+        "extends": [
+            "A30-MIG_1x1g.3gb"
+        ]
+    },
+    "AGX_Xavier": {
+        "audio_batch_size": 1,
+        "config_ver": {
+            "maxq": {}
+        },
+        "gpu_single_stream_expected_latency_ns": 100000000
+    },
+    "T4x1": {
+        "audio_batch_size": 1,
+        "audio_buffer_num_lines": 4,
+        "audio_fp16_input": true,
+        "dali_batches_issue_ahead": 1,
+        "dali_pipeline_depth": 1,
+        "gpu_single_stream_expected_latency_ns": 25000000,
+        "nobatch_sorting": true,
+        "nopipelined_execution": false,
+        "nouse_copy_kernel": true,
+        "num_warmups": 32
+    },
+    "TitanRTXx1": {
+        "gpu_single_stream_expected_latency_ns": 36000000
+    },
+    "TitanRTXx4": {
+        "gpu_single_stream_expected_latency_ns": 40000000
+    },
+    "Xavier_NX": {
+        "audio_batch_size": 1,
+        "config_ver": {
+            "maxq": {}
+        },
+        "gpu_single_stream_expected_latency_ns": 200000000
+    },
+    "benchmark": "rnnt",
+    "default": {
+        "disable_encoder_plugin": true,
+        "gpu_batch_size": 1,
+        "gpu_copy_streams": 1,
+        "gpu_inference_streams": 1,
+        "input_dtype": "fp16",
+        "input_format": "linear",
+        "map_path": "data_maps/rnnt_dev_clean_512/val_map.txt",
+        "precision": "fp16",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/rnnt_dev_clean_512/fp16",
+        "use_graphs": true
+    },
+    "scenario": "SingleStream"
+}

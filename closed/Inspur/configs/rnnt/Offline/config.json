@@ -1,0 +1,294 @@
+{
+    "A100-PCIe-MIG_1x1g.5gb": {
+        "extends": [
+            "A100-SXM4-40GB-MIG_1x1g.5gb"
+        ]
+    },
+    "A100-PCIex1": {
+        "audio_batch_size": 512,
+        "audio_buffer_num_lines": 4096,
+        "dali_batches_issue_ahead": 4,
+        "dali_pipeline_depth": 4,
+        "gpu_batch_size": 2048,
+        "gpu_copy_streams": 1,
+        "gpu_offline_expected_qps": 10800,
+        "num_warmups": 512
+    },
+    "A100-PCIex2": {
+        "audio_batch_size": 512,
+        "audio_buffer_num_lines": 4096,
+        "dali_batches_issue_ahead": 4,
+        "dali_pipeline_depth": 4,
+        "gpu_batch_size": 2048,
+        "gpu_copy_streams": 1,
+        "gpu_offline_expected_qps": 21600,
+        "num_warmups": 512
+    },
+    "A100-PCIex8": {
+        "config_ver": {
+            "maxq": {}
+        },
+        "scales": {
+            "A100-PCIex1": {
+                "gpu_offline_expected_qps": 8.0
+            }
+        }
+    },
+    "A100-SXM-80GB-MIG_1x1g.10gb": {
+        "config_ver": {
+            "hetero": {}
+        },
+        "extends": [
+            "A100-SXM4-40GB-MIG_1x1g.5gb"
+        ],
+        "gpu_batch_size": 1024,
+        "max_seq_length": 64,
+        "gpu_offline_expected_qps": 1550
+    },
+    "A100-SXM-80GB-MIG_1x2g.20gb": {
+        "extends": [
+            "A100-SXM4-40GB-MIG_1x2g.10gb"
+        ]
+    },
+    "A100-SXM-80GB-MIG_1x3g.40gb": {
+        "extends": [
+            "A100-SXM4-40GB-MIG_1x3g.20gb"
+        ]
+    },
+    "A100-SXM-80GBx1": {
+        "extends": [
+            "A100-SXM4-40GBx1"
+        ],
+        "gpu_offline_expected_qps": 13800
+    },
+    "A100-SXM-80GBx4": {
+        "config_ver": {
+            "maxq": {}
+        },
+        "scales": {
+            "A100-PCIex1": {
+                "gpu_offline_expected_qps": 4
+            }
+        }
+    },
+    "A100-SXM-80GBx8": {
+        "config_ver": {
+            "liquid" : {
+                "gpu_batch_size":2048,
+                "gpu_copy_streams": 4,
+                "gpu_inference_streams":1,
+                "start_from_device": true,
+                "run_infer_on_copy_streams": false,
+                "gpu_offline_expected_qps":105500
+            }
+        },
+        "extends": [
+            "A100-SXM4-40GBx8"
+        ],
+        "nobatch_sorting": true,
+        "audio_batch_size": 1024,
+        "audio_buffer_num_lines": 4096,
+        "dali_batches_issue_ahead": 0,
+        "dali_pipeline_depth": 1,
+        "gpu_batch_size":2048,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams":1,
+        "start_from_device": true,
+        "run_infer_on_copy_streams": true,
+        "gpu_offline_expected_qps":105500
+    },
+    "A100-SXM4-40GB-MIG_1x1g.5gb": {
+        "audio_batch_size": 64,
+        "audio_buffer_num_lines": 512,
+        "dali_batches_issue_ahead": 2,
+        "dali_pipeline_depth": 2,
+        "gpu_batch_size": 256,
+        "gpu_copy_streams": 1,
+        "gpu_offline_expected_qps": 1350,
+        "num_warmups": 64,
+        "start_from_device": false,
+        "workspace_size": 3221225472
+    },
+    "A100-SXM4-40GB-MIG_1x2g.10gb": {
+        "audio_batch_size": 64,
+        "audio_buffer_num_lines": 512,
+        "dali_batches_issue_ahead": 2,
+        "dali_pipeline_depth": 2,
+        "gpu_batch_size": 512,
+        "gpu_copy_streams": 1,
+        "gpu_offline_expected_qps": 2800,
+        "num_warmups": 64,
+        "start_from_device": false,
+        "workspace_size": 3221225472
+    },
+    "A100-SXM4-40GB-MIG_1x3g.20gb": {
+        "audio_batch_size": 64,
+        "audio_buffer_num_lines": 512,
+        "dali_batches_issue_ahead": 2,
+        "dali_pipeline_depth": 2,
+        "gpu_batch_size": 512,
+        "gpu_copy_streams": 1,
+        "gpu_offline_expected_qps": 4500,
+        "num_warmups": 64,
+        "start_from_device": false,
+        "workspace_size": 3221225472
+    },
+    "A100-SXM4-40GBx1": {
+        "audio_batch_size": 512,
+        "audio_buffer_num_lines": 4096,
+        "dali_batches_issue_ahead": 4,
+        "dali_pipeline_depth": 4,
+        "gpu_batch_size": 2048,
+        "gpu_copy_streams": 1,
+        "gpu_offline_expected_qps": 11800,
+        "num_warmups": 512,
+        "start_from_device": true
+    },
+    "A100-SXM4-40GBx8": {
+        "audio_batch_size": 512,
+        "dali_batches_issue_ahead": 4,
+        "dali_pipeline_depth": 4,
+        "gpu_batch_size": 1024,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams": 2,
+        "gpu_offline_expected_qps": 100000,
+        "num_warmups": 40480,
+        "run_infer_on_copy_streams": false,
+        "start_from_device": true
+    },
+    "A10x1": {
+        "audio_batch_size": 512,
+        "audio_buffer_num_lines": 4096,
+        "dali_batches_issue_ahead": 2,
+        "dali_pipeline_depth": 2,
+        "gpu_batch_size": 2048,
+        "gpu_copy_streams": 1,
+        "gpu_offline_expected_qps": 4500,
+        "num_warmups": 512
+    },
+    "A10x8": {
+        "scales": {
+            "A10x1": {
+                "gpu_offline_expected_qps": 8.0
+            }
+        },
+        "gpu_offline_expected_qps": 36000
+    },
+    "A30x1": {
+        "scales": {
+            "A100-PCIex1": {
+                "gpu_offline_expected_qps": 0.58
+            }
+        }
+    },
+    "A30x8": {
+        "config_ver": {
+            "maxq": {}
+        },
+        "scales": {
+            "A100-PCIex8": {
+                "gpu_offline_expected_qps": 0.58
+            }
+        }
+    },
+    "A30-MIG_1x1g.3gb": {
+        "config_ver": {
+            "hetero": {}
+        },
+        "audio_batch_size": 32,
+        "audio_buffer_num_lines": 512,
+        "dali_batches_issue_ahead": 1,
+        "dali_pipeline_depth": 1,
+        "gpu_batch_size": 256,
+        "gpu_copy_streams": 1,
+        "num_warmups": 32,
+        "start_from_device": false,
+        "workspace_size": 1610612736,
+        "gpu_offline_expected_qps": 860
+    },
+    "AGX_Xavier": {
+        "audio_batch_size": 128,
+        "audio_buffer_num_lines": 1024,
+        "config_ver": {
+            "maxq": {}
+        },
+        "dali_batches_issue_ahead": 4,
+        "dali_pipeline_depth": 4,
+        "disable_encoder_plugin": true,
+        "gpu_batch_size": 512,
+        "gpu_copy_streams": 4,
+        "gpu_offline_expected_qps": 600,
+        "num_warmups": 2048
+    },
+    "T4x1": {
+        "audio_batch_size": 128,
+        "audio_buffer_num_lines": 4096,
+        "dali_batches_issue_ahead": 4,
+        "dali_pipeline_depth": 4,
+        "disable_encoder_plugin": true,
+        "gpu_batch_size": 2048,
+        "gpu_copy_streams": 4,
+        "gpu_offline_expected_qps": 1400,
+        "num_warmups": 2048
+    },
+    "T4x20": {
+        "audio_batch_size": 128,
+        "audio_buffer_num_lines": 4096,
+        "dali_batches_issue_ahead": 4,
+        "dali_pipeline_depth": 4,
+        "disable_encoder_plugin": true,
+        "gpu_batch_size": 2048,
+        "gpu_copy_streams": 4,
+        "gpu_offline_expected_qps": 30000,
+        "num_warmups": 40960
+    },
+    "T4x8": {
+        "audio_batch_size": 128,
+        "audio_buffer_num_lines": 4096,
+        "dali_batches_issue_ahead": 4,
+        "dali_pipeline_depth": 4,
+        "disable_encoder_plugin": true,
+        "gpu_batch_size": 2048,
+        "gpu_copy_streams": 4,
+        "gpu_offline_expected_qps": 11400,
+        "num_warmups": 20480
+    },
+    "TitanRTXx1": {
+        "disable_encoder_plugin": true,
+        "gpu_batch_size": 2048,
+        "gpu_copy_streams": 1,
+        "gpu_offline_expected_qps": 4200
+    },
+    "TitanRTXx4": {
+        "audio_batch_size": 128,
+        "disable_encoder_plugin": true,
+        "gpu_batch_size": 2048,
+        "gpu_copy_streams": 1,
+        "gpu_offline_expected_qps": 19200
+    },
+    "Xavier_NX": {
+        "audio_batch_size": 64,
+        "audio_buffer_num_lines": 1024,
+        "config_ver": {
+            "maxq": {}
+        },
+        "dali_batches_issue_ahead": 4,
+        "dali_pipeline_depth": 4,
+        "disable_encoder_plugin": true,
+        "gpu_batch_size": 512,
+        "gpu_copy_streams": 4,
+        "gpu_offline_expected_qps": 300,
+        "num_warmups": 2048
+    },
+    "benchmark": "rnnt",
+    "default": {
+        "gpu_inference_streams": 1,
+        "input_dtype": "fp16",
+        "input_format": "linear",
+        "map_path": "data_maps/rnnt_dev_clean_512/val_map.txt",
+        "precision": "fp16",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/rnnt_dev_clean_512/fp16",
+        "use_graphs": true
+    },
+    "scenario": "Offline"
+}

@@ -1,0 +1,27 @@
+{
+    "TestScenario.Offline": {
+        "accuracy": 96.60913068296344,
+        "count": 213,
+        "good_items": 86114789,
+        "mean": 6.76715607598354,
+        "percentiles": {
+            "50.0": 7.034436225891113,
+            "80.0": 10.166403484344482,
+            "90.0": 10.607974338531498,
+            "95.0": 11.486654329299926,
+            "99.0": 11.681666564941406,
+            "99.9": 11.730240456581116
+        },
+        "qps": 2.410770654042144,
+        "roc_auc": 80.26857042258752,
+        "took": 88.35348963737488,
+        "total_items": 89137319
+    },
+    "cmdline": "Namespace(accuracy=True, backend='pytorch-native', cache=0, config='./mlperf.conf', count_queries=None, count_samples=None, data_sub_sample_rate=0.0, dataset='terabyte', dataset_path='/root/DLRM/dataset2/terabyte_input', duration=None, enable_profiling=False, find_peak_performance=False, inputs=['continuous and categorical features'], max_batchsize=420000, max_ind_range=40000000, max_latency=None, mlperf_bin_loader=True, model='dlrm', model_path='/root/DLRM/dataset2/dlrm_weight//dlrm_terabyte.pytorch', numpy_rand_seed=123, output='/root/public_ipex/dlrm/mlperf-benchmark/validation/mlperf-inference-v1.0-dc-dev/closed/Intel/code/dlrm-99.9/pytorch/output/pytorch-cpu/dlrm', outputs=['probability'], profile='dlrm-terabyte-pytorch', samples_per_query_multistream=None, samples_per_query_offline=300000, samples_to_aggregate_fix=None, samples_to_aggregate_max=None, samples_to_aggregate_min=None, samples_to_aggregate_quantile_file='../tools/dist_quantile.txt', samples_to_aggregate_trace_file='dlrm_trace_of_aggregated_samples.txt', scenario='Offline', target_qps=None, test_num_workers=0, threads=1, use_gpu=False, use_ipex=True, user_config='./user.conf')",
+    "runtime": "pytorch-native-dlrm",
+    "time": 1616062275,
+    "version": "1.5.0a0+b58f89b"
+}
+
+AUC=80.26857042258752
+hash=4d3620e3fafaa211f3f23497197510da418e6f4d4bcdefe63080e26da76971b8

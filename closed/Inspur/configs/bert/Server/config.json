@@ -1,0 +1,579 @@
+{
+    "A100-PCIex1": {
+        "active_sms": 60,
+        "config_ver": {
+            "high_accuracy": {
+                "precision": "fp16",
+                "server_target_qps": 1215
+            },
+            "high_accuracy_triton": {
+                "precision": "fp16",
+                "server_target_qps": 1185,
+                "use_triton": true
+            },
+            "triton": {
+                "server_target_qps": 2195,
+                "use_triton": true
+            }
+        },
+        "enable_interleaved": false,
+        "gemm_plugin_fairshare_cache_size": 120,
+        "gpu_batch_size": 64,
+        "graphs_max_seqlen": 200,
+        "server_num_issue_query_threads": 1,
+        "server_target_qps": 2600,
+        "soft_drop": 1.0,
+        "use_small_tile_gemm_plugin": true
+    },
+    "A100-PCIex2": {
+        "active_sms": 60,
+        "config_ver": {
+            "high_accuracy": {
+                "precision": "fp16",
+                "server_target_qps": 2430
+            },
+            "high_accuracy_triton": {
+                "precision": "fp16",
+                "server_target_qps": 2370,
+                "use_triton": true
+            },
+            "triton": {
+                "server_target_qps": 4390,
+                "use_triton": true
+            }
+        },
+        "enable_interleaved": false,
+        "gemm_plugin_fairshare_cache_size": 120,
+        "gpu_batch_size": 64,
+        "graphs_max_seqlen": 200,
+        "server_num_issue_query_threads": 2,
+        "server_target_qps": 5160,
+        "soft_drop": 1.0,
+        "use_small_tile_gemm_plugin": true
+    },
+    "A100-PCIex8": {
+        "config_ver": {
+            "maxq": {},
+            "maxq_high_accuracy": {
+                "precision": "fp16",
+                "server_target_qps": 9800
+            },
+            "maxq_high_accuracy_triton": {
+                "precision": "fp16",
+                "server_target_qps": 9480,
+                "use_triton": true
+            },
+            "maxq_triton": {
+                "server_target_qps": 17560,
+                "use_triton": true
+            }
+        },
+        "server_target_qps": 20000, 
+        "start_from_device":true,
+        "extends": [
+            "A100-PCIex1"
+        ]
+        
+    },
+    "A100-SXM-80GB-MIG_1x1g.10gb": {
+        "active_sms": 100,
+        "config_ver": {
+            "hetero": {},
+            "hetero_high_accuracy": {
+                "precision": "fp16",
+                "server_target_qps": 200
+            },
+            "high_accuracy": {
+                "precision": "fp16",
+                "server_target_qps": 200
+            },
+            "high_accuracy_triton": {
+                "precision": "fp16",
+                "server_target_qps": 190,
+                "use_triton": true
+            },
+            "triton": {
+                "server_target_qps": 360,
+                "use_triton": true
+            }
+        },
+        "enable_interleaved": false,
+        "gemm_plugin_fairshare_cache_size": 120,
+        "gpu_batch_size": 16,
+        "gpu_copy_streams": 1,
+        "gpu_inference_streams": 1,
+        "graphs_max_seqlen": 200,
+        "server_num_issue_query_threads": 0,
+        "server_target_qps": 400,
+        "soft_drop": 0.99,
+        "use_small_tile_gemm_plugin": true
+    },
+    "A100-SXM-80GB-MIG_28x1g.10gb": {
+        "config_ver": {
+            "triton": {
+                "server_target_qps": 9900,
+                "use_triton": true
+            }
+        },
+        "extends": [
+            "A100-SXM-80GB-MIG_1x1g.10gb"
+        ],
+        "deque_timeout_us": 50,
+        "gpu_batch_size": 16,
+        "server_target_qps": 10080
+    },
+    "A100-SXM-80GB-MIG_56x1g.10gb": {
+        "config_ver": {
+            "triton": {
+                "server_target_qps": 20500,
+                "use_triton": true
+            }
+        },
+        "extends": [
+            "A100-SXM-80GB-MIG_1x1g.10gb"
+        ],
+        "deque_timeout_us": 1000,
+        "gpu_batch_size": 12,
+        "server_target_qps": 20160
+    },
+    "A100-SXM-80GBx1": {
+        "config_ver": {
+            "high_accuracy": {
+                "gpu_batch_size": 24,
+                "precision": "fp16",
+                "server_target_qps": 1620
+            }
+        },
+        "extends": [
+            "A100-SXM4-40GBx1"
+        ],
+        "gpu_batch_size": 48,
+        "server_target_qps": 3200
+    },
+    "A100-SXM-80GBx4": {
+        "config_ver": {
+            "maxq": {},
+            "maxq_high_accuracy": {
+                "precision": "fp16",
+                "server_target_qps": 4860
+            },
+            "maxq_high_accuracy_triton": {
+                "precision": "fp16",
+                "server_target_qps": 4740,
+                "use_triton": true
+            },
+            "maxq_triton": {
+                "server_target_qps": 8780,
+                "use_triton": true
+            }
+        },
+        "scales": {
+            "A100-PCIex1": {
+                "server_target_qps": 4
+            }
+        }
+    },
+    "A100-SXM-80GBx8": {
+        "config_ver": {
+            "liquid" : {
+                "server_target_qps": 27900,
+                "gpu_batch_size": 92,
+                "gpu_copy_streams": 2,
+                "gpu_inference_streams":2,
+                "run_infer_on_copy_streams": false
+            },
+            "high_accuracy_liquid": {
+                "gpu_batch_size": 24,
+                "precision": "fp16",
+                "server_target_qps": 14000
+            },
+            "high_accuracy": {
+                "gpu_batch_size": 24,
+                "precision": "fp16",
+                "server_target_qps": 13100
+            }
+        },
+        "extends": [
+            "A100-SXM4-40GBx8"
+        ],
+        "server_target_qps": 26550,
+        "gpu_batch_size": 96,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams":2,
+        "run_infer_on_copy_streams": true
+    },
+    "A100-SXM4-40GBx1": {
+        "active_sms": 60,
+        "config_ver": {
+            "high_accuracy": {
+                "precision": "fp16",
+                "server_target_qps": 1550
+            },
+            "high_accuracy_triton": {
+                "precision": "fp16",
+                "server_target_qps": 1395,
+                "use_triton": true
+            },
+            "triton": {
+                "server_target_qps": 2790,
+                "use_triton": true
+            }
+        },
+        "enable_interleaved": false,
+        "gemm_plugin_fairshare_cache_size": 120,
+        "gpu_batch_size": 64,
+        "graphs_max_seqlen": 200,
+        "server_num_issue_query_threads": 1,
+        "server_target_qps": 3100,
+        "soft_drop": 0.99,
+        "use_small_tile_gemm_plugin": true
+    },
+    "A100-SXM4-40GBx8": {
+        "active_sms": 60,
+        "config_ver": {
+            "high_accuracy": {
+                "gpu_batch_size": 64,
+                "precision": "fp16",
+                "server_target_qps": 11500
+            },
+            "high_accuracy_triton": {
+                "gpu_batch_size": 64,
+                "precision": "fp16",
+                "server_target_qps": 11205,
+                "use_triton": true
+            },
+            "triton": {
+                "server_target_qps": 22455,
+                "use_triton": true
+            }
+        },
+        "enable_interleaved": false,
+        "gemm_plugin_fairshare_cache_size": 120,
+        "gpu_batch_size": 128,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams": 2,
+        "graphs_max_seqlen": 240,
+        "server_num_issue_query_threads": 0,
+        "server_target_qps": 25500,
+        "soft_drop": 0.99,
+        "run_infer_on_copy_streams": true,
+        "use_small_tile_gemm_plugin": true
+    },
+    "A10x1": {
+        "active_sms": 100,
+        "config_ver": {
+            "high_accuracy": {
+                "gpu_batch_size": 8,
+                "precision": "fp16",
+                "server_target_qps": 160
+            },
+            "high_accuracy_triton": {
+                "gpu_batch_size": 8,
+                "precision": "fp16",
+                "server_target_qps": 160,
+                "use_triton": true
+            },
+            "triton": {
+                "server_target_qps": 324,
+                "use_triton": true
+            }
+        },
+        "enable_interleaved": false,
+        "gemm_plugin_fairshare_cache_size": 120,
+        "gpu_batch_size": 16,
+        "graphs_max_seqlen": 240,
+        "server_num_issue_query_threads": 0,
+        "server_target_qps": 360,
+        "soft_drop": 0.993,
+        "use_small_tile_gemm_plugin": true
+    },
+    "A10x8": {
+        "scales": {
+            "A10x1": {
+                "server_target_qps": 8.0
+            }
+        }
+    },
+    "A30x1": {
+        "scales": {
+            "A100-PCIex1": {
+                "server_target_qps": 0.58
+            }
+        },
+        "config_ver": {
+            "high_accuracy": {
+                "gpu_batch_size": 64,
+                "precision": "fp16",
+                "server_target_qps": 280
+            },
+            "high_accuracy_triton": {
+                "gpu_batch_size": 64,
+                "precision": "fp16",
+                "server_target_qps": 280,
+                "use_triton": true
+            },
+            "triton": {
+                "server_target_qps": 324,
+                "use_triton": true
+            }
+        },
+        "server_target_qps": 600,
+        "soft_drop": 0.993
+    },
+    "A30x8": {
+        "config_ver": {
+            "maxq": {},
+            "maxq_high_accuracy": {
+                "gpu_batch_size": 64,
+                "precision": "fp16",
+                "server_target_qps": 2240
+            },
+            "maxq_high_accuracy_triton": {
+                "gpu_batch_size": 64,
+                "precision": "fp16",
+                "server_target_qps": 2240,
+                "use_triton": true
+            },
+            "maxq_triton": {
+                "server_target_qps": 2592,
+                "use_triton": true
+            }
+        },
+        "scales": {
+            "A30x1": {
+                "server_target_qps": 8.0
+            }
+        }
+    },
+    "A30-MIG_1x1g.3gb": {
+        "config_ver": {
+            "hetero": {},
+            "hetero_high_accuracy": {
+                "precision": "fp16",
+                "server_target_qps": 260
+            },
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "extends": [
+            "A30x1"
+        ],
+        "workspace_size": 805306368,
+        "start_from_device": false,
+        "enable_interleaved": false,
+        "gemm_plugin_fairshare_cache_size": 120,
+        "gpu_batch_size": 4,
+        "gpu_copy_streams": 1,
+        "gpu_inference_streams": 1,
+        "graphs_max_seqlen": 200,
+        "server_num_issue_query_threads": 0,
+        "soft_drop": 0.99,
+        "use_small_tile_gemm_plugin": true,
+        "server_target_qps": 260
+    },
+    "A30-MIG_32x1g.3gb": {
+        "config_ver": {
+            "triton": {
+                "server_target_qps": 9200,
+                "use_triton": true
+            }
+        },
+        "extends": [
+            "A30-MIG_1x1g.3gb"
+        ],
+        "deque_timeout_us": 1000,
+        "gpu_batch_size": 10,
+        "server_target_qps": 10000
+    },
+    "T4x1": {
+        "active_sms": 100,
+        "config_ver": {
+            "high_accuracy": {
+                "active_sms": 100,
+                "gpu_batch_size": 8,
+                "gpu_inference_streams": 1,
+                "graph_specs": "(128, 4, 256, 4), (192, 128, 512, 4), (256, 192, 1536, 8), (384, 256, 2048, 16)",
+                "precision": "fp16",
+                "server_num_issue_query_threads": 0,
+                "server_target_qps": 160
+            },
+            "high_accuracy_triton": {
+                "active_sms": 100,
+                "gpu_batch_size": 8,
+                "gpu_inference_streams": 1,
+                "graph_specs": "(128, 4, 256, 4), (192, 128, 512, 4), (256, 192, 1536, 8), (384, 256, 2048, 16)",
+                "precision": "fp16",
+                "server_num_issue_query_threads": 0,
+                "server_target_qps": 144,
+                "use_triton": true
+            },
+            "triton": {
+                "server_target_qps": 324,
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 16,
+        "graphs_max_seqlen": 240,
+        "server_num_issue_query_threads": 0,
+        "server_target_qps": 360,
+        "soft_drop": 0.993
+    },
+    "T4x20": {
+        "active_sms": 100,
+        "config_ver": {
+            "high_accuracy": {
+                "active_sms": 100,
+                "gpu_batch_size": 8,
+                "gpu_inference_streams": 1,
+                "precision": "fp16",
+                "server_num_issue_query_threads": 20,
+                "server_target_qps": 3300,
+                "soft_drop": 0.992
+            },
+            "high_accuracy_triton": {
+                "active_sms": 100,
+                "gpu_batch_size": 8,
+                "gpu_inference_streams": 1,
+                "precision": "fp16",
+                "server_num_issue_query_threads": 20,
+                "server_target_qps": 3300,
+                "soft_drop": 0.992,
+                "use_triton": true
+            },
+            "triton": {
+                "server_target_qps": 5000,
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 14,
+        "graphs_max_seqlen": 260,
+        "server_num_issue_query_threads": 40,
+        "server_target_qps": 5000,
+        "soft_drop": 0.995
+    },
+    "T4x8": {
+        "active_sms": 100,
+        "config_ver": {
+            "high_accuracy": {
+                "active_sms": 100,
+                "gpu_batch_size": 8,
+                "gpu_inference_streams": 1,
+                "precision": "fp16",
+                "server_num_issue_query_threads": 8,
+                "server_target_qps": 1330
+            },
+            "high_accuracy_triton": {
+                "active_sms": 100,
+                "gpu_batch_size": 8,
+                "gpu_inference_streams": 1,
+                "precision": "fp16",
+                "server_num_issue_query_threads": 8,
+                "server_target_qps": 1330,
+                "use_triton": true
+            },
+            "triton": {
+                "server_target_qps": 2200,
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 14,
+        "graphs_max_seqlen": 260,
+        "server_num_issue_query_threads": 16,
+        "server_target_qps": 2200,
+        "soft_drop": 0.992
+    },
+    "TitanRTXx1": {
+        "active_sms": 100,
+        "config_ver": {
+            "high_accuracy": {
+                "precision": "fp16",
+                "server_target_qps": 580
+            },
+            "high_accuracy_triton": {
+                "precision": "fp16",
+                "server_target_qps": 520,
+                "use_triton": true
+            },
+            "triton": {
+                "server_target_qps": 1000,
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 32,
+        "graphs_max_seqlen": 200,
+        "server_num_issue_query_threads": 2,
+        "server_target_qps": 1110,
+        "soft_drop": 0.993
+    },
+    "TitanRTXx4": {
+        "active_sms": 100,
+        "config_ver": {
+            "high_accuracy": {
+                "precision": "fp16",
+                "server_target_qps": 2500
+            },
+            "high_accuracy_triton": {
+                "gpu_batch_size": 32,
+                "precision": "fp16",
+                "server_target_qps": 2250,
+                "use_triton": true
+            },
+            "triton": {
+                "server_target_qps": 4700,
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 32,
+        "graphs_max_seqlen": 200,
+        "server_num_issue_query_threads": 8,
+        "server_target_qps": 4700,
+        "soft_drop": 0.993
+    },
+    "Triton_CPU_2S_6258Rx1": {
+        "config_ver": {
+            "openvino": {
+                "model_name": "bert_int8_openvino",
+                "start_from_device": false,
+                "use_triton": true,
+                "input_dtype": "fp32",
+                "tensor_path": "${PREPROCESSED_DATA_DIR}/squad_tokenized/input_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/input_mask.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/segment_ids.npy",
+                "num_instances": 26,
+                "ov_parameters" : {"CPU_THROUGHPUT_STREAMS" : "14", "SKIP_OV_DYNAMIC_BATCHSIZE": "YES"}
+            }
+        },
+        "batch_size": 0,
+        "server_target_qps": 1
+    },
+    "Triton_CPU_4S_8380Hx1": {
+        "config_ver": {
+            "openvino": {
+                "model_name": "bert_int8_openvino",
+                "start_from_device": false,
+                "use_triton": true,
+                "input_dtype": "fp32",
+                "tensor_path": "${PREPROCESSED_DATA_DIR}/squad_tokenized/input_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/input_mask.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/segment_ids.npy",
+                "batch_size": 0,
+                "num_instances" : 8,
+                "ov_parameters" : {"CPU_THROUGHPUT_STREAMS" : "4", "CPU_THREADS_NUM": "112", "ENABLE_BATCH_PADDING" : "NO", "SKIP_OV_DYNAMIC_BATCHSIZE": "YES"},
+                "server_target_qps": 19.5
+            }
+        },
+        "batch_size": 0,
+        "server_target_qps": 1
+    },
+    "benchmark": "bert",
+    "default": {
+        "coalesced_tensor": true,
+        "enable_interleaved": true,
+        "gpu_copy_streams": 1,
+        "gpu_inference_streams": 2,
+        "input_dtype": "int32",
+        "input_format": "linear",
+        "precision": "int8",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/squad_tokenized/input_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/segment_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/input_mask.npy",
+        "use_cuda_thread_per_device": false,
+        "use_graphs": true
+    },
+    "scenario": "Server"
+}

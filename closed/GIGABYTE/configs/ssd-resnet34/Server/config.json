@@ -1,0 +1,358 @@
+{
+    "A100-PCIex1": {
+        "config_ver": {
+            "triton": {
+                "instance_group_count": 4,
+                "server_target_qps": 786,
+                "use_triton": true
+            }
+        },
+        "deque_timeout_us": 30000,
+        "gpu_batch_size": 8,
+        "gpu_inference_streams": 4,
+        "server_target_qps": 800,
+        "use_cuda_thread_per_device": true
+    },
+    "A100-PCIex2": {
+        "config_ver": {
+            "triton": {
+                "instance_group_count": 4,
+                "server_target_qps": 1572.5,
+                "use_triton": true
+            }
+        },
+        "deque_timeout_us": 30000,
+        "gpu_batch_size": 8,
+        "gpu_inference_streams": 4,
+        "server_target_qps": 1600,
+        "use_cuda_thread_per_device": true
+    },
+    "A100-PCIex8": {
+        "config_ver": {
+            "maxq": {},
+            "maxq_triton": {
+                "instance_group_count": 4,
+                "server_target_qps": 6288,
+                "use_triton": true
+            }
+        },
+        "scales": {
+            "A100-PCIex1": {
+                "server_target_qps": 8.0
+            }
+        }
+    },
+    "A100-SXM-80GB-MIG_1x1g.10gb": {
+        "config_ver": {
+            "hetero": {},
+            "triton": {
+                "instance_group_count": 4,
+                "server_target_qps": 105,
+                "use_triton": true
+            }
+        },
+        "deque_timeout_us": 1000,
+        "gpu_batch_size": 4,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams": 2,
+        "server_target_qps": 130,
+        "start_from_device": true,
+        "use_cuda_thread_per_device": false
+    },
+    "A100-SXM-80GB-MIG_28x1g.10gb": {
+        "config_ver": {
+            "triton": {
+                "instance_group_count": 4,
+                "server_target_qps": 2600,
+                "use_graphs": false,
+                "use_triton": true
+            }
+        },
+        "extends": [
+            "A100-SXM-80GB-MIG_1x1g.10gb"
+        ],
+        "deque_timeout_us": 2000,
+        "gpu_batch_size": 2,
+        "server_target_qps": 3000
+    },
+    "A100-SXM-80GB-MIG_56x1g.10gb": {
+        "config_ver": {
+            "triton": {
+                "instance_group_count": 4,
+                "server_target_qps": 6000,
+                "use_graphs": false,
+                "use_triton": true
+            }
+        },
+        "extends": [
+            "A100-SXM-80GB-MIG_1x1g.10gb"
+        ],
+        "deque_timeout_us": 1000,
+        "gpu_batch_size": 2,
+        "server_target_qps": 7000
+    },
+    "A100-SXM-80GBx1": {
+        "extends": [
+            "A100-SXM4-40GBx1"
+        ]
+    },
+    "A100-SXM-80GBx4": {
+        "config_ver": {
+            "maxq": {},
+            "maxq_triton": {
+                "instance_group_count": 4,
+                "server_target_qps": 3144,
+                "use_triton": true
+            }
+        },
+        "scales": {
+            "A100-PCIex1": {
+                "server_target_qps": 4
+            }
+        }
+    },
+    "A100-SXM-80GBx8": {
+        "config_ver": {
+            "maxq": {},
+            "maxq_triton": {
+                "instance_group_count": 4,
+                "server_target_qps": 7100,
+                "start_from_device": false,
+                "use_triton": true
+            }
+        },
+        "extends": [
+            "A100-SXM4-40GBx8"
+        ],
+        "server_target_qps": 7320
+    },
+    "A100-SXM4-40GBx1": {
+        "config_ver": {
+            "triton": {
+                "instance_group_count": 4,
+                "server_target_qps": 925,
+                "use_triton": true
+            }
+        },
+        "deque_timeout_us": 30000,
+        "gpu_batch_size": 8,
+        "gpu_inference_streams": 4,
+        "server_target_qps": 925,
+        "start_from_device": true,
+        "use_cuda_thread_per_device": true
+    },
+    "A100-SXM4-40GBx8": {
+        "config_ver": {
+            "triton": {
+                "instance_group_count": 4,
+                "server_target_qps": 7100,
+                "start_from_device": false,
+                "use_triton": true
+            }
+        },
+        "deque_timeout_us": 30000,
+        "gpu_batch_size": 8,
+        "gpu_inference_streams": 4,
+        "server_target_qps": 7550,
+        "start_from_device": false,
+        "use_cuda_thread_per_device": true
+    },
+    "A10x1": {
+        "config_ver": {
+            "triton": {
+                "instance_group_count": 4,
+                "server_target_qps": 230,
+                "start_from_device": false,
+                "use_triton": true
+            }
+        },
+        "deque_timeout_us": 30000,
+        "gpu_batch_size": 8,
+        "gpu_inference_streams": 4,
+        "server_target_qps": 250,
+        "start_from_device": false,
+        "use_cuda_thread_per_device": true
+    },
+    "A10x8": {
+        "scales": {
+            "A10x1": {
+                "server_target_qps": 8.0
+            }
+        }
+    },
+    "A30x1": {
+        "scales": {
+            "A100-PCIex1": {
+                "server_target_qps": 0.58
+            }
+        }
+    },
+    "A30x8": {
+        "config_ver": {
+            "maxq": {},
+            "maxq_triton": {
+                "instance_group_count": 4,
+                "server_target_qps": 2736,
+                "use_triton": true
+            }
+        },
+        "scales": {
+            "A100-PCIex8": {
+                "server_target_qps": 0.58
+            }
+        }
+    },
+    "A30-MIG_1x1g.3gb": {
+        "config_ver": {
+            "hetero": {},
+            "triton": {
+                "instance_group_count": 4,
+                "server_target_qps": 70,
+                "use_triton": true
+            }
+        },
+        "extends": [
+            "A30x1"
+        ],
+        "workspace_size": 1610612736,
+        "start_from_device": false,
+        "deque_timeout_us": 200,
+        "gpu_batch_size": 4,
+        "gpu_copy_streams": 1,
+        "gpu_inference_streams": 1,
+        "use_cuda_thread_per_device": false,
+        "server_target_qps": 70
+    },
+    "A30-MIG_32x1g.3gb": {
+        "config_ver": {
+            "triton": {
+                "instance_group_count": 4,
+                "server_target_qps": 3000,
+                "use_graphs": false,
+                "use_triton": true
+            }
+        },
+        "extends": [
+            "A30-MIG_1x1g.3gb"
+        ],
+        "gpu_batch_size": 2,
+        "server_target_qps": 3000
+    },
+    "T4x1": {
+        "config_ver": {
+            "triton": {
+                "instance_group_count": 4,
+                "server_target_qps": 110,
+                "use_triton": true
+            }
+        },
+        "deque_timeout_us": 2000,
+        "gpu_batch_size": 2,
+        "gpu_inference_streams": 4,
+        "server_target_qps": 110,
+        "use_cuda_thread_per_device": false
+    },
+    "T4x20": {
+        "config_ver": {
+            "triton": {
+                "gpu_batch_size": 2,
+                "instance_group_count": 2,
+                "server_target_qps": 2280,
+                "use_triton": true
+            }
+        },
+        "deque_timeout_us": 30000,
+        "gpu_batch_size": 4,
+        "gpu_inference_streams": 2,
+        "server_target_qps": 2400,
+        "use_cuda_thread_per_device": true
+    },
+    "T4x8": {
+        "config_ver": {
+            "triton": {
+                "instance_group_count": 2,
+                "server_target_qps": 720,
+                "use_triton": true
+            }
+        },
+        "deque_timeout_us": 30000,
+        "gpu_batch_size": 4,
+        "gpu_inference_streams": 1,
+        "server_target_qps": 1000,
+        "use_cuda_thread_per_device": true
+    },
+    "TitanRTXx1": {
+        "config_ver": {
+            "triton": {
+                "instance_group_count": 4,
+                "server_target_qps": 332,
+                "use_triton": true
+            }
+        },
+        "deque_timeout_us": 2000,
+        "gpu_batch_size": 32,
+        "gpu_inference_streams": 4,
+        "server_target_qps": 332,
+        "use_cuda_thread_per_device": true
+    },
+    "TitanRTXx4": {
+        "config_ver": {
+            "triton": {
+                "instance_group_count": 4,
+                "server_target_qps": 1600,
+                "use_triton": true
+            }
+        },
+        "deque_timeout_us": 30000,
+        "gpu_batch_size": 4,
+        "gpu_inference_streams": 2,
+        "server_target_qps": 1630,
+        "use_cuda_thread_per_device": true
+    },
+    "Triton_CPU_2S_6258Rx1": {
+        "config_ver": {
+            "openvino": {
+                "model_name": "ssd-resnet34_int8_openvino",
+                "start_from_device": false,
+                "use_triton": true,
+                "input_dtype": "fp32",
+                "map_path": "data_maps/coco/val_map.txt",
+                "tensor_path": "${PREPROCESSED_DATA_DIR}/coco/val2017/SSDResNet34/fp32_nomean",
+                "batch_size": 1,
+                "num_instances" : 4,
+                "ov_parameters" : {"CPU_THROUGHPUT_STREAMS" : "2", "CPU_THREADS_NUM": "56", "ENABLE_BATCH_PADDING" : "NO", "SKIP_OV_DYNAMIC_BATCHSIZE": "YES"},
+                "server_target_qps": 13.5
+            }
+        }
+    },
+    "Triton_CPU_4S_8380Hx1": {
+        "config_ver": {
+            "openvino": {
+                "model_name": "ssd-resnet34_int8_openvino",
+                "start_from_device": false,
+                "use_triton": true,
+                "input_dtype": "fp32",
+                "map_path": "data_maps/coco/val_map.txt",
+                "tensor_path": "${PREPROCESSED_DATA_DIR}/coco/val2017/SSDResNet34/fp32_nomean",
+                "batch_size": 1,
+                "num_instances" : 8,
+                "ov_parameters" : {"CPU_THROUGHPUT_STREAMS" : "4", "CPU_THREADS_NUM": "112", "ENABLE_BATCH_PADDING" : "NO", "SKIP_OV_DYNAMIC_BATCHSIZE": "YES"},
+                "request_timeout_usec" : 64000,
+                "server_target_qps": 60.5
+            }
+        }
+    },
+    "benchmark": "ssd-resnet34",
+    "default": {
+        "active_sms": 100,
+        "gpu_copy_streams": 4,
+        "input_dtype": "int8",
+        "input_format": "linear",
+        "map_path": "data_maps/coco/val_map.txt",
+        "precision": "int8",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/coco/val2017/SSDResNet34/int8_linear",
+        "use_deque_limit": true,
+        "use_graphs": false
+    },
+    "scenario": "Server"
+}

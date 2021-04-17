@@ -1,0 +1,69 @@
+{
+    "A100-PCIex1": {
+        "config_ver": {
+            "triton": {
+                "instance_group_count": 4,
+                "server_target_qps": 786,
+                "use_triton": true
+            }
+        },
+        "deque_timeout_us": 30000,
+        "gpu_batch_size": 8,
+        "gpu_inference_streams": 4,
+        "server_target_qps": 760,
+        "use_cuda_thread_per_device": true
+    },
+    "A100-PCIex2": {
+        "config_ver": {
+            "triton": {
+                "instance_group_count": 4,
+                "server_target_qps": 1572.5,
+                "use_triton": true
+            }
+        },
+        "deque_timeout_us": 30000,
+        "gpu_batch_size": 8,
+        "gpu_inference_streams": 4,
+        "server_target_qps": 1575,
+        "use_cuda_thread_per_device": true
+    },
+    "A100-PCIex4": {
+        "config_ver": {
+            "maxq": {},
+            "maxq_triton": {
+                "instance_group_count": 4,
+                "server_target_qps": 3144,
+                "use_triton": true
+            }
+        },
+        "scales": {
+            "A100-PCIex1": {
+                "server_target_qps": 4.0
+            }
+        }
+    },
+    "A10x1": {
+        "config_ver": {
+            "triton": {
+                "instance_group_count": 4,
+                "server_target_qps": 230,
+                "start_from_device": false,
+                "use_triton": true
+            }
+        },
+        "deque_timeout_us": 30000,
+        "gpu_batch_size": 8,
+        "gpu_inference_streams": 4,
+        "server_target_qps": 288,
+        "start_from_device": false,
+        "use_cuda_thread_per_device": true
+    },
+    "A10x4": {
+        "scales": {
+            "A10x1": {
+                "server_target_qps": 4.0
+            }
+        }
+    },
+    "scenario": "Server"
+}

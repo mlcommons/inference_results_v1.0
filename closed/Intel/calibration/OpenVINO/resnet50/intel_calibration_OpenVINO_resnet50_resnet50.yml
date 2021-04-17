@@ -1,0 +1,30 @@
+models:
+  - name: resnet-50
+    launchers:
+      - framework: dlsdk
+        tags:
+          - FP16
+        model:   <PATH-TO-resnet50_v1.xml>
+        weights: <PATH-TO-resnet50_v1.bin>
+        adapter: classification
+
+    datasets:
+      - name: imagenet_1001_classes
+        annotation_conversion:
+          converter: imagenet
+          annotation_file: <PATH-TO-imagenet_calibration_list_1.txt>
+          has_background: True
+        data_source: <PATH-TO-dataset-imagenet-ilsvrc2012-val>
+        metrics:
+          - name: accuracy@top1
+            type: accuracy
+            top_k: 1
+          - name: accuracy@top5
+            type: accuracy
+            top_k: 5
+        preprocessing:
+          - type: resize
+            size: 256
+            aspect_ratio_scale: greater
+          - type: crop
+            size: 224

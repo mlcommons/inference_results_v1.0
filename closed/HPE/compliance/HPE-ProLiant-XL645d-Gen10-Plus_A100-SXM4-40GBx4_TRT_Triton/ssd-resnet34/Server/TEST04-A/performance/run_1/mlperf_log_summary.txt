@@ -1,0 +1,57 @@
+================================================
+MLPerf Results Summary
+================================================
+SUT name : Triton_Server
+Scenario : Server
+Mode     : PerformanceOnly
+Scheduled samples per second : 4056.31
+Result is : INVALID
+  Performance constraints satisfied : Yes
+  Min duration satisfied : NO
+  Min queries satisfied : NO
+Recommendations:
+ * Increase the target QPS so the loadgen pre-generates more queries.
+ * The test exited early, before enough queries were issued.
+   See the detailed log for why this may have occurred.
+
+================================================
+Additional Stats
+================================================
+Completed samples per second    : 2385.72
+
+Min latency (ns)                : 10875793
+Max latency (ns)                : 24914466
+Mean latency (ns)               : 18239297
+50.00 percentile latency (ns)   : 17912768
+90.00 percentile latency (ns)   : 23470030
+95.00 percentile latency (ns)   : 24691444
+97.00 percentile latency (ns)   : 24829513
+99.00 percentile latency (ns)   : 24914466
+99.90 percentile latency (ns)   : 24914466
+
+================================================
+Test Parameters Used
+================================================
+samples_per_query : 1
+target_qps : 3550
+target_latency (ns): 100000000
+max_async_queries : 0
+min_duration (ms): 600000
+max_duration (ms): 0
+min_query_count : 270336
+max_query_count : 0
+qsl_rng_seed : 7322528924094909334
+sample_index_rng_seed : 1570999273408051088
+schedule_rng_seed : 3507442325620259414
+accuracy_log_rng_seed : 0
+accuracy_log_probability : 0
+accuracy_log_sampling_target : 0
+print_timestamps : 0
+performance_issue_unique : 1
+performance_issue_same : 0
+performance_issue_same_index : 0
+performance_sample_count : 64
+
+1 warning encountered. See detailed log.
+
+No errors encountered during test.

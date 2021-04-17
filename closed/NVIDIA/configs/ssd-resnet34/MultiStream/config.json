@@ -1,0 +1,118 @@
+{
+    "A100-PCIex1": {
+        "config_ver": {
+            "triton": {
+                "gpu_batch_size": 12,
+                "gpu_multi_stream_samples_per_query": 48,
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 12,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams": 2,
+        "gpu_multi_stream_samples_per_query": 48
+    },
+    "A100-SXM-80GB-MIG_1x1g.10gb": {
+        "config_ver": {
+            "triton": {
+                "gpu_batch_size": 2,
+                "gpu_multi_stream_samples_per_query": 7,
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 2,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams": 4,
+        "gpu_multi_stream_samples_per_query": 7,
+        "start_from_device": true
+    },
+    "A100-SXM-80GB-MIG_56x1g.10gb": {
+        "config_ver": {
+            "triton": {
+                "gpu_batch_size": 2,
+                "gpu_multi_stream_samples_per_query": 392,
+                "use_triton": true
+            }
+        },
+        "extends": [
+            "A100-SXM-80GB-MIG_1x1g.10gb"
+        ],
+        "gpu_multi_stream_samples_per_query": 392
+    },
+    "A100-SXM-80GBx1": {
+        "extends": [
+            "A100-SXM4-40GBx1"
+        ]
+    },
+    "A100-SXM4-40GBx1": {
+        "config_ver": {
+            "triton": {
+                "gpu_batch_size": 14,
+                "gpu_multi_stream_samples_per_query": 56,
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 60,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams": 2,
+        "gpu_multi_stream_samples_per_query": 60,
+        "start_from_device": true
+    },
+    "A10x1": {
+        "config_ver": {
+            "triton": {
+                "gpu_batch_size": 4,
+                "gpu_multi_stream_samples_per_query": 16,
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 4,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams": 2,
+        "gpu_multi_stream_samples_per_query": 18
+    },
+    "A30x1": {
+        "extends": [
+            "A100-PCIex1"
+        ],
+        "gpu_batch_size": 12,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams": 2,
+        "gpu_multi_stream_samples_per_query": 28
+    },
+    "AGX_Xavier": {
+        "config_ver": {
+            "maxq": {}
+        },
+        "gpu_batch_size": 2,
+        "gpu_multi_stream_samples_per_query": 2
+    },
+    "T4x1": {
+        "config_ver": {
+            "triton": {
+                "gpu_batch_size": 2,
+                "gpu_multi_stream_samples_per_query": 8,
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 4,
+        "gpu_multi_stream_samples_per_query": 8
+    },
+    "Xavier_NX": {
+        "config_ver": {
+            "maxq": {}
+        },
+        "gpu_batch_size": 1,
+        "gpu_multi_stream_samples_per_query": 1
+    },
+    "benchmark": "ssd-resnet34",
+    "default": {
+        "input_dtype": "int8",
+        "input_format": "linear",
+        "map_path": "data_maps/coco/val_map.txt",
+        "precision": "int8",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/coco/val2017/SSDResNet34/int8_linear",
+        "use_graphs": false
+    },
+    "scenario": "MultiStream"
+}

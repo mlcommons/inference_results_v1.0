@@ -1,0 +1,163 @@
+From f85e543b96ac0bd0d53ac6fa6eb25916207684e7 Mon Sep 17 00:00:00 2001
+From: Feng Tian <feng.tian@intel.com>
+Date: Wed, 9 Sep 2020 05:15:07 +0800
+Subject: [PATCH] ilit show case on mlperf rn50
+
+---
+ vision/classification_and_detection/conf.yaml      | 23 ++++++++++++++++++++
+ .../python/imagenet.py                             | 22 ++++++++++++++++---
+ vision/classification_and_detection/python/main.py | 25 +++++++++++++++++++++-
+ 3 files changed, 66 insertions(+), 4 deletions(-)
+ create mode 100644 vision/classification_and_detection/conf.yaml
+
+diff --git a/vision/classification_and_detection/conf.yaml b/vision/classification_and_detection/conf.yaml
+new file mode 100644
+index 0000000..03f7b7f
+--- /dev/null
++++ b/vision/classification_and_detection/conf.yaml
+@@ -0,0 +1,23 @@
++framework:
++  - name: tensorflow                              # possible values are tensorflow, mxnet and pytorch
++    inputs: input_tensor
++    outputs: softmax_tensor, ArgMax
++
++calibration:
++  - iterations: 5
++    algorithm:
++        activation: minmax
++
++tuning:
++    metric:
++      - topk: 1
++    accuracy_criterion:
++      - relative: 0.01                              # the tuning target of accuracy loss percentage: 1%
++    timeout: 0                                      # tuning timeout (seconds)
++    random_seed: 9527
++    ops: {                                           # optional. tuning constraints on op-wise for advance user to reduce tuning space.
++           'resnet_model/dense/MatMul': {
++             'activation':  {'dtype': ['fp32']},
++             'weight': {'dtype': ['fp32']}
++           }
++         }
+diff --git a/vision/classification_and_detection/python/imagenet.py b/vision/classification_and_detection/python/imagenet.py
+index 57865c6..12c79da 100755
+--- a/vision/classification_and_detection/python/imagenet.py
++++ b/vision/classification_and_detection/python/imagenet.py
+@@ -49,7 +49,13 @@ class Imagenet(dataset.Dataset):
+         start = time.time()
+         with open(image_list, 'r') as f:
+             for s in f:
+-                image_name, label = re.split(r"\s+", s.strip())
++                s_split = re.split(r"\s+", s.strip())
++                if len(s_split) == 2:
++                    image_name, label = s_split
++                else:
++                    assert len(s_split) == 1
++                    image_name = s_split[0]
++                    label = False
+                 src = os.path.join(data_path, image_name)
+                 if not os.path.exists(src):
+                     # if the image does not exists ignore it
+@@ -65,7 +71,11 @@ class Imagenet(dataset.Dataset):
+                     np.save(dst, processed)
+                 
+                 self.image_list.append(image_name)
+-                self.label_list.append(int(label))
++                if label:
++                    if not os.environ.get('ilit_label_adjust', False):
++                        self.label_list.append(int(label))
++                    else:
++                        self.label_list.append(int(label) + 1)
+ 
+                 # limit the dataset if requested
+                 if self.count and len(self.image_list) >= self.count:
+@@ -87,7 +97,13 @@ class Imagenet(dataset.Dataset):
+         """Get image by number in the list."""
+         dst = os.path.join(self.cache_dir, self.image_list[nr])
+         img = np.load(dst + ".npy")
+-        return img, self.label_list[nr]
++        return img, np.asarray(self.label_list[nr] if len(self.label_list) > 0 else [])
++
++    def __getitem__(self, index):
++        return self.get_item(index)
++
++    def __len__(self):
++        return len(self.image_list)
+ 
+     def get_item_loc(self, nr):
+         src = os.path.join(self.data_path, self.image_list[nr])
+diff --git a/vision/classification_and_detection/python/main.py b/vision/classification_and_detection/python/main.py
+index cd6825f..95ea03b 100755
+--- a/vision/classification_and_detection/python/main.py
++++ b/vision/classification_and_detection/python/main.py
+@@ -175,6 +175,7 @@ def get_args():
+     parser.add_argument("--dataset", choices=SUPPORTED_DATASETS.keys(), help="dataset")
+     parser.add_argument("--dataset-path", required=True, help="path to the dataset")
+     parser.add_argument("--dataset-list", help="path to the dataset list")
++    parser.add_argument("--calib-dataset-list", help="path to the dataset list")
+     parser.add_argument("--data-format", choices=["NCHW", "NHWC"], help="data format")
+     parser.add_argument("--profile", choices=SUPPORTED_PROFILES.keys(), help="standard profiles")
+     parser.add_argument("--scenario", default="SingleStream",
+@@ -190,6 +191,7 @@ def get_args():
+     parser.add_argument("--qps", type=int, help="target qps")
+     parser.add_argument("--cache", type=int, default=0, help="use cache")
+     parser.add_argument("--accuracy", action="store_true", help="enable accuracy pass")
++    parser.add_argument("--tune", action="store_true", help="use ilit to auto-tune")
+     parser.add_argument("--find-peak-performance", action="store_true", help="enable finding peak performance pass")
+ 
+     # file to use mlperf rules compliant parameters
+@@ -399,7 +401,6 @@ def add_results(final_results, name, result_dict, result_list, took, show_accura
+         name, result["qps"], result["mean"], took, acc_str,
+         len(result_list), buckets_str))
+ 
+-
+ def main():
+     global last_timeing
+     args = get_args()
+@@ -419,6 +420,10 @@ def main():
+     if count:
+         count_override = True
+ 
++    if args.tune:
++        # mlperf dataset.PostProcessCommon adjust offset by - 1. iLiT doesn't use mlperf
++        # post_process, we need adjust label before feeding to metric evaluator.
++        os.environ['ilit_label_adjust'] = 'TRUE'
+     # dataset to use
+     wanted_dataset, pre_proc, post_proc, kwargs = SUPPORTED_DATASETS[args.dataset]
+     ds = wanted_dataset(data_path=args.dataset_path,
+@@ -428,6 +433,13 @@ def main():
+                         pre_process=pre_proc,
+                         use_cache=args.cache,
+                         count=count, **kwargs)
++    calib_ds = wanted_dataset(data_path=args.dataset_path,
++                        image_list=args.calib_dataset_list,
++                        name=args.dataset,
++                        image_format=image_format,
++                        pre_process=pre_proc,
++                        use_cache=args.cache,
++                        count=count, **kwargs)
+     # load model to backend
+     model = backend.load(args.model, inputs=args.inputs, outputs=args.outputs)
+     final_results = {
+@@ -437,6 +449,17 @@ def main():
+         "cmdline": str(args),
+     }
+ 
++    if args.tune:
++        import ilit
++        tuner = ilit.Tuner('./conf.yaml')
++        dataloader = tuner.dataloader(ds, batch_size=100)
++        calib_dataloader = tuner.dataloader(calib_ds, batch_size=100)
++        q_model = tuner.tune(args.model, q_dataloader=calib_dataloader, eval_dataloader=dataloader)
++        from tensorflow.python.platform import gfile
++        f = gfile.GFile('./int8_resnet50_v1.pb', 'wb')
++        f.write(q_model.as_graph_def().SerializeToString()) 
++        return
++
+     mlperf_conf = os.path.abspath(args.mlperf_conf)
+     if not os.path.exists(mlperf_conf):
+         log.error("{} not found".format(mlperf_conf))
+-- 
+1.8.3.1
+
+

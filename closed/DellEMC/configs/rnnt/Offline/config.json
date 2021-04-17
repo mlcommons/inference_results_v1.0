@@ -1,0 +1,119 @@
+{
+    "DSS8440_A100-PCIE-40GBx10": {
+        "audio_batch_size": 512,
+        "dali_batches_issue_ahead": 4,
+        "dali_pipeline_depth": 4,
+        "gpu_batch_size": 2048,
+        "gpu_copy_streams": 1,
+        "gpu_offline_expected_qps": 108000,
+        "num_warmups": 512
+    },
+    "DSS8440_A40x10": {
+        "audio_batch_size": 512,
+        "audio_buffer_num_lines": 4096,
+        "dali_batches_issue_ahead": 4,
+        "dali_pipeline_depth": 4,
+        "gpu_batch_size": 2048,
+        "gpu_copy_streams": 1,
+        "gpu_offline_expected_qps": 59900,
+        "num_warmups": 512
+    },
+    "R740_A100-PCIe-40GBx3": {
+        "audio_batch_size": 512,
+        "audio_buffer_num_lines": 4096,
+        "dali_batches_issue_ahead": 4,
+        "dali_pipeline_depth": 4,
+        "gpu_batch_size": 2048,
+        "gpu_copy_streams": 1,
+        "gpu_offline_expected_qps": 32400,
+        "min_query_count": 24576,
+        "num_warmups": 512
+    },
+    "R750xa_A100-PCIE-40GBx4": {
+        "audio_batch_size": 512,
+        "audio_buffer_num_lines": 2048,
+        "dali_batches_issue_ahead": 4,
+        "dali_pipeline_depth": 4,
+        "gpu_batch_size": 2048,
+        "gpu_copy_streams": 1,
+        "gpu_offline_expected_qps": 47400,
+        "num_warmups": 512
+    },
+    "R7525_QuadroRTX8000x3": {
+        "audio_batch_size": 128,
+        "disable_encoder_plugin": true,
+        "gpu_batch_size": 2048,
+        "gpu_copy_streams": 1,
+        "gpu_inference_streams": 1,
+        "gpu_offline_expected_qps": 16900
+    },
+    "XE2420_T4x1": {
+        "audio_batch_size": 128,
+        "audio_buffer_num_lines": 4096,
+        "dali_batches_issue_ahead": 4,
+        "dali_pipeline_depth": 4,
+        "disable_encoder_plugin": true,
+        "gpu_batch_size": 2048,
+        "gpu_copy_streams": 4,
+        "gpu_offline_expected_qps": 1400,
+        "num_warmups": 2048
+    },
+    "XE2420_T4x4": {
+        "audio_batch_size": 128,
+        "audio_buffer_num_lines": 4096,
+        "dali_batches_issue_ahead": 4,
+        "dali_pipeline_depth": 4,
+        "disable_encoder_plugin": true,
+        "gpu_batch_size": 2048,
+        "gpu_copy_streams": 4,
+        "gpu_offline_expected_qps": 11400,
+        "num_warmups": 20480
+    },
+    "XE8545_A100-SXM4-40GBx4": {
+        "config_ver": {
+            "7763":{
+                    "system_name": "XE8545_7763_A100-SXM4-40GBx4_TRT"
+            },
+	    "7713":{
+                    "system_name": "XE8545_7713_A100-SXM4-40GBx4_TRT"
+            }
+        },
+        "audio_batch_size": 512,
+        "dali_batches_issue_ahead": 4,
+        "dali_pipeline_depth": 4,
+        "gpu_batch_size": 2048,
+        "gpu_copy_streams": 1,
+        "gpu_offline_expected_qps": 57000,
+        "num_warmups": 40480,
+        "start_from_device": false
+    },
+    "XE8545_A100-SXM4-80GBx4": {
+        "config_ver": {
+           "7763":{
+                    "system_name": "XE8545_7763_A100-SXM4-80GBx4_TRT",
+		    "numa_config": "0:48-63,176-191&1:16-31,144-159&2:112-127,240-255&3:80-95,208-223"
+            }
+        },
+        "extends": [
+            "XE8545_A100-SXM4-40GBx4"
+        ],
+        "nobatch_sorting": true,
+        "audio_batch_size": 1024,
+        "audio_buffer_num_lines": 4096,
+        "dali_batches_issue_ahead": 0,
+        "dali_pipeline_depth": 1,
+        "gpu_batch_size":2048,
+        "gpu_offline_expected_qps": 72000
+    },
+    "benchmark": "rnnt",
+    "default": {
+        "gpu_inference_streams": 1,
+        "input_dtype": "fp16",
+        "input_format": "linear",
+        "map_path": "data_maps/rnnt_dev_clean_512/val_map.txt",
+        "precision": "fp16",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/rnnt_dev_clean_512/fp16",
+        "use_graphs": true
+    },
+    "scenario": "Offline"
+}

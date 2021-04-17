@@ -1,0 +1,84 @@
+{
+    "A100-SXM4-40GBx1": {
+        "config_ver": {
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 8640,
+        "performance_sample_count" : 8640,
+        "gpu_copy_streams": 4,
+        "gpu_offline_expected_qps": 125280,
+        "run_infer_on_copy_streams": true,
+        "start_from_device": true
+    },
+    "A100-SXM4-40GBx8": {
+        "config_ver": {
+            "triton": {
+                "start_from_device": false,
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 8640,
+        "performance_sample_count" : 8640,
+        "gpu_copy_streams": 3,
+        "gpu_inference_streams": 2,
+        "gpu_offline_expected_qps": 989280,
+        "run_infer_on_copy_streams": false,
+        "start_from_device": true
+    },
+    "A10x1": {
+        "config_ver": {
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 8640,
+        "performance_sample_count" : 8640,
+        "gpu_copy_streams": 4,
+        "start_from_device": false,
+        "gpu_offline_expected_qps": 63860,
+        "warmup_duration" : 5
+    },
+    "A10x2": {
+        "gpu_batch_size": 8640,
+        "performance_sample_count" : 8640,
+        "gpu_copy_streams": 4,
+        "start_from_device": false,
+        "gpu_offline_expected_qps": 127720,
+        "warmup_duration" : 5
+    },
+    "T4x1": {
+        "config_ver": {
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 1280,
+        "gpu_copy_streams": 4,
+        "gpu_offline_expected_qps":27840
+    },
+    "T4x8": {
+        "config_ver": {
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 1280,
+        "gpu_copy_streams": 4,
+        "gpu_offline_expected_qps": 179200,
+        "run_infer_on_copy_streams": false,
+        "start_from_device": false
+    },
+    "benchmark": "resnet50",
+    "default": {
+        "gpu_inference_streams": 1,
+        "input_dtype": "int8",
+        "input_format": "chw4",
+        "map_path": "data_maps/imagenet/val_map.txt",
+        "precision": "int8",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/imagenet/ResNet50/int8_chw4",
+        "use_graphs": false
+    },
+    "scenario": "Offline"
+}

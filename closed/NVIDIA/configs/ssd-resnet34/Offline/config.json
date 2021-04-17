@@ -1,0 +1,343 @@
+{
+    "A100-PCIe-MIG_1x1g.5gb": {
+        "extends": [
+            "A100-SXM4-40GB-MIG_1x1g.5gb"
+        ]
+    },
+    "A100-PCIex1": {
+        "config_ver": {
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 64,
+        "gpu_copy_streams": 4,
+        "gpu_inference_streams": 2,
+        "gpu_offline_expected_qps": 960,
+        "run_infer_on_copy_streams": false
+    },
+    "A100-PCIex2": {
+        "config_ver": {
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 64,
+        "gpu_copy_streams": 4,
+        "gpu_inference_streams": 2,
+        "gpu_offline_expected_qps": 1728
+    },
+    "A100-PCIex8": {
+        "config_ver": {
+            "maxq": {
+                "gpu_offline_expected_qps": 5800
+            },
+            "maxq_triton": {
+                "use_triton": true
+            }
+        },
+        "scales": {
+            "A100-PCIex1": {
+                "gpu_offline_expected_qps": 8.0
+            }
+        }
+    },
+    "A100-SXM-80GB-MIG_1x1g.10gb": {
+        "config_ver": {
+            "hetero": {}
+        },
+        "extends": [
+            "A100-SXM4-40GB-MIG_1x1g.5gb"
+        ]
+    },
+    "A100-SXM-80GB-MIG_28x1g.10gb": {
+        "scales": {
+            "A100-SXM4-40GB-MIG_1x1g.5gb": {
+                "gpu_offline_expected_qps": 28
+            }
+        }
+    },
+    "A100-SXM-80GB-MIG_56x1g.10gb": {
+        "scales": {
+            "A100-SXM-80GB-MIG_1x1g.10gb": {
+                "gpu_offline_expected_qps": 56
+            }
+        }
+    },
+    "A100-SXM-80GBx1": {
+        "extends": [
+            "A100-SXM4-40GBx1"
+        ]
+    },
+    "A100-SXM-80GBx4": {
+        "config_ver": {
+            "maxq": {},
+            "maxq_triton": {
+                "use_triton": true
+            },
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "scales": {
+            "A100-PCIex1": {
+                "gpu_offline_expected_qps": 4
+            }
+        }
+    },
+    "A100-SXM-80GBx8": {
+        "config_ver": {
+            "maxq": {},
+            "maxq_triton": {
+                "start_from_device": false,
+                "use_triton": true
+            }
+        },
+        "extends": [
+            "A100-SXM4-40GBx8"
+        ],
+        "gpu_batch_size": 64,
+        "gpu_copy_streams": 4,
+        "gpu_inference_streams": 2,
+        "gpu_offline_expected_qps": 7800,
+        "run_infer_on_copy_streams": false,
+        "start_from_device": true
+    },
+    "A100-SXM4-40GB-MIG_1x1g.5gb": {
+        "config_ver": {
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 32,
+        "gpu_copy_streams": 2,
+        "gpu_inference_streams": 2,
+        "gpu_offline_expected_qps": 135,
+        "start_from_device": true
+    },
+    "A100-SXM4-40GBx1": {
+        "config_ver": {
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 64,
+        "gpu_copy_streams": 4,
+        "gpu_inference_streams": 2,
+        "gpu_offline_expected_qps": 960,
+        "start_from_device": true
+    },
+    "A100-SXM4-40GBx8": {
+        "config_ver": {
+            "triton": {
+                "start_from_device": false,
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 64,
+        "gpu_copy_streams": 4,
+        "gpu_inference_streams": 1,
+        "gpu_offline_expected_qps": 7500,
+        "start_from_device": true
+    },
+    "A10x1": {
+        "config_ver": {
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 32,
+        "gpu_copy_streams": 4,
+        "gpu_inference_streams": 1,
+        "gpu_offline_expected_qps": 310
+    },
+    "A10x8": {
+        "config_ver": {
+            "triton": {
+                "gpu_offline_expected_qps": 2470
+            }
+        },
+        "scales": {
+            "A10x1": {
+                "gpu_offline_expected_qps": 8.0
+            }
+        }
+    },
+    "A30-MIG_1x1g.3gb": {
+        "config_ver": {
+            "hetero": {},
+            "triton": {
+                "gpu_offline_expected_qps": 125,
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 4,
+        "gpu_copy_streams": 1,
+        "gpu_inference_streams": 1,
+        "gpu_offline_expected_qps": 120,
+        "workspace_size": 1610612736
+    },
+    "A30-MIG_32x1g.3gb": {
+        "scales": {
+            "A30-MIG_1x1g.3gb": {
+                "gpu_offline_expected_qps": 32
+            }
+        }
+    },
+    "A30x1": {
+        "config_ver": {
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 32,
+        "gpu_copy_streams": 4,
+        "gpu_offline_expected_qps": 470,
+        "scales": {
+            "A100-PCIex1": {
+                "gpu_offline_expected_qps": 0.58
+            }
+        }
+    },
+    "A30x8": {
+        "config_ver": {
+            "maxq": {},
+            "maxq_triton": {
+                "use_triton": true
+            },
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "scales": {
+            "A30x1": {
+                "gpu_offline_expected_qps": 8.0
+            }
+        }
+    },
+    "AGX_Xavier": {
+        "concurrent_offline_expected_qps": 56,
+        "config_ver": {
+            "maxq": {
+                "concurrent_offline_expected_qps": 42
+            }
+        },
+        "dla_batch_size": 1,
+        "dla_copy_streams": 1,
+        "dla_core": 0,
+        "dla_inference_streams": 1,
+        "dla_offline_expected_qps": 10,
+        "gpu_batch_size": 2,
+        "gpu_copy_streams": 4,
+        "gpu_inference_streams": 1,
+        "gpu_offline_expected_qps": 35.1243
+    },
+    "T4x1": {
+        "config_ver": {
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 12,
+        "gpu_copy_streams": 4,
+        "gpu_inference_streams": 1,
+        "gpu_offline_expected_qps": 140
+    },
+    "T4x20": {
+        "config_ver": {
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 12,
+        "gpu_copy_streams": 4,
+        "gpu_inference_streams": 1,
+        "gpu_offline_expected_qps": 2800
+    },
+    "T4x8": {
+        "config_ver": {
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "gpu_batch_size": 12,
+        "gpu_copy_streams": 4,
+        "gpu_inference_streams": 1,
+        "gpu_offline_expected_qps": 1116
+    },
+    "Triton_CPU_2S_6258Rx1": {
+        "batch_size": 1,
+        "config_ver": {
+            "openvino": {
+                "batch_size": 1,
+                "input_dtype": "fp32",
+                "map_path": "data_maps/coco/val_map.txt",
+                "max_queue_delay_usec": 100,
+                "model_name": "ssd-resnet34_int8_openvino",
+                "num_instances": 56,
+                "ov_parameters": {
+                    "CPU_THREADS_NUM": "56",
+                    "CPU_THROUGHPUT_STREAMS": "56",
+                    "ENABLE_BATCH_PADDING": "NO",
+                    "SKIP_OV_DYNAMIC_BATCHSIZE": "YES"
+                },
+                "start_from_device": false,
+                "tensor_path": "${PREPROCESSED_DATA_DIR}/coco/val2017/SSDResNet34/fp32",
+                "use_triton": true
+            }
+        },
+        "offline_expected_qps": 51,
+        "run_infer_on_copy_streams": false
+    },
+    "Triton_CPU_4S_8380Hx1": {
+        "batch_size": 1,
+        "config_ver": {
+            "openvino": {
+                "batch_size": 1,
+                "input_dtype": "fp32",
+                "map_path": "data_maps/coco/val_map.txt",
+                "max_queue_delay_usec": 100,
+                "model_name": "ssd-resnet34_int8_openvino",
+                "num_instances": 112,
+                "ov_parameters": {
+                    "CPU_THREADS_NUM": "112",
+                    "CPU_THROUGHPUT_STREAMS": "112",
+                    "ENABLE_BATCH_PADDING": "NO",
+                    "SKIP_OV_DYNAMIC_BATCHSIZE": "YES"
+                },
+                "start_from_device": false,
+                "tensor_path": "${PREPROCESSED_DATA_DIR}/coco/val2017/SSDResNet34/fp32",
+                "use_triton": true
+            }
+        },
+        "offline_expected_qps": 112,
+        "run_infer_on_copy_streams": false
+    },
+    "Xavier_NX": {
+        "concurrent_offline_expected_qps": 40,
+        "config_ver": {
+            "maxq": {
+                "concurrent_offline_expected_qps": 40
+            }
+        },
+        "dla_batch_size": 1,
+        "dla_copy_streams": 1,
+        "dla_core": 0,
+        "dla_inference_streams": 1,
+        "dla_offline_expected_qps": 10,
+        "gpu_batch_size": 1,
+        "gpu_copy_streams": 4,
+        "gpu_inference_streams": 1,
+        "gpu_offline_expected_qps": 17
+    },
+    "benchmark": "ssd-resnet34",
+    "default": {
+        "input_dtype": "int8",
+        "input_format": "linear",
+        "map_path": "data_maps/coco/val_map.txt",
+        "precision": "int8",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/coco/val2017/SSDResNet34/int8_linear",
+        "use_graphs": false
+    },
+    "scenario": "Offline"
+}

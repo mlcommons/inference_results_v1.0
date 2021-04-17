@@ -1,0 +1,304 @@
+{
+    "A100-PCIex1": {
+        "config_ver": {
+            "high_accuracy": {},
+            "high_accuracy_triton": {
+                "use_triton": true
+            },
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "extends": [
+            "int8_base"
+        ],
+        "gpu_batch_size": 2,
+        "gpu_copy_streams": 2,
+        "gpu_offline_expected_qps": 53
+    },
+    "A100-PCIex2": {
+        "scales": {
+            "A100-PCIex1": {
+                "gpu_offline_expected_qps": 2
+            }
+        }
+    },
+    "A100-PCIex8": {
+        "scales": {
+            "A100-PCIex1": {
+                "gpu_offline_expected_qps": 8.0
+            }
+        }
+    },
+    "A100-SXM-80GBx1": {
+        "extends": [
+            "A100-SXM4-40GBx1"
+        ]
+    },
+    "A100-SXM-80GBx1-MIG_1x1g.10gb": {
+        "extends": [
+            "A100-SXM4-40GBx1-MIG_1x1g.5gb"
+        ]
+    },
+    "A100-SXM-80GBx1-MIG_1x2g.20gb": {
+        "extends": [
+            "A100-SXM4-40GBx1-MIG_1x2g.10gb"
+        ]
+    },
+    "A100-SXM-80GBx1-MIG_1x3g.40gb": {
+        "extends": [
+            "A100-SXM4-40GBx1-MIG_1x3g.20gb"
+        ]
+    },
+    "A100-SXM-80GBx4": {
+        "config_ver": {
+            "high_accuracy": {},
+            "high_accuracy_triton": {
+                "instance_group_count": 1,
+                "numa_config": "",
+                "use_triton": true
+            },
+            "triton": {
+                "instance_group_count": 1,
+                "numa_config": "",
+                "use_triton": true
+            }
+        },
+        "extends": [
+            "int8_base"
+        ],
+        "gpu_batch_size": 2,
+        "gpu_copy_streams": 2,
+        "gpu_offline_expected_qps": 220,
+        "numa_config": "3:0-15,64-79&2:16-31,80-95&1:32-47,96-111&0:48-63,112-127"
+    },
+    "A100-SXM-80GBx4-MIG_28x1g.10gb": {
+        "scales": {
+            "A100-SXM4-40GBx1-MIG_1x1g.5gb": {
+                "gpu_offline_expected_qps": 28
+            }
+        }
+    },
+    "A100-SXM-80GBx8": {
+        "extends": [
+            "A100-SXM4-40GBx8"
+        ]
+    },
+    "A100-SXM-80GBx8-MIG_56x1g.10gb": {
+        "scales": {
+            "A100-SXM4-40GBx1-MIG_1x1g.5gb": {
+                "gpu_offline_expected_qps": 56
+            }
+        }
+    },
+    "A100-SXM4-40GBx1": {
+        "config_ver": {
+            "high_accuracy": {},
+            "high_accuracy_triton": {
+                "instance_group_count": 1,
+                "use_triton": true
+            },
+            "triton": {
+                "instance_group_count": 1,
+                "use_triton": true
+            }
+        },
+        "extends": [
+            "int8_base"
+        ],
+        "gpu_batch_size": 2,
+        "gpu_copy_streams": 2,
+        "gpu_offline_expected_qps": 60,
+        "start_from_device": true
+    },
+    "A100-SXM4-40GBx1-MIG_1x1g.5gb": {
+        "config_ver": {
+            "high_accuracy": {},
+            "high_accuracy_triton": {
+                "start_from_device": true,
+                "use_triton": true
+            },
+            "triton": {
+                "start_from_device": true,
+                "use_triton": true
+            }
+        },
+        "extends": [
+            "fp16_base"
+        ],
+        "gpu_batch_size": 1,
+        "gpu_copy_streams": 1,
+        "gpu_offline_expected_qps": 8,
+        "start_from_device": true
+    },
+    "A100-SXM4-40GBx1-MIG_1x2g.10gb": {
+        "scales": {
+            "A100-SXM4-40GBx1-MIG_1x1g.5gb": {
+                "gpu_offline_expected_qps": 2
+            }
+        }
+    },
+    "A100-SXM4-40GBx1-MIG_1x3g.20gb": {
+        "scales": {
+            "A100-SXM4-40GBx1-MIG_1x1g.5gb": {
+                "gpu_offline_expected_qps": 3
+            }
+        }
+    },
+    "A100-SXM4-40GBx8": {
+        "config_ver": {
+            "high_accuracy": {},
+            "high_accuracy_triton": {
+                "instance_group_count": 2,
+                "start_from_device": true,
+                "use_triton": true
+            },
+            "triton": {
+                "instance_group_count": 2,
+                "start_from_device": true,
+                "use_triton": true
+            }
+        },
+        "scales": {
+            "A100-SXM4-40GBx1": {
+                "gpu_offline_expected_qps": 8
+            }
+        }
+    },
+    "A10x1": {
+        "config_ver": {
+            "high_accuracy": {},
+            "high_accuracy_triton": {
+                "use_triton": true
+            },
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "extends": [
+            "int8_base"
+        ],
+        "gpu_batch_size": 2,
+        "gpu_copy_streams": 2,
+        "gpu_offline_expected_qps": 24
+    },
+    "A10x8": {
+        "scales": {
+            "A10x1": {
+                "gpu_offline_expected_qps": 8.0
+            }
+        }
+    },
+    "AGX_Xavier": {
+        "config_ver": {
+            "high_accuracy": {},
+            "high_accuracy_triton": {
+                "use_triton": true
+            },
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "extends": [
+            "int8_base"
+        ],
+        "gpu_batch_size": 1,
+        "gpu_copy_streams": 2,
+        "gpu_offline_expected_qps": 3,
+        "use_direct_host_access": true
+    },
+    "T4x1": {
+        "config_ver": {
+            "high_accuracy": {},
+            "high_accuracy_triton": {
+                "use_triton": true
+            },
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "extends": [
+            "int8_base"
+        ],
+        "gpu_batch_size": 2,
+        "gpu_copy_streams": 2,
+        "gpu_offline_expected_qps": 8
+    },
+    "T4x20": {
+        "scales": {
+            "T4x1": {
+                "gpu_offline_expected_qps": 20
+            }
+        }
+    },
+    "T4x8": {
+        "scales": {
+            "T4x1": {
+                "gpu_offline_expected_qps": 8
+            }
+        }
+    },
+    "TitanRTXx1": {
+        "config_ver": {
+            "high_accuracy": {},
+            "high_accuracy_triton": {
+                "use_triton": true
+            },
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "extends": [
+            "int8_base"
+        ],
+        "gpu_batch_size": 2,
+        "gpu_copy_streams": 2,
+        "gpu_offline_expected_qps": 20
+    },
+    "TitanRTXx4": {
+        "scales": {
+            "TitanRTXx1": {
+                "gpu_offline_expected_qps": 4
+            }
+        }
+    },
+    "Xavier_NX": {
+        "config_ver": {
+            "high_accuracy": {},
+            "high_accuracy_triton": {
+                "use_triton": true
+            },
+            "triton": {
+                "use_triton": true
+            }
+        },
+        "extends": [
+            "fp16_base"
+        ],
+        "gpu_batch_size": 1,
+        "gpu_copy_streams": 1,
+        "gpu_offline_expected_qps": 1.5,
+        "input_format": "dhwc8",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/brats/brats_npy/fp16_dhwc8",
+        "use_direct_host_access": true
+    },
+    "benchmark": "3d-unet",
+    "default": {
+        "gpu_inference_streams": 1,
+        "map_path": "data_maps/brats/val_map.txt",
+        "precision": "int8",
+        "use_graphs": false
+    },
+    "fp16_base": {
+        "input_dtype": "fp16",
+        "input_format": "linear",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/brats/brats_npy/fp16_linear",
+        "workspace_size": 1073741824
+    },
+    "int8_base": {
+        "input_dtype": "int8",
+        "input_format": "cdhw32",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/brats/brats_npy/int8_cdhw32"
+    },
+    "scenario": "Offline"
+}

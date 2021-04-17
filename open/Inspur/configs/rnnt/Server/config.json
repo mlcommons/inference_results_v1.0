@@ -1,0 +1,155 @@
+{
+    "A100-PCIex1": {
+        "audio_batch_size": 1024,
+        "audio_buffer_num_lines": 4096,
+        "audio_fp16_input": true,
+        "dali_batches_issue_ahead": 0,
+        "dali_pipeline_depth": 2,
+        "gpu_batch_size": 2048,
+        "gpu_copy_streams": 1,
+        "nobatch_sorting": true,
+        "num_warmups": 20480,
+        "pipelined_execution": true,
+        "server_target_qps": 7500
+    },
+    "A100-PCIex2": {
+        "audio_batch_size": 1024,
+        "audio_buffer_num_lines": 4096,
+        "audio_fp16_input": true,
+        "dali_batches_issue_ahead": 0,
+        "dali_pipeline_depth": 2,
+        "gpu_batch_size": 2048,
+        "gpu_copy_streams": 1,
+        "nobatch_sorting": true,
+        "num_warmups": 20480,
+        "pipelined_execution": true,
+        "server_target_qps": 15000
+    },
+    "A100-PCIex8": {
+        "scales": {
+            "A100-PCIex1": {
+                "server_target_qps": 8.0
+            }
+        }
+    },
+    "A100-SXM-80GBx1": {
+        "extends": [
+            "A100-SXM4-40GBx1"
+        ]
+    },
+    "A100-SXM-80GBx8": {
+        "extends": [
+            "A100-SXM4-40GBx8"
+        ]
+    },
+    "A100-SXM4-40GBx1": {
+        "audio_batch_size": 1024,
+        "audio_buffer_num_lines": 4096,
+        "audio_fp16_input": true,
+        "dali_batches_issue_ahead": 0,
+        "dali_pipeline_depth": 2,
+        "gpu_batch_size": 2048,
+        "gpu_copy_streams": 1,
+        "nobatch_sorting": true,
+        "num_warmups": 20480,
+        "pipelined_execution": true,
+        "server_target_qps": 8900,
+        "start_from_device": true
+    },
+    "A100-SXM4-40GBx8": {
+        "audio_batch_size": 1024,
+        "audio_buffer_num_lines": 4096,
+        "audio_fp16_input": true,
+        "dali_batches_issue_ahead": 0,
+        "dali_pipeline_depth": 1,
+        "gpu_batch_size": 2048,
+        "gpu_copy_streams": 1,
+        "nobatch_sorting": true,
+        "num_warmups": 20480,
+        "pipelined_execution": true,
+        "server_num_issue_query_threads": 0,
+        "server_target_qps": 71500,
+        "start_from_device": true
+    },
+    "A10x1": {
+        "audio_batch_size": 128,
+        "audio_buffer_num_lines": 4096,
+        "dali_batches_issue_ahead": 0,
+        "dali_pipeline_depth": 1,
+        "gpu_batch_size": 512,
+        "gpu_copy_streams": 1,
+        "nobatch_sorting": true,
+        "num_warmups": 2048,
+        "server_target_qps": 2700
+    },
+    "A10x8": {
+        "scales": {
+            "A10x1": {
+                "server_target_qps": 8.0
+            }
+        }
+    },
+    "T4x1": {
+        "audio_batch_size": 64,
+        "audio_buffer_num_lines": 512,
+        "dali_batches_issue_ahead": 0,
+        "dali_pipeline_depth": 1,
+        "disable_encoder_plugin": true,
+        "gpu_batch_size": 256,
+        "gpu_copy_streams": 4,
+        "max_seq_length": 102,
+        "nobatch_sorting": true,
+        "num_warmups": 2048,
+        "server_target_qps": 1050
+    },
+    "T4x20": {
+        "audio_batch_size": 64,
+        "audio_buffer_num_lines": 512,
+        "dali_batches_issue_ahead": 0,
+        "dali_pipeline_depth": 1,
+        "disable_encoder_plugin": true,
+        "gpu_batch_size": 256,
+        "gpu_copy_streams": 4,
+        "max_seq_length": 102,
+        "nobatch_sorting": true,
+        "num_warmups": 20480,
+        "server_target_qps": 17000
+    },
+    "T4x8": {
+        "audio_batch_size": 64,
+        "audio_buffer_num_lines": 640,
+        "dali_batches_issue_ahead": 0,
+        "dali_pipeline_depth": 1,
+        "disable_encoder_plugin": true,
+        "gpu_batch_size": 320,
+        "gpu_copy_streams": 4,
+        "max_seq_length": 102,
+        "nobatch_sorting": true,
+        "num_warmups": 20480,
+        "server_target_qps": 8100
+    },
+    "TitanRTXx1": {
+        "disable_encoder_plugin": true,
+        "gpu_batch_size": 2048,
+        "gpu_copy_streams": 1,
+        "server_target_qps": 1600
+    },
+    "TitanRTXx4": {
+        "audio_batch_size": 128,
+        "disable_encoder_plugin": true,
+        "gpu_batch_size": 2048,
+        "gpu_copy_streams": 1,
+        "server_target_qps": 11000
+    },
+    "benchmark": "rnnt",
+    "default": {
+        "gpu_inference_streams": 1,
+        "input_dtype": "fp16",
+        "input_format": "linear",
+        "map_path": "data_maps/rnnt_dev_clean_512/val_map.txt",
+        "precision": "fp16",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/rnnt_dev_clean_512/fp16",
+        "use_graphs": true
+    },
+    "scenario": "Server"
+}

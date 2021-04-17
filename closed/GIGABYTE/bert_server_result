@@ -1,0 +1,2004 @@
+[2021-03-11 17:33:28,653 __init__.py:255 INFO] Running command: CUDA_VISIBILE_ORDER=PCI_BUS_ID nvidia-smi --query-gpu=gpu_name,pci.device_id,uuid --format=csv
+[2021-03-11 17:33:28,730 main.py:694 INFO] Detected System ID: A100-SXM-80GBx8
+[2021-03-11 17:33:28,737 main.py:527 INFO] Using config files: configs/bert/Server/config.json
+[2021-03-11 17:33:28,738 __init__.py:341 INFO] Parsing config file configs/bert/Server/config.json ...
+[2021-03-11 17:33:28,738 main.py:540 INFO] Processing config "A100-SXM-80GBx8_bert_Server"
+[2021-03-11 17:33:28,738 main.py:224 INFO] Running harness for bert benchmark in Server scenario...
+[2021-03-11 17:33:29,841 __init__.py:255 INFO] Running command: ./build/bin/harness_bert --logfile_outdir="/work/build/logs/2021.03.11-17.33.25/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/bert-99/Server" --logfile_prefix="mlperf_log_" --performance_sample_count=10833 --test_mode="PerformanceOnly" --gpu_batch_size=48 --tensor_path="${PREPROCESSED_DATA_DIR}/squad_tokenized/input_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/segment_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/input_mask.npy" --use_graphs=true --gpu_inference_streams=2 --gpu_copy_streams=1 --graphs_max_seqlen=240 --soft_drop=0.99 --server_num_issue_query_threads=0 --gpu_engines="./build/engines/A100-SXM-80GBx8/bert/Server/bert-Server-gpu-int8_S_384_B_48_P_2_vs.default.plan" --mlperf_conf_path="measurements/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/bert-99/Server/mlperf.conf" --user_conf_path="measurements/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/bert-99/Server/user.conf" --scenario Server --model bert
+[2021-03-11 17:33:29,842 __init__.py:261 INFO] Overriding Environment
+coalesced_tensor : True
+enable_interleaved : False
+gpu_copy_streams : 1
+gpu_inference_streams : 2
+input_dtype : int32
+input_format : linear
+precision : int8
+tensor_path : ${PREPROCESSED_DATA_DIR}/squad_tokenized/input_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/segment_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/input_mask.npy
+use_cuda_thread_per_device : False
+use_graphs : True
+active_sms : 60
+config_ver : default
+gemm_plugin_fairshare_cache_size : 120
+gpu_batch_size : 48
+graphs_max_seqlen : 240
+server_num_issue_query_threads : 0
+server_target_qps : 25800
+soft_drop : 0.99
+use_small_tile_gemm_plugin : True
+system_id : A100-SXM-80GBx8
+scenario : Server
+benchmark : bert
+config_name : A100-SXM-80GBx8_bert_Server
+accuracy_level : 99%
+optimization_level : plugin-enabled
+inference_server : custom
+system_name : GIGABYTE_G492-ZD0_A100-SXM-80GBx8
+test_mode : PerformanceOnly
+gpu_num_bundles : 2
+log_dir : /work/build/logs/2021.03.11-17.33.25
+&&&& RUNNING BERT_HARNESS # ./build/bin/harness_bert
+I0311 17:33:30.005805 29614 main_bert.cc:149] Found 8 GPUs
+I0311 17:33:30.342270 29614 bert_server.cc:182] Engine Path: ./build/engines/A100-SXM-80GBx8/bert/Server/bert-Server-gpu-int8_S_384_B_48_P_2_vs.default.plan
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+I0311 17:33:53.596180 29614 bert_server.cc:230] Engines Creation Completed
+I0311 17:33:53.618608 29614 bert_server.cc:234] Use CUDA graphs
+I0311 17:33:53.620316 29614 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 17:33:53.620329 29614 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:33:53.620349 29614 bert_core_vs.cc:309] Engine - Profile 0 maxDims 18432 Bmax=48 Smax=384
+I0311 17:33:54.280436 29614 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 17:33:54.280509 29614 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 17:33:54.282074 29614 bert_core_vs.cc:356] Setup complete
+I0311 17:33:54.284451 29614 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 17:33:54.284503 29614 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:33:54.284514 29614 bert_core_vs.cc:309] Engine - Profile 0 maxDims 18432 Bmax=48 Smax=384
+I0311 17:33:55.683177 29614 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 17:33:55.683243 29614 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 17:33:55.684412 29614 bert_core_vs.cc:356] Setup complete
+I0311 17:33:55.686182 29614 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 17:33:55.686193 29614 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:33:55.686198 29614 bert_core_vs.cc:309] Engine - Profile 0 maxDims 18432 Bmax=48 Smax=384
+I0311 17:33:57.189998 29614 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 17:33:57.190068 29614 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 17:33:57.192540 29614 bert_core_vs.cc:356] Setup complete
+I0311 17:33:57.194610 29614 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 17:33:57.194628 29614 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:33:57.194643 29614 bert_core_vs.cc:309] Engine - Profile 0 maxDims 18432 Bmax=48 Smax=384
+I0311 17:33:58.121915 29633 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 17:33:58.706667 29614 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 17:33:58.706748 29614 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 17:33:58.708716 29614 bert_core_vs.cc:356] Setup complete
+I0311 17:33:58.711136 29614 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 17:33:58.711148 29614 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:33:58.711163 29614 bert_core_vs.cc:309] Engine - Profile 0 maxDims 18432 Bmax=48 Smax=384
+I0311 17:33:59.725276 29635 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 17:34:00.113126 29614 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 17:34:00.113211 29614 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 17:34:00.114343 29614 bert_core_vs.cc:356] Setup complete
+I0311 17:34:00.118274 29614 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 17:34:00.118300 29614 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:34:00.118335 29614 bert_core_vs.cc:309] Engine - Profile 0 maxDims 18432 Bmax=48 Smax=384
+I0311 17:34:01.521827 29637 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 17:34:02.233285 29614 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 17:34:02.233338 29614 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 17:34:02.234947 29614 bert_core_vs.cc:356] Setup complete
+I0311 17:34:02.237215 29614 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 17:34:02.237226 29614 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:34:02.237301 29614 bert_core_vs.cc:309] Engine - Profile 0 maxDims 18432 Bmax=48 Smax=384
+I0311 17:34:03.407691 29639 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 17:34:04.527043 29614 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 17:34:04.527163 29614 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 17:34:04.529413 29614 bert_core_vs.cc:356] Setup complete
+I0311 17:34:04.533895 29614 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 17:34:04.533911 29614 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:34:04.533948 29614 bert_core_vs.cc:309] Engine - Profile 0 maxDims 18432 Bmax=48 Smax=384
+I0311 17:34:04.964349 29641 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 17:34:06.617519 29614 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 17:34:06.617590 29614 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 17:34:06.619160 29614 bert_core_vs.cc:356] Setup complete
+I0311 17:34:06.995755 29643 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 17:34:09.105638 29645 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 17:34:10.482215 29647 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 17:34:10.484117 29614 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 17:34:10.484165 29614 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:34:10.484189 29614 bert_core_vs.cc:309] Engine - Profile 1 maxDims 18432 Bmax=48 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 17:34:11.048983 29614 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 17:34:11.049031 29614 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 17:34:11.050750 29614 bert_core_vs.cc:356] Setup complete
+I0311 17:34:11.052693 29614 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 17:34:11.052706 29614 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:34:11.052717 29614 bert_core_vs.cc:309] Engine - Profile 1 maxDims 18432 Bmax=48 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 17:34:12.012547 29614 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 17:34:12.012589 29614 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 17:34:12.013904 29614 bert_core_vs.cc:356] Setup complete
+I0311 17:34:12.015712 29614 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 17:34:12.015730 29614 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:34:12.015755 29614 bert_core_vs.cc:309] Engine - Profile 1 maxDims 18432 Bmax=48 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 17:34:13.489794 29614 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 17:34:13.489842 29614 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 17:34:13.513200 29614 bert_core_vs.cc:356] Setup complete
+I0311 17:34:13.514688 29614 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 17:34:13.514700 29614 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:34:13.514711 29614 bert_core_vs.cc:309] Engine - Profile 1 maxDims 18432 Bmax=48 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 17:34:15.485580 29614 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 17:34:15.485684 29614 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 17:34:15.487396 29614 bert_core_vs.cc:356] Setup complete
+I0311 17:34:15.488922 29614 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 17:34:15.488940 29614 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:34:15.488955 29614 bert_core_vs.cc:309] Engine - Profile 1 maxDims 18432 Bmax=48 Smax=384
+I0311 17:34:15.798768 29649 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 17:34:17.183136 29651 bert_core_vs.cc:256] Created 201 CUDA graphs
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 17:34:17.338797 29614 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 17:34:17.338843 29614 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 17:34:17.340196 29614 bert_core_vs.cc:356] Setup complete
+I0311 17:34:17.342386 29614 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 17:34:17.342398 29614 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:34:17.342409 29614 bert_core_vs.cc:309] Engine - Profile 1 maxDims 18432 Bmax=48 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 17:34:19.122541 29614 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 17:34:19.122596 29614 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 17:34:19.124366 29614 bert_core_vs.cc:356] Setup complete
+I0311 17:34:19.126472 29614 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 17:34:19.126494 29614 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:34:19.126507 29614 bert_core_vs.cc:309] Engine - Profile 1 maxDims 18432 Bmax=48 Smax=384
+I0311 17:34:19.304013 29653 bert_core_vs.cc:256] Created 201 CUDA graphs
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 17:34:20.971998 29614 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 17:34:20.972045 29614 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 17:34:20.973476 29614 bert_core_vs.cc:356] Setup complete
+I0311 17:34:20.975245 29614 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 17:34:20.975260 29614 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:34:20.975272 29614 bert_core_vs.cc:309] Engine - Profile 1 maxDims 18432 Bmax=48 Smax=384
+I0311 17:34:21.385881 29655 bert_core_vs.cc:256] Created 201 CUDA graphs
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 17:34:23.080714 29614 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 17:34:23.080776 29614 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 17:34:23.115082 29614 bert_core_vs.cc:356] Setup complete
+I0311 17:34:23.539634 29657 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 17:34:25.132586 29659 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 17:34:26.650686 29661 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 17:34:27.915043 29663 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 17:34:27.915308 29614 bert_server.cc:262] Apply soft drop policy with threshold = 0.99
+I0311 17:34:28.380739 29614 main_bert.cc:176] Starting running actual test.
+I0311 17:44:35.878521 29674 bert_server.cc:137] Total number of soft drop tasks: 9364 out of 969645 total tasks
+I0311 17:44:35.878674 29678 bert_server.cc:137] Total number of soft drop tasks: 9445 out of 961273 total tasks
+I0311 17:44:35.880616 29669 bert_server.cc:137] Total number of soft drop tasks: 9662 out of 961389 total tasks
+I0311 17:44:35.881449 29676 bert_server.cc:137] Total number of soft drop tasks: 9478 out of 973483 total tasks
+I0311 17:44:35.881521 29668 bert_server.cc:137] Total number of soft drop tasks: 9445 out of 959800 total tasks
+I0311 17:44:35.882215 29671 bert_server.cc:137] Total number of soft drop tasks: 9140 out of 953170 total tasks
+I0311 17:44:35.883291 29670 bert_server.cc:137] Total number of soft drop tasks: 8963 out of 946771 total tasks
+I0311 17:44:35.884222 29677 bert_server.cc:137] Total number of soft drop tasks: 9656 out of 980092 total tasks
+I0311 17:44:35.885814 29664 bert_server.cc:137] Total number of soft drop tasks: 9653 out of 978863 total tasks
+I0311 17:44:35.889997 29673 bert_server.cc:137] Total number of soft drop tasks: 9342 out of 968770 total tasks
+I0311 17:44:35.890631 29679 bert_server.cc:137] Total number of soft drop tasks: 9379 out of 956521 total tasks
+I0311 17:44:35.891718 29665 bert_server.cc:137] Total number of soft drop tasks: 9694 out of 974818 total tasks
+I0311 17:44:35.892304 29672 bert_server.cc:137] Total number of soft drop tasks: 9351 out of 968618 total tasks
+I0311 17:44:35.903483 29667 bert_server.cc:137] Total number of soft drop tasks: 9708 out of 976733 total tasks
+I0311 17:44:35.904129 29666 bert_server.cc:137] Total number of soft drop tasks: 9629 out of 975833 total tasks
+I0311 17:44:35.905676 29675 bert_server.cc:137] Total number of soft drop tasks: 9635 out of 969310 total tasks
+I0311 17:44:49.628031 29614 main_bert.cc:189] Finished running actual test.
+================================================
+MLPerf Results Summary
+================================================
+SUT name : BERT SERVER
+Scenario : Server
+Mode     : PerformanceOnly
+Scheduled samples per second : 25791.81
+Result is : VALID
+  Performance constraints satisfied : Yes
+  Min duration satisfied : Yes
+  Min queries satisfied : Yes
+
+================================================
+Additional Stats
+================================================
+Completed samples per second    : 25789.42
+
+Min latency (ns)                : 5611144
+Max latency (ns)                : 606418615883
+Mean latency (ns)               : 3027832330
+50.00 percentile latency (ns)   : 55025616
+90.00 percentile latency (ns)   : 62513032
+95.00 percentile latency (ns)   : 64294745
+97.00 percentile latency (ns)   : 65607880
+99.00 percentile latency (ns)   : 72178926
+99.90 percentile latency (ns)   : 543777812406
+
+================================================
+Test Parameters Used
+================================================
+samples_per_query : 1
+target_qps : 25800
+target_latency (ns): 130000000
+max_async_queries : 0
+min_duration (ms): 600000
+max_duration (ms): 0
+min_query_count : 270336
+max_query_count : 0
+qsl_rng_seed : 7322528924094909334
+sample_index_rng_seed : 1570999273408051088
+schedule_rng_seed : 3507442325620259414
+accuracy_log_rng_seed : 0
+accuracy_log_probability : 0
+accuracy_log_sampling_target : 0
+print_timestamps : 0
+performance_issue_unique : 0
+performance_issue_same : 0
+performance_issue_same_index : 0
+performance_sample_count : 10833
+
+No warnings encountered during test.
+
+No errors encountered during test.
+[2021-03-11 17:44:59,922 main.py:280 INFO] Result: result_scheduled_samples_per_sec: 25791.8, Result is VALID
+[2021-03-11 17:44:59,923 main.py:224 INFO] Running harness for bert benchmark in Server scenario...
+[2021-03-11 17:44:59,928 __init__.py:255 INFO] Running command: ./build/bin/harness_bert --logfile_outdir="/work/build/logs/2021.03.11-17.33.25/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/bert-99.9/Server" --logfile_prefix="mlperf_log_" --performance_sample_count=10833 --test_mode="PerformanceOnly" --gpu_batch_size=24 --tensor_path="${PREPROCESSED_DATA_DIR}/squad_tokenized/input_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/segment_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/input_mask.npy" --use_graphs=true --gpu_inference_streams=2 --gpu_copy_streams=1 --graphs_max_seqlen=240 --soft_drop=0.99 --server_num_issue_query_threads=0 --gpu_engines="./build/engines/A100-SXM-80GBx8/bert/Server/bert-Server-gpu-fp16_S_384_B_24_P_2_vs.high_accuracy.plan" --mlperf_conf_path="measurements/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/bert-99.9/Server/mlperf.conf" --user_conf_path="measurements/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/bert-99.9/Server/user.conf" --scenario Server --model bert
+[2021-03-11 17:44:59,928 __init__.py:261 INFO] Overriding Environment
+coalesced_tensor : True
+enable_interleaved : False
+gpu_copy_streams : 1
+gpu_inference_streams : 2
+input_dtype : int32
+input_format : linear
+precision : fp16
+tensor_path : ${PREPROCESSED_DATA_DIR}/squad_tokenized/input_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/segment_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/input_mask.npy
+use_cuda_thread_per_device : False
+use_graphs : True
+active_sms : 60
+config_ver : high_accuracy
+gemm_plugin_fairshare_cache_size : 120
+gpu_batch_size : 24
+graphs_max_seqlen : 240
+server_num_issue_query_threads : 0
+server_target_qps : 13100
+soft_drop : 0.99
+use_small_tile_gemm_plugin : True
+system_id : A100-SXM-80GBx8
+scenario : Server
+benchmark : bert
+config_name : A100-SXM-80GBx8_bert_Server
+accuracy_level : 99.9%
+optimization_level : plugin-enabled
+inference_server : custom
+system_name : GIGABYTE_G492-ZD0_A100-SXM-80GBx8
+test_mode : PerformanceOnly
+gpu_num_bundles : 2
+log_dir : /work/build/logs/2021.03.11-17.33.25
+&&&& RUNNING BERT_HARNESS # ./build/bin/harness_bert
+I0311 17:45:00.090180 29682 main_bert.cc:149] Found 8 GPUs
+I0311 17:45:00.437631 29682 bert_server.cc:182] Engine Path: ./build/engines/A100-SXM-80GBx8/bert/Server/bert-Server-gpu-fp16_S_384_B_24_P_2_vs.high_accuracy.plan
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+I0311 17:45:27.139690 29682 bert_server.cc:230] Engines Creation Completed
+I0311 17:45:27.173094 29682 bert_server.cc:234] Use CUDA graphs
+I0311 17:45:27.174504 29682 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 17:45:27.174517 29682 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:45:27.174538 29682 bert_core_vs.cc:309] Engine - Profile 0 maxDims 9216 Bmax=24 Smax=384
+I0311 17:45:27.282382 29682 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 17:45:27.282442 29682 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 17:45:27.283586 29682 bert_core_vs.cc:356] Setup complete
+I0311 17:45:27.285272 29682 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 17:45:27.285282 29682 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:45:27.285290 29682 bert_core_vs.cc:309] Engine - Profile 0 maxDims 9216 Bmax=24 Smax=384
+I0311 17:45:27.467510 29682 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 17:45:27.467568 29682 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 17:45:27.468516 29682 bert_core_vs.cc:356] Setup complete
+I0311 17:45:27.470324 29682 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 17:45:27.470335 29682 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:45:27.470357 29682 bert_core_vs.cc:309] Engine - Profile 0 maxDims 9216 Bmax=24 Smax=384
+I0311 17:45:27.731032 29682 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 17:45:27.731082 29682 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 17:45:27.731848 29682 bert_core_vs.cc:356] Setup complete
+I0311 17:45:27.733330 29682 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 17:45:27.733346 29682 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:45:27.733358 29682 bert_core_vs.cc:309] Engine - Profile 0 maxDims 9216 Bmax=24 Smax=384
+I0311 17:45:27.960594 29682 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 17:45:27.960661 29682 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 17:45:28.000445 29682 bert_core_vs.cc:356] Setup complete
+I0311 17:45:28.003211 29682 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 17:45:28.003232 29682 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:45:28.003259 29682 bert_core_vs.cc:309] Engine - Profile 0 maxDims 9216 Bmax=24 Smax=384
+I0311 17:45:28.393916 29682 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 17:45:28.393983 29682 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 17:45:28.395078 29682 bert_core_vs.cc:356] Setup complete
+I0311 17:45:28.396467 29682 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 17:45:28.396489 29682 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:45:28.396502 29682 bert_core_vs.cc:309] Engine - Profile 0 maxDims 9216 Bmax=24 Smax=384
+I0311 17:45:28.648689 29682 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 17:45:28.648754 29682 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 17:45:28.649889 29682 bert_core_vs.cc:356] Setup complete
+I0311 17:45:28.650897 29682 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 17:45:28.650907 29682 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:45:28.650976 29682 bert_core_vs.cc:309] Engine - Profile 0 maxDims 9216 Bmax=24 Smax=384
+I0311 17:45:28.944453 29682 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 17:45:28.944532 29682 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 17:45:28.946409 29682 bert_core_vs.cc:356] Setup complete
+I0311 17:45:28.950819 29682 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 17:45:28.950855 29682 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:45:28.950894 29682 bert_core_vs.cc:309] Engine - Profile 0 maxDims 9216 Bmax=24 Smax=384
+I0311 17:45:29.360481 29682 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 17:45:29.360541 29682 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 17:45:29.361657 29682 bert_core_vs.cc:356] Setup complete
+I0311 17:45:34.068850 29701 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 17:45:34.893245 29703 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 17:45:35.320245 29707 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 17:45:35.323235 29705 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 17:45:35.871198 29709 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 17:45:36.233673 29711 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 17:45:36.476644 29713 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 17:45:36.537782 29715 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 17:45:36.539520 29682 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 17:45:36.539558 29682 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:45:36.539573 29682 bert_core_vs.cc:309] Engine - Profile 1 maxDims 9216 Bmax=24 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 17:45:36.610731 29682 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 17:45:36.610774 29682 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 17:45:36.611665 29682 bert_core_vs.cc:356] Setup complete
+I0311 17:45:36.613593 29682 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 17:45:36.613603 29682 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:45:36.613612 29682 bert_core_vs.cc:309] Engine - Profile 1 maxDims 9216 Bmax=24 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 17:45:36.716562 29682 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 17:45:36.716601 29682 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 17:45:36.717265 29682 bert_core_vs.cc:356] Setup complete
+I0311 17:45:36.719213 29682 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 17:45:36.719226 29682 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:45:36.719235 29682 bert_core_vs.cc:309] Engine - Profile 1 maxDims 9216 Bmax=24 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 17:45:36.899823 29682 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 17:45:36.899863 29682 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 17:45:36.915707 29682 bert_core_vs.cc:356] Setup complete
+I0311 17:45:36.918069 29682 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 17:45:36.918092 29682 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:45:36.918108 29682 bert_core_vs.cc:309] Engine - Profile 1 maxDims 9216 Bmax=24 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 17:45:37.054421 29682 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 17:45:37.054459 29682 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 17:45:37.067461 29682 bert_core_vs.cc:356] Setup complete
+I0311 17:45:37.069860 29682 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 17:45:37.069882 29682 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:45:37.069896 29682 bert_core_vs.cc:309] Engine - Profile 1 maxDims 9216 Bmax=24 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 17:45:37.263242 29682 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 17:45:37.263295 29682 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 17:45:37.265077 29682 bert_core_vs.cc:356] Setup complete
+I0311 17:45:37.267289 29682 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 17:45:37.267311 29682 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:45:37.267320 29682 bert_core_vs.cc:309] Engine - Profile 1 maxDims 9216 Bmax=24 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 17:45:37.491637 29682 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 17:45:37.491683 29682 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 17:45:37.558861 29682 bert_core_vs.cc:356] Setup complete
+I0311 17:45:37.562034 29682 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 17:45:37.562059 29682 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:45:37.562074 29682 bert_core_vs.cc:309] Engine - Profile 1 maxDims 9216 Bmax=24 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 17:45:38.048231 29682 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 17:45:38.048288 29682 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 17:45:38.071462 29682 bert_core_vs.cc:356] Setup complete
+I0311 17:45:38.074740 29682 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 17:45:38.074761 29682 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:45:38.074785 29682 bert_core_vs.cc:309] Engine - Profile 1 maxDims 9216 Bmax=24 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 17:45:38.327733 29682 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 17:45:38.327772 29682 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 17:45:38.329916 29682 bert_core_vs.cc:356] Setup complete
+I0311 17:45:45.713268 29717 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 17:45:46.380080 29719 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 17:45:46.897125 29721 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 17:45:47.134601 29723 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 17:45:47.345603 29725 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 17:45:47.598091 29727 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 17:45:47.915405 29731 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 17:45:47.918344 29729 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 17:45:47.918655 29682 bert_server.cc:262] Apply soft drop policy with threshold = 0.99
+I0311 17:45:48.385748 29682 main_bert.cc:176] Starting running actual test.
+I0311 17:55:52.066856 29747 bert_server.cc:137] Total number of soft drop tasks: 4670 out of 483257 total tasks
+I0311 17:55:52.069933 29734 bert_server.cc:137] Total number of soft drop tasks: 5115 out of 494465 total tasks
+I0311 17:55:52.072183 29740 bert_server.cc:137] Total number of soft drop tasks: 4592 out of 489224 total tasks
+I0311 17:55:52.072949 29736 bert_server.cc:137] Total number of soft drop tasks: 4943 out of 495470 total tasks
+I0311 17:55:52.073645 29737 bert_server.cc:137] Total number of soft drop tasks: 4702 out of 496354 total tasks
+I0311 17:55:52.074853 29744 bert_server.cc:137] Total number of soft drop tasks: 4896 out of 493070 total tasks
+I0311 17:55:52.074935 29743 bert_server.cc:137] Total number of soft drop tasks: 4920 out of 491283 total tasks
+I0311 17:55:52.075009 29738 bert_server.cc:137] Total number of soft drop tasks: 4851 out of 489487 total tasks
+I0311 17:55:52.080631 29735 bert_server.cc:137] Total number of soft drop tasks: 4852 out of 491873 total tasks
+I0311 17:55:52.082487 29733 bert_server.cc:137] Total number of soft drop tasks: 4956 out of 496128 total tasks
+I0311 17:55:52.083811 29745 bert_server.cc:137] Total number of soft drop tasks: 4721 out of 494416 total tasks
+I0311 17:55:52.084945 29732 bert_server.cc:137] Total number of soft drop tasks: 4679 out of 491439 total tasks
+I0311 17:55:52.085327 29742 bert_server.cc:137] Total number of soft drop tasks: 4637 out of 489192 total tasks
+I0311 17:55:52.089133 29739 bert_server.cc:137] Total number of soft drop tasks: 4952 out of 489068 total tasks
+I0311 17:55:52.093010 29741 bert_server.cc:137] Total number of soft drop tasks: 4848 out of 492109 total tasks
+I0311 17:55:52.093874 29746 bert_server.cc:137] Total number of soft drop tasks: 4723 out of 482849 total tasks
+I0311 17:56:02.458775 29682 main_bert.cc:189] Finished running actual test.
+================================================
+MLPerf Results Summary
+================================================
+SUT name : BERT SERVER
+Scenario : Server
+Mode     : PerformanceOnly
+Scheduled samples per second : 13099.47
+Result is : VALID
+  Performance constraints satisfied : Yes
+  Min duration satisfied : Yes
+  Min queries satisfied : Yes
+
+================================================
+Additional Stats
+================================================
+Completed samples per second    : 13098.42
+
+Min latency (ns)                : 5730858
+Max latency (ns)                : 606845076379
+Mean latency (ns)               : 3030745750
+50.00 percentile latency (ns)   : 54521170
+90.00 percentile latency (ns)   : 63415322
+95.00 percentile latency (ns)   : 65495228
+97.00 percentile latency (ns)   : 67031546
+99.00 percentile latency (ns)   : 75694486
+99.90 percentile latency (ns)   : 545469037164
+
+================================================
+Test Parameters Used
+================================================
+samples_per_query : 1
+target_qps : 13100
+target_latency (ns): 130000000
+max_async_queries : 0
+min_duration (ms): 600000
+max_duration (ms): 0
+min_query_count : 270336
+max_query_count : 0
+qsl_rng_seed : 7322528924094909334
+sample_index_rng_seed : 1570999273408051088
+schedule_rng_seed : 3507442325620259414
+accuracy_log_rng_seed : 0
+accuracy_log_probability : 0
+accuracy_log_sampling_target : 0
+print_timestamps : 0
+performance_issue_unique : 0
+performance_issue_same : 0
+performance_issue_same_index : 0
+performance_sample_count : 10833
+
+No warnings encountered during test.
+
+No errors encountered during test.
+[2021-03-11 17:56:11,055 main.py:280 INFO] Result: result_scheduled_samples_per_sec: 13099.5, Result is VALID
+
+======================= Perf harness results: =======================
+
+GIGABYTE_G492-ZD0_A100-SXM-80GBx8-default-Server:
+    bert: result_scheduled_samples_per_sec: 25791.8, Result is VALID
+
+GIGABYTE_G492-ZD0_A100-SXM-80GBx8-high_accuracy-Server:
+    bert: result_scheduled_samples_per_sec: 13099.5, Result is VALID
+
+
+======================= Accuracy results: =======================
+
+GIGABYTE_G492-ZD0_A100-SXM-80GBx8-default-Server:
+    bert: No accuracy results in PerformanceOnly mode.
+
+GIGABYTE_G492-ZD0_A100-SXM-80GBx8-high_accuracy-Server:
+    bert: No accuracy results in PerformanceOnly mode.
+
+[2021-03-11 17:56:14,622 __init__.py:255 INFO] Running command: CUDA_VISIBILE_ORDER=PCI_BUS_ID nvidia-smi --query-gpu=gpu_name,pci.device_id,uuid --format=csv
+[2021-03-11 17:56:14,699 main.py:694 INFO] Detected System ID: A100-SXM-80GBx8
+[2021-03-11 17:56:14,706 main.py:527 INFO] Using config files: configs/bert/Server/config.json
+[2021-03-11 17:56:14,706 __init__.py:341 INFO] Parsing config file configs/bert/Server/config.json ...
+[2021-03-11 17:56:14,707 main.py:540 INFO] Processing config "A100-SXM-80GBx8_bert_Server"
+[2021-03-11 17:56:14,707 main.py:224 INFO] Running harness for bert benchmark in Server scenario...
+[2021-03-11 17:56:15,823 __init__.py:255 INFO] Running command: ./build/bin/harness_bert --logfile_outdir="/work/build/logs/2021.03.11-17.56.11/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/bert-99/Server" --logfile_prefix="mlperf_log_" --performance_sample_count=10833 --test_mode="PerformanceOnly" --gpu_batch_size=48 --tensor_path="${PREPROCESSED_DATA_DIR}/squad_tokenized/input_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/segment_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/input_mask.npy" --use_graphs=true --gpu_inference_streams=2 --gpu_copy_streams=1 --graphs_max_seqlen=240 --soft_drop=0.99 --server_num_issue_query_threads=0 --gpu_engines="./build/engines/A100-SXM-80GBx8/bert/Server/bert-Server-gpu-int8_S_384_B_48_P_2_vs.default.plan" --mlperf_conf_path="measurements/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/bert-99/Server/mlperf.conf" --user_conf_path="measurements/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/bert-99/Server/user.conf" --scenario Server --model bert
+[2021-03-11 17:56:15,823 __init__.py:261 INFO] Overriding Environment
+coalesced_tensor : True
+enable_interleaved : False
+gpu_copy_streams : 1
+gpu_inference_streams : 2
+input_dtype : int32
+input_format : linear
+precision : int8
+tensor_path : ${PREPROCESSED_DATA_DIR}/squad_tokenized/input_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/segment_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/input_mask.npy
+use_cuda_thread_per_device : False
+use_graphs : True
+active_sms : 60
+config_ver : default
+gemm_plugin_fairshare_cache_size : 120
+gpu_batch_size : 48
+graphs_max_seqlen : 240
+server_num_issue_query_threads : 0
+server_target_qps : 25800
+soft_drop : 0.99
+use_small_tile_gemm_plugin : True
+system_id : A100-SXM-80GBx8
+scenario : Server
+benchmark : bert
+config_name : A100-SXM-80GBx8_bert_Server
+accuracy_level : 99%
+optimization_level : plugin-enabled
+inference_server : custom
+system_name : GIGABYTE_G492-ZD0_A100-SXM-80GBx8
+test_mode : PerformanceOnly
+gpu_num_bundles : 2
+log_dir : /work/build/logs/2021.03.11-17.56.11
+&&&& RUNNING BERT_HARNESS # ./build/bin/harness_bert
+I0311 17:56:15.983498 29869 main_bert.cc:149] Found 8 GPUs
+I0311 17:56:16.333230 29869 bert_server.cc:182] Engine Path: ./build/engines/A100-SXM-80GBx8/bert/Server/bert-Server-gpu-int8_S_384_B_48_P_2_vs.default.plan
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+I0311 17:56:40.769384 29869 bert_server.cc:230] Engines Creation Completed
+I0311 17:56:40.793421 29869 bert_server.cc:234] Use CUDA graphs
+I0311 17:56:40.794634 29869 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 17:56:40.794647 29869 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:56:40.794667 29869 bert_core_vs.cc:309] Engine - Profile 0 maxDims 18432 Bmax=48 Smax=384
+I0311 17:56:41.315187 29869 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 17:56:41.315258 29869 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 17:56:41.316563 29869 bert_core_vs.cc:356] Setup complete
+I0311 17:56:41.318261 29869 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 17:56:41.318272 29869 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:56:41.318280 29869 bert_core_vs.cc:309] Engine - Profile 0 maxDims 18432 Bmax=48 Smax=384
+I0311 17:56:42.138779 29869 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 17:56:42.138860 29869 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 17:56:42.140532 29869 bert_core_vs.cc:356] Setup complete
+I0311 17:56:42.142643 29869 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 17:56:42.142659 29869 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:56:42.142668 29869 bert_core_vs.cc:309] Engine - Profile 0 maxDims 18432 Bmax=48 Smax=384
+I0311 17:56:43.345713 29869 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 17:56:43.345777 29869 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 17:56:43.347187 29869 bert_core_vs.cc:356] Setup complete
+I0311 17:56:43.348978 29869 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 17:56:43.348994 29869 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:56:43.349004 29869 bert_core_vs.cc:309] Engine - Profile 0 maxDims 18432 Bmax=48 Smax=384
+I0311 17:56:44.941982 29869 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 17:56:44.942045 29869 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 17:56:44.943511 29869 bert_core_vs.cc:356] Setup complete
+I0311 17:56:44.945065 29869 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 17:56:44.945082 29869 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:56:44.945089 29869 bert_core_vs.cc:309] Engine - Profile 0 maxDims 18432 Bmax=48 Smax=384
+I0311 17:56:45.286628 29888 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 17:56:46.515223 29890 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 17:56:46.537660 29869 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 17:56:46.537721 29869 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 17:56:46.539022 29869 bert_core_vs.cc:356] Setup complete
+I0311 17:56:46.540715 29869 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 17:56:46.540726 29869 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:56:46.540745 29869 bert_core_vs.cc:309] Engine - Profile 0 maxDims 18432 Bmax=48 Smax=384
+I0311 17:56:47.974556 29892 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 17:56:48.093624 29869 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 17:56:48.093695 29869 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 17:56:48.167699 29869 bert_core_vs.cc:356] Setup complete
+I0311 17:56:48.170644 29869 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 17:56:48.170667 29869 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:56:48.170684 29869 bert_core_vs.cc:309] Engine - Profile 0 maxDims 18432 Bmax=48 Smax=384
+I0311 17:56:49.911738 29894 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 17:56:50.020287 29869 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 17:56:50.020339 29869 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 17:56:50.021539 29869 bert_core_vs.cc:356] Setup complete
+I0311 17:56:50.024207 29869 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 17:56:50.024258 29869 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:56:50.024273 29869 bert_core_vs.cc:309] Engine - Profile 0 maxDims 18432 Bmax=48 Smax=384
+I0311 17:56:51.696554 29896 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 17:56:52.468276 29869 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 17:56:52.468331 29869 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 17:56:52.471068 29869 bert_core_vs.cc:356] Setup complete
+I0311 17:56:53.492488 29898 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 17:56:55.015566 29900 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 17:56:56.518308 29902 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 17:56:56.520192 29869 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 17:56:56.520227 29869 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:56:56.520251 29869 bert_core_vs.cc:309] Engine - Profile 1 maxDims 18432 Bmax=48 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 17:56:57.073244 29869 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 17:56:57.073292 29869 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 17:56:57.074723 29869 bert_core_vs.cc:356] Setup complete
+I0311 17:56:57.078591 29869 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 17:56:57.078603 29869 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:56:57.078611 29869 bert_core_vs.cc:309] Engine - Profile 1 maxDims 18432 Bmax=48 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 17:56:58.025390 29869 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 17:56:58.025444 29869 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 17:56:58.028298 29869 bert_core_vs.cc:356] Setup complete
+I0311 17:56:58.030323 29869 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 17:56:58.030341 29869 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:56:58.030356 29869 bert_core_vs.cc:309] Engine - Profile 1 maxDims 18432 Bmax=48 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 17:56:59.579057 29869 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 17:56:59.579126 29869 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 17:56:59.581182 29869 bert_core_vs.cc:356] Setup complete
+I0311 17:56:59.584074 29869 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 17:56:59.584091 29869 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:56:59.584110 29869 bert_core_vs.cc:309] Engine - Profile 1 maxDims 18432 Bmax=48 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 17:57:01.655699 29869 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 17:57:01.655750 29869 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 17:57:01.658465 29869 bert_core_vs.cc:356] Setup complete
+I0311 17:57:01.660398 29869 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 17:57:01.660411 29869 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:57:01.660423 29869 bert_core_vs.cc:309] Engine - Profile 1 maxDims 18432 Bmax=48 Smax=384
+I0311 17:57:01.811678 29904 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 17:57:03.355564 29906 bert_core_vs.cc:256] Created 201 CUDA graphs
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 17:57:03.501888 29869 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 17:57:03.501931 29869 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 17:57:03.503263 29869 bert_core_vs.cc:356] Setup complete
+I0311 17:57:03.504858 29869 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 17:57:03.504870 29869 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:57:03.504884 29869 bert_core_vs.cc:309] Engine - Profile 1 maxDims 18432 Bmax=48 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 17:57:05.290588 29869 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 17:57:05.290638 29869 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 17:57:05.294270 29869 bert_core_vs.cc:356] Setup complete
+I0311 17:57:05.295627 29869 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 17:57:05.295640 29869 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:57:05.295652 29869 bert_core_vs.cc:309] Engine - Profile 1 maxDims 18432 Bmax=48 Smax=384
+I0311 17:57:05.344358 29908 bert_core_vs.cc:256] Created 201 CUDA graphs
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 17:57:07.107815 29869 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 17:57:07.107863 29869 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 17:57:07.109970 29869 bert_core_vs.cc:356] Setup complete
+I0311 17:57:07.112025 29869 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 17:57:07.112043 29869 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 17:57:07.112059 29869 bert_core_vs.cc:309] Engine - Profile 1 maxDims 18432 Bmax=48 Smax=384
+I0311 17:57:07.475993 29910 bert_core_vs.cc:256] Created 201 CUDA graphs
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 17:57:09.228288 29869 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 17:57:09.228355 29869 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 17:57:09.230520 29869 bert_core_vs.cc:356] Setup complete
+I0311 17:57:09.659142 29912 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 17:57:11.413614 29914 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 17:57:12.856365 29916 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 17:57:14.065649 29918 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 17:57:14.065992 29869 bert_server.cc:262] Apply soft drop policy with threshold = 0.99
+I0311 17:57:14.533434 29869 main_bert.cc:176] Starting running actual test.
+I0311 18:07:21.670723 29930 bert_server.cc:137] Total number of soft drop tasks: 9587 out of 970562 total tasks
+I0311 18:07:21.674412 29932 bert_server.cc:137] Total number of soft drop tasks: 9334 out of 978642 total tasks
+I0311 18:07:21.675369 29919 bert_server.cc:137] Total number of soft drop tasks: 9441 out of 979441 total tasks
+I0311 18:07:21.677682 29922 bert_server.cc:137] Total number of soft drop tasks: 9534 out of 976643 total tasks
+I0311 18:07:21.677827 29931 bert_server.cc:137] Total number of soft drop tasks: 9775 out of 976076 total tasks
+I0311 18:07:21.678277 29921 bert_server.cc:137] Total number of soft drop tasks: 9622 out of 976308 total tasks
+I0311 18:07:21.680330 29927 bert_server.cc:137] Total number of soft drop tasks: 9409 out of 970485 total tasks
+I0311 18:07:21.682169 29933 bert_server.cc:137] Total number of soft drop tasks: 9237 out of 961385 total tasks
+I0311 18:07:21.685652 29920 bert_server.cc:137] Total number of soft drop tasks: 9474 out of 973426 total tasks
+I0311 18:07:21.687491 29926 bert_server.cc:137] Total number of soft drop tasks: 9501 out of 950571 total tasks
+I0311 18:07:21.687664 29934 bert_server.cc:137] Total number of soft drop tasks: 9105 out of 955081 total tasks
+I0311 18:07:21.689085 29924 bert_server.cc:137] Total number of soft drop tasks: 9456 out of 960827 total tasks
+I0311 18:07:21.690511 29925 bert_server.cc:137] Total number of soft drop tasks: 8963 out of 949595 total tasks
+I0311 18:07:21.691673 29923 bert_server.cc:137] Total number of soft drop tasks: 9215 out of 961212 total tasks
+I0311 18:07:21.696849 29928 bert_server.cc:137] Total number of soft drop tasks: 9294 out of 967327 total tasks
+I0311 18:07:21.697193 29929 bert_server.cc:137] Total number of soft drop tasks: 9505 out of 967508 total tasks
+I0311 18:07:35.427462 29869 main_bert.cc:189] Finished running actual test.
+================================================
+MLPerf Results Summary
+================================================
+SUT name : BERT SERVER
+Scenario : Server
+Mode     : PerformanceOnly
+Scheduled samples per second : 25791.81
+Result is : VALID
+  Performance constraints satisfied : Yes
+  Min duration satisfied : Yes
+  Min queries satisfied : Yes
+
+================================================
+Additional Stats
+================================================
+Completed samples per second    : 25789.46
+
+Min latency (ns)                : 5619324
+Max latency (ns)                : 606442873693
+Mean latency (ns)               : 3002480878
+50.00 percentile latency (ns)   : 55149749
+90.00 percentile latency (ns)   : 62634895
+95.00 percentile latency (ns)   : 64371548
+97.00 percentile latency (ns)   : 65635477
+99.00 percentile latency (ns)   : 71626962
+99.90 percentile latency (ns)   : 542854305458
+
+================================================
+Test Parameters Used
+================================================
+samples_per_query : 1
+target_qps : 25800
+target_latency (ns): 130000000
+max_async_queries : 0
+min_duration (ms): 600000
+max_duration (ms): 0
+min_query_count : 270336
+max_query_count : 0
+qsl_rng_seed : 7322528924094909334
+sample_index_rng_seed : 1570999273408051088
+schedule_rng_seed : 3507442325620259414
+accuracy_log_rng_seed : 0
+accuracy_log_probability : 0
+accuracy_log_sampling_target : 0
+print_timestamps : 0
+performance_issue_unique : 0
+performance_issue_same : 0
+performance_issue_same_index : 0
+performance_sample_count : 10833
+
+No warnings encountered during test.
+
+No errors encountered during test.
+[2021-03-11 18:07:45,657 main.py:280 INFO] Result: result_scheduled_samples_per_sec: 25791.8, Result is VALID
+[2021-03-11 18:07:45,657 main.py:224 INFO] Running harness for bert benchmark in Server scenario...
+[2021-03-11 18:07:45,663 __init__.py:255 INFO] Running command: ./build/bin/harness_bert --logfile_outdir="/work/build/logs/2021.03.11-17.56.11/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/bert-99.9/Server" --logfile_prefix="mlperf_log_" --performance_sample_count=10833 --test_mode="PerformanceOnly" --gpu_batch_size=24 --tensor_path="${PREPROCESSED_DATA_DIR}/squad_tokenized/input_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/segment_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/input_mask.npy" --use_graphs=true --gpu_inference_streams=2 --gpu_copy_streams=1 --graphs_max_seqlen=240 --soft_drop=0.99 --server_num_issue_query_threads=0 --gpu_engines="./build/engines/A100-SXM-80GBx8/bert/Server/bert-Server-gpu-fp16_S_384_B_24_P_2_vs.high_accuracy.plan" --mlperf_conf_path="measurements/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/bert-99.9/Server/mlperf.conf" --user_conf_path="measurements/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/bert-99.9/Server/user.conf" --scenario Server --model bert
+[2021-03-11 18:07:45,663 __init__.py:261 INFO] Overriding Environment
+coalesced_tensor : True
+enable_interleaved : False
+gpu_copy_streams : 1
+gpu_inference_streams : 2
+input_dtype : int32
+input_format : linear
+precision : fp16
+tensor_path : ${PREPROCESSED_DATA_DIR}/squad_tokenized/input_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/segment_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/input_mask.npy
+use_cuda_thread_per_device : False
+use_graphs : True
+active_sms : 60
+config_ver : high_accuracy
+gemm_plugin_fairshare_cache_size : 120
+gpu_batch_size : 24
+graphs_max_seqlen : 240
+server_num_issue_query_threads : 0
+server_target_qps : 13100
+soft_drop : 0.99
+use_small_tile_gemm_plugin : True
+system_id : A100-SXM-80GBx8
+scenario : Server
+benchmark : bert
+config_name : A100-SXM-80GBx8_bert_Server
+accuracy_level : 99.9%
+optimization_level : plugin-enabled
+inference_server : custom
+system_name : GIGABYTE_G492-ZD0_A100-SXM-80GBx8
+test_mode : PerformanceOnly
+gpu_num_bundles : 2
+log_dir : /work/build/logs/2021.03.11-17.56.11
+&&&& RUNNING BERT_HARNESS # ./build/bin/harness_bert
+I0311 18:07:45.823804 29937 main_bert.cc:149] Found 8 GPUs
+I0311 18:07:46.188375 29937 bert_server.cc:182] Engine Path: ./build/engines/A100-SXM-80GBx8/bert/Server/bert-Server-gpu-fp16_S_384_B_24_P_2_vs.high_accuracy.plan
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+I0311 18:08:16.998857 29937 bert_server.cc:230] Engines Creation Completed
+I0311 18:08:17.034324 29937 bert_server.cc:234] Use CUDA graphs
+I0311 18:08:17.035892 29937 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:08:17.035907 29937 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:08:17.035930 29937 bert_core_vs.cc:309] Engine - Profile 0 maxDims 9216 Bmax=24 Smax=384
+I0311 18:08:17.142495 29937 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:08:17.142562 29937 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:08:17.143487 29937 bert_core_vs.cc:356] Setup complete
+I0311 18:08:17.145205 29937 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:08:17.145215 29937 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:08:17.145254 29937 bert_core_vs.cc:309] Engine - Profile 0 maxDims 9216 Bmax=24 Smax=384
+I0311 18:08:17.356050 29937 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:08:17.356114 29937 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:08:17.357255 29937 bert_core_vs.cc:356] Setup complete
+I0311 18:08:17.359068 29937 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:08:17.359078 29937 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:08:17.359089 29937 bert_core_vs.cc:309] Engine - Profile 0 maxDims 9216 Bmax=24 Smax=384
+I0311 18:08:17.492388 29937 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:08:17.492460 29937 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:08:17.493440 29937 bert_core_vs.cc:356] Setup complete
+I0311 18:08:17.496238 29937 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:08:17.496256 29937 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:08:17.496368 29937 bert_core_vs.cc:309] Engine - Profile 0 maxDims 9216 Bmax=24 Smax=384
+I0311 18:08:17.853884 29937 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:08:17.853956 29937 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:08:17.855921 29937 bert_core_vs.cc:356] Setup complete
+I0311 18:08:17.858304 29937 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:08:17.858325 29937 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:08:17.858338 29937 bert_core_vs.cc:309] Engine - Profile 0 maxDims 9216 Bmax=24 Smax=384
+I0311 18:08:18.289129 29937 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:08:18.289197 29937 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:08:18.290666 29937 bert_core_vs.cc:356] Setup complete
+I0311 18:08:18.291708 29937 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:08:18.291720 29937 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:08:18.291724 29937 bert_core_vs.cc:309] Engine - Profile 0 maxDims 9216 Bmax=24 Smax=384
+I0311 18:08:18.634418 29937 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:08:18.634475 29937 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:08:18.635293 29937 bert_core_vs.cc:356] Setup complete
+I0311 18:08:18.636330 29937 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:08:18.636351 29937 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:08:18.636364 29937 bert_core_vs.cc:309] Engine - Profile 0 maxDims 9216 Bmax=24 Smax=384
+I0311 18:08:19.176769 29937 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:08:19.176853 29937 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:08:19.178685 29937 bert_core_vs.cc:356] Setup complete
+I0311 18:08:19.181109 29937 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:08:19.181143 29937 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:08:19.181205 29937 bert_core_vs.cc:309] Engine - Profile 0 maxDims 9216 Bmax=24 Smax=384
+I0311 18:08:19.510157 29937 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:08:19.510282 29937 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:08:19.516010 29937 bert_core_vs.cc:356] Setup complete
+I0311 18:08:24.290817 29956 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:08:25.077816 29958 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:08:25.080891 29960 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:08:25.716799 29962 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:08:25.900954 29964 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:08:26.395085 29966 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:08:26.913060 29968 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:08:26.916544 29970 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:08:26.918411 29937 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:08:26.918440 29937 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:08:26.918465 29937 bert_core_vs.cc:309] Engine - Profile 1 maxDims 9216 Bmax=24 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:08:27.004451 29937 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:08:27.004501 29937 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:08:27.005645 29937 bert_core_vs.cc:356] Setup complete
+I0311 18:08:27.007908 29937 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:08:27.007920 29937 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:08:27.007927 29937 bert_core_vs.cc:309] Engine - Profile 1 maxDims 9216 Bmax=24 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:08:27.087955 29937 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:08:27.088019 29937 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:08:27.088977 29937 bert_core_vs.cc:356] Setup complete
+I0311 18:08:27.091754 29937 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:08:27.091775 29937 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:08:27.091787 29937 bert_core_vs.cc:309] Engine - Profile 1 maxDims 9216 Bmax=24 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:08:27.291688 29937 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:08:27.291738 29937 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:08:27.293243 29937 bert_core_vs.cc:356] Setup complete
+I0311 18:08:27.295748 29937 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:08:27.295768 29937 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:08:27.295776 29937 bert_core_vs.cc:309] Engine - Profile 1 maxDims 9216 Bmax=24 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:08:27.462430 29937 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:08:27.462477 29937 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:08:27.510758 29937 bert_core_vs.cc:356] Setup complete
+I0311 18:08:27.513228 29937 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:08:27.513255 29937 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:08:27.513274 29937 bert_core_vs.cc:309] Engine - Profile 1 maxDims 9216 Bmax=24 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:08:27.813848 29937 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:08:27.813911 29937 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:08:27.815237 29937 bert_core_vs.cc:356] Setup complete
+I0311 18:08:27.817907 29937 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:08:27.817926 29937 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:08:27.817979 29937 bert_core_vs.cc:309] Engine - Profile 1 maxDims 9216 Bmax=24 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:08:28.072255 29937 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:08:28.072363 29937 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:08:28.099416 29937 bert_core_vs.cc:356] Setup complete
+I0311 18:08:28.101611 29937 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:08:28.101624 29937 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:08:28.101691 29937 bert_core_vs.cc:309] Engine - Profile 1 maxDims 9216 Bmax=24 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:08:28.477134 29937 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:08:28.477222 29937 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:08:28.557507 29937 bert_core_vs.cc:356] Setup complete
+I0311 18:08:28.560382 29937 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:08:28.560407 29937 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:08:28.560452 29937 bert_core_vs.cc:309] Engine - Profile 1 maxDims 9216 Bmax=24 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:08:28.958647 29937 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:08:28.958959 29937 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:08:29.187093 29937 bert_core_vs.cc:356] Setup complete
+I0311 18:08:35.920759 29972 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:08:36.490813 29974 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:08:36.766539 29976 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:08:37.224963 29978 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:08:37.650343 29982 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:08:37.687728 29980 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:08:38.044124 29984 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:08:38.177366 29986 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:08:38.177790 29937 bert_server.cc:262] Apply soft drop policy with threshold = 0.99
+I0311 18:08:38.656581 29937 main_bert.cc:176] Starting running actual test.
+I0311 18:18:42.103979 29989 bert_server.cc:137] Total number of soft drop tasks: 5036 out of 494892 total tasks
+I0311 18:18:42.104030 29992 bert_server.cc:137] Total number of soft drop tasks: 4769 out of 495845 total tasks
+I0311 18:18:42.106552 30000 bert_server.cc:137] Total number of soft drop tasks: 4906 out of 493696 total tasks
+I0311 18:18:42.106778 29987 bert_server.cc:137] Total number of soft drop tasks: 4866 out of 494814 total tasks
+I0311 18:18:42.108691 29996 bert_server.cc:137] Total number of soft drop tasks: 4708 out of 492365 total tasks
+I0311 18:18:42.109830 29990 bert_server.cc:137] Total number of soft drop tasks: 4855 out of 491445 total tasks
+I0311 18:18:42.109925 29991 bert_server.cc:137] Total number of soft drop tasks: 4807 out of 495958 total tasks
+I0311 18:18:42.110632 30001 bert_server.cc:137] Total number of soft drop tasks: 4592 out of 481229 total tasks
+I0311 18:18:42.112344 29988 bert_server.cc:137] Total number of soft drop tasks: 4773 out of 493217 total tasks
+I0311 18:18:42.115342 29998 bert_server.cc:137] Total number of soft drop tasks: 4743 out of 490899 total tasks
+I0311 18:18:42.115510 29997 bert_server.cc:137] Total number of soft drop tasks: 4782 out of 489857 total tasks
+I0311 18:18:42.116641 29994 bert_server.cc:137] Total number of soft drop tasks: 4522 out of 489119 total tasks
+I0311 18:18:42.119760 29993 bert_server.cc:137] Total number of soft drop tasks: 4807 out of 489724 total tasks
+I0311 18:18:42.121786 29999 bert_server.cc:137] Total number of soft drop tasks: 4971 out of 493655 total tasks
+I0311 18:18:42.122862 29995 bert_server.cc:137] Total number of soft drop tasks: 4939 out of 487833 total tasks
+I0311 18:18:42.129142 30002 bert_server.cc:137] Total number of soft drop tasks: 4694 out of 485136 total tasks
+I0311 18:18:52.647861 29937 main_bert.cc:189] Finished running actual test.
+================================================
+MLPerf Results Summary
+================================================
+SUT name : BERT SERVER
+Scenario : Server
+Mode     : PerformanceOnly
+Scheduled samples per second : 13099.47
+Result is : VALID
+  Performance constraints satisfied : Yes
+  Min duration satisfied : Yes
+  Min queries satisfied : Yes
+
+================================================
+Additional Stats
+================================================
+Completed samples per second    : 13098.50
+
+Min latency (ns)                : 5089899
+Max latency (ns)                : 606897337780
+Mean latency (ns)               : 3016508176
+50.00 percentile latency (ns)   : 54251131
+90.00 percentile latency (ns)   : 63275776
+95.00 percentile latency (ns)   : 65389631
+97.00 percentile latency (ns)   : 66965815
+99.00 percentile latency (ns)   : 75676911
+99.90 percentile latency (ns)   : 544891472975
+
+================================================
+Test Parameters Used
+================================================
+samples_per_query : 1
+target_qps : 13100
+target_latency (ns): 130000000
+max_async_queries : 0
+min_duration (ms): 600000
+max_duration (ms): 0
+min_query_count : 270336
+max_query_count : 0
+qsl_rng_seed : 7322528924094909334
+sample_index_rng_seed : 1570999273408051088
+schedule_rng_seed : 3507442325620259414
+accuracy_log_rng_seed : 0
+accuracy_log_probability : 0
+accuracy_log_sampling_target : 0
+print_timestamps : 0
+performance_issue_unique : 0
+performance_issue_same : 0
+performance_issue_same_index : 0
+performance_sample_count : 10833
+
+No warnings encountered during test.
+
+No errors encountered during test.
+[2021-03-11 18:19:01,514 main.py:280 INFO] Result: result_scheduled_samples_per_sec: 13099.5, Result is VALID
+
+======================= Perf harness results: =======================
+
+GIGABYTE_G492-ZD0_A100-SXM-80GBx8-default-Server:
+    bert: result_scheduled_samples_per_sec: 25791.8, Result is VALID
+
+GIGABYTE_G492-ZD0_A100-SXM-80GBx8-high_accuracy-Server:
+    bert: result_scheduled_samples_per_sec: 13099.5, Result is VALID
+
+
+======================= Accuracy results: =======================
+
+GIGABYTE_G492-ZD0_A100-SXM-80GBx8-default-Server:
+    bert: No accuracy results in PerformanceOnly mode.
+
+GIGABYTE_G492-ZD0_A100-SXM-80GBx8-high_accuracy-Server:
+    bert: No accuracy results in PerformanceOnly mode.
+
+[2021-03-11 18:19:05,061 __init__.py:255 INFO] Running command: CUDA_VISIBILE_ORDER=PCI_BUS_ID nvidia-smi --query-gpu=gpu_name,pci.device_id,uuid --format=csv
+[2021-03-11 18:19:05,137 main.py:694 INFO] Detected System ID: A100-SXM-80GBx8
+[2021-03-11 18:19:05,144 main.py:527 INFO] Using config files: configs/bert/Server/config.json
+[2021-03-11 18:19:05,144 __init__.py:341 INFO] Parsing config file configs/bert/Server/config.json ...
+[2021-03-11 18:19:05,145 main.py:540 INFO] Processing config "A100-SXM-80GBx8_bert_Server"
+[2021-03-11 18:19:05,145 main.py:224 INFO] Running harness for bert benchmark in Server scenario...
+[2021-03-11 18:19:06,302 __init__.py:255 INFO] Running command: ./build/bin/harness_bert --logfile_outdir="/work/build/logs/2021.03.11-18.19.02/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/bert-99/Server" --logfile_prefix="mlperf_log_" --performance_sample_count=10833 --test_mode="PerformanceOnly" --gpu_batch_size=48 --tensor_path="${PREPROCESSED_DATA_DIR}/squad_tokenized/input_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/segment_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/input_mask.npy" --use_graphs=true --gpu_inference_streams=2 --gpu_copy_streams=1 --graphs_max_seqlen=240 --soft_drop=0.99 --server_num_issue_query_threads=0 --gpu_engines="./build/engines/A100-SXM-80GBx8/bert/Server/bert-Server-gpu-int8_S_384_B_48_P_2_vs.default.plan" --mlperf_conf_path="measurements/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/bert-99/Server/mlperf.conf" --user_conf_path="measurements/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/bert-99/Server/user.conf" --scenario Server --model bert
+[2021-03-11 18:19:06,302 __init__.py:261 INFO] Overriding Environment
+coalesced_tensor : True
+enable_interleaved : False
+gpu_copy_streams : 1
+gpu_inference_streams : 2
+input_dtype : int32
+input_format : linear
+precision : int8
+tensor_path : ${PREPROCESSED_DATA_DIR}/squad_tokenized/input_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/segment_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/input_mask.npy
+use_cuda_thread_per_device : False
+use_graphs : True
+active_sms : 60
+config_ver : default
+gemm_plugin_fairshare_cache_size : 120
+gpu_batch_size : 48
+graphs_max_seqlen : 240
+server_num_issue_query_threads : 0
+server_target_qps : 25800
+soft_drop : 0.99
+use_small_tile_gemm_plugin : True
+system_id : A100-SXM-80GBx8
+scenario : Server
+benchmark : bert
+config_name : A100-SXM-80GBx8_bert_Server
+accuracy_level : 99%
+optimization_level : plugin-enabled
+inference_server : custom
+system_name : GIGABYTE_G492-ZD0_A100-SXM-80GBx8
+test_mode : PerformanceOnly
+gpu_num_bundles : 2
+log_dir : /work/build/logs/2021.03.11-18.19.02
+&&&& RUNNING BERT_HARNESS # ./build/bin/harness_bert
+I0311 18:19:06.470269 30124 main_bert.cc:149] Found 8 GPUs
+I0311 18:19:06.811339 30124 bert_server.cc:182] Engine Path: ./build/engines/A100-SXM-80GBx8/bert/Server/bert-Server-gpu-int8_S_384_B_48_P_2_vs.default.plan
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+I0311 18:19:29.645148 30124 bert_server.cc:230] Engines Creation Completed
+I0311 18:19:29.667021 30124 bert_server.cc:234] Use CUDA graphs
+I0311 18:19:29.668283 30124 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 18:19:29.668296 30124 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:19:29.668316 30124 bert_core_vs.cc:309] Engine - Profile 0 maxDims 18432 Bmax=48 Smax=384
+I0311 18:19:30.242276 30124 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:19:30.242352 30124 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 18:19:30.243862 30124 bert_core_vs.cc:356] Setup complete
+I0311 18:19:30.245827 30124 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 18:19:30.245839 30124 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:19:30.245844 30124 bert_core_vs.cc:309] Engine - Profile 0 maxDims 18432 Bmax=48 Smax=384
+I0311 18:19:31.044090 30124 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:19:31.044142 30124 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 18:19:31.045672 30124 bert_core_vs.cc:356] Setup complete
+I0311 18:19:31.047412 30124 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 18:19:31.047425 30124 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:19:31.047430 30124 bert_core_vs.cc:309] Engine - Profile 0 maxDims 18432 Bmax=48 Smax=384
+I0311 18:19:32.258795 30124 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:19:32.258846 30124 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 18:19:32.260185 30124 bert_core_vs.cc:356] Setup complete
+I0311 18:19:32.262316 30124 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 18:19:32.262327 30124 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:19:32.262333 30124 bert_core_vs.cc:309] Engine - Profile 0 maxDims 18432 Bmax=48 Smax=384
+I0311 18:19:34.167865 30143 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 18:19:34.544487 30124 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:19:34.544541 30124 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 18:19:34.546365 30124 bert_core_vs.cc:356] Setup complete
+I0311 18:19:34.548002 30124 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 18:19:34.548013 30124 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:19:34.548022 30124 bert_core_vs.cc:309] Engine - Profile 0 maxDims 18432 Bmax=48 Smax=384
+I0311 18:19:35.438899 30145 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 18:19:35.927008 30124 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:19:35.927071 30124 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 18:19:35.929075 30124 bert_core_vs.cc:356] Setup complete
+I0311 18:19:35.931284 30124 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 18:19:35.931301 30124 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:19:35.931313 30124 bert_core_vs.cc:309] Engine - Profile 0 maxDims 18432 Bmax=48 Smax=384
+I0311 18:19:36.977350 30147 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 18:19:37.408056 30124 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:19:37.408120 30124 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 18:19:37.409528 30124 bert_core_vs.cc:356] Setup complete
+I0311 18:19:37.411438 30124 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 18:19:37.411455 30124 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:19:37.411468 30124 bert_core_vs.cc:309] Engine - Profile 0 maxDims 18432 Bmax=48 Smax=384
+I0311 18:19:38.927794 30124 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:19:38.927867 30124 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 18:19:38.929829 30124 bert_core_vs.cc:356] Setup complete
+I0311 18:19:38.931701 30124 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 18:19:38.931721 30124 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:19:38.931733 30124 bert_core_vs.cc:309] Engine - Profile 0 maxDims 18432 Bmax=48 Smax=384
+I0311 18:19:39.214299 30149 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 18:19:40.597467 30124 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:19:40.597548 30124 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 18:19:40.644551 30124 bert_core_vs.cc:356] Setup complete
+I0311 18:19:40.844333 30151 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 18:19:42.414165 30153 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 18:19:43.661881 30155 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 18:19:44.787492 30157 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 18:19:44.789104 30124 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 18:19:44.789135 30124 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:19:44.789155 30124 bert_core_vs.cc:309] Engine - Profile 1 maxDims 18432 Bmax=48 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:19:45.376821 30124 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:19:45.376866 30124 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 18:19:45.378315 30124 bert_core_vs.cc:356] Setup complete
+I0311 18:19:45.380287 30124 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 18:19:45.380300 30124 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:19:45.380306 30124 bert_core_vs.cc:309] Engine - Profile 1 maxDims 18432 Bmax=48 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:19:46.325268 30124 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:19:46.325309 30124 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 18:19:46.326676 30124 bert_core_vs.cc:356] Setup complete
+I0311 18:19:46.328538 30124 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 18:19:46.328567 30124 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:19:46.328585 30124 bert_core_vs.cc:309] Engine - Profile 1 maxDims 18432 Bmax=48 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:19:47.810591 30124 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:19:47.810643 30124 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 18:19:47.812436 30124 bert_core_vs.cc:356] Setup complete
+I0311 18:19:47.814441 30124 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 18:19:47.814457 30124 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:19:47.814502 30124 bert_core_vs.cc:309] Engine - Profile 1 maxDims 18432 Bmax=48 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:19:49.828706 30124 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:19:49.828783 30124 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 18:19:49.832865 30124 bert_core_vs.cc:356] Setup complete
+I0311 18:19:49.834367 30124 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 18:19:49.834379 30124 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:19:49.834390 30124 bert_core_vs.cc:309] Engine - Profile 1 maxDims 18432 Bmax=48 Smax=384
+I0311 18:19:50.049909 30159 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 18:19:51.592716 30161 bert_core_vs.cc:256] Created 201 CUDA graphs
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:19:51.709789 30124 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:19:51.709831 30124 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 18:19:51.711859 30124 bert_core_vs.cc:356] Setup complete
+I0311 18:19:51.713599 30124 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 18:19:51.713616 30124 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:19:51.713632 30124 bert_core_vs.cc:309] Engine - Profile 1 maxDims 18432 Bmax=48 Smax=384
+I0311 18:19:53.346655 30163 bert_core_vs.cc:256] Created 201 CUDA graphs
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:19:53.445919 30124 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:19:53.445986 30124 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 18:19:53.447767 30124 bert_core_vs.cc:356] Setup complete
+I0311 18:19:53.449522 30124 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 18:19:53.449534 30124 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:19:53.449544 30124 bert_core_vs.cc:309] Engine - Profile 1 maxDims 18432 Bmax=48 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:19:55.341254 30124 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:19:55.341310 30124 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 18:19:55.344843 30124 bert_core_vs.cc:356] Setup complete
+I0311 18:19:55.346683 30124 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 18:19:55.346696 30124 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:19:55.346706 30124 bert_core_vs.cc:309] Engine - Profile 1 maxDims 18432 Bmax=48 Smax=384
+I0311 18:19:55.555033 30165 bert_core_vs.cc:256] Created 201 CUDA graphs
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:19:57.313051 30124 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:19:57.313103 30124 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 18:19:57.314716 30124 bert_core_vs.cc:356] Setup complete
+I0311 18:19:57.760916 30167 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 18:19:59.627035 30169 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 18:20:00.823587 30171 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 18:20:02.042623 30173 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 18:20:02.042948 30124 bert_server.cc:262] Apply soft drop policy with threshold = 0.99
+I0311 18:20:02.507854 30124 main_bert.cc:176] Starting running actual test.
+I0311 18:30:09.502545 30187 bert_server.cc:137] Total number of soft drop tasks: 9557 out of 976604 total tasks
+I0311 18:30:09.503433 30183 bert_server.cc:137] Total number of soft drop tasks: 9465 out of 967416 total tasks
+I0311 18:30:09.503538 30175 bert_server.cc:137] Total number of soft drop tasks: 9466 out of 975396 total tasks
+I0311 18:30:09.508898 30182 bert_server.cc:137] Total number of soft drop tasks: 9699 out of 970330 total tasks
+I0311 18:30:09.510061 30181 bert_server.cc:137] Total number of soft drop tasks: 9409 out of 951169 total tasks
+I0311 18:30:09.510856 30176 bert_server.cc:137] Total number of soft drop tasks: 9392 out of 974231 total tasks
+I0311 18:30:09.511301 30174 bert_server.cc:137] Total number of soft drop tasks: 9445 out of 979026 total tasks
+I0311 18:30:09.511515 30188 bert_server.cc:137] Total number of soft drop tasks: 9569 out of 954679 total tasks
+I0311 18:30:09.516371 30178 bert_server.cc:137] Total number of soft drop tasks: 9195 out of 962600 total tasks
+I0311 18:30:09.516736 30184 bert_server.cc:137] Total number of soft drop tasks: 9410 out of 968619 total tasks
+I0311 18:30:09.517550 30179 bert_server.cc:137] Total number of soft drop tasks: 9348 out of 959272 total tasks
+I0311 18:30:09.517874 30180 bert_server.cc:137] Total number of soft drop tasks: 9269 out of 947784 total tasks
+I0311 18:30:09.518483 30177 bert_server.cc:137] Total number of soft drop tasks: 9488 out of 978179 total tasks
+I0311 18:30:09.519562 30186 bert_server.cc:137] Total number of soft drop tasks: 9576 out of 977862 total tasks
+I0311 18:30:09.525650 30185 bert_server.cc:137] Total number of soft drop tasks: 9369 out of 970219 total tasks
+I0311 18:30:09.526327 30189 bert_server.cc:137] Total number of soft drop tasks: 9373 out of 961703 total tasks
+I0311 18:30:23.672926 30124 main_bert.cc:189] Finished running actual test.
+================================================
+MLPerf Results Summary
+================================================
+SUT name : BERT SERVER
+Scenario : Server
+Mode     : PerformanceOnly
+Scheduled samples per second : 25791.81
+Result is : VALID
+  Performance constraints satisfied : Yes
+  Min duration satisfied : Yes
+  Min queries satisfied : Yes
+
+================================================
+Additional Stats
+================================================
+Completed samples per second    : 25789.25
+
+Min latency (ns)                : 5383534
+Max latency (ns)                : 606524133630
+Mean latency (ns)               : 3017159581
+50.00 percentile latency (ns)   : 55298860
+90.00 percentile latency (ns)   : 62666564
+95.00 percentile latency (ns)   : 64444518
+97.00 percentile latency (ns)   : 65747263
+99.00 percentile latency (ns)   : 71898647
+99.90 percentile latency (ns)   : 543810083471
+
+================================================
+Test Parameters Used
+================================================
+samples_per_query : 1
+target_qps : 25800
+target_latency (ns): 130000000
+max_async_queries : 0
+min_duration (ms): 600000
+max_duration (ms): 0
+min_query_count : 270336
+max_query_count : 0
+qsl_rng_seed : 7322528924094909334
+sample_index_rng_seed : 1570999273408051088
+schedule_rng_seed : 3507442325620259414
+accuracy_log_rng_seed : 0
+accuracy_log_probability : 0
+accuracy_log_sampling_target : 0
+print_timestamps : 0
+performance_issue_unique : 0
+performance_issue_same : 0
+performance_issue_same_index : 0
+performance_sample_count : 10833
+
+No warnings encountered during test.
+
+No errors encountered during test.
+[2021-03-11 18:30:34,101 main.py:280 INFO] Result: result_scheduled_samples_per_sec: 25791.8, Result is VALID
+[2021-03-11 18:30:34,101 main.py:224 INFO] Running harness for bert benchmark in Server scenario...
+[2021-03-11 18:30:34,107 __init__.py:255 INFO] Running command: ./build/bin/harness_bert --logfile_outdir="/work/build/logs/2021.03.11-18.19.02/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/bert-99.9/Server" --logfile_prefix="mlperf_log_" --performance_sample_count=10833 --test_mode="PerformanceOnly" --gpu_batch_size=24 --tensor_path="${PREPROCESSED_DATA_DIR}/squad_tokenized/input_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/segment_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/input_mask.npy" --use_graphs=true --gpu_inference_streams=2 --gpu_copy_streams=1 --graphs_max_seqlen=240 --soft_drop=0.99 --server_num_issue_query_threads=0 --gpu_engines="./build/engines/A100-SXM-80GBx8/bert/Server/bert-Server-gpu-fp16_S_384_B_24_P_2_vs.high_accuracy.plan" --mlperf_conf_path="measurements/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/bert-99.9/Server/mlperf.conf" --user_conf_path="measurements/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/bert-99.9/Server/user.conf" --scenario Server --model bert
+[2021-03-11 18:30:34,107 __init__.py:261 INFO] Overriding Environment
+coalesced_tensor : True
+enable_interleaved : False
+gpu_copy_streams : 1
+gpu_inference_streams : 2
+input_dtype : int32
+input_format : linear
+precision : fp16
+tensor_path : ${PREPROCESSED_DATA_DIR}/squad_tokenized/input_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/segment_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/input_mask.npy
+use_cuda_thread_per_device : False
+use_graphs : True
+active_sms : 60
+config_ver : high_accuracy
+gemm_plugin_fairshare_cache_size : 120
+gpu_batch_size : 24
+graphs_max_seqlen : 240
+server_num_issue_query_threads : 0
+server_target_qps : 13100
+soft_drop : 0.99
+use_small_tile_gemm_plugin : True
+system_id : A100-SXM-80GBx8
+scenario : Server
+benchmark : bert
+config_name : A100-SXM-80GBx8_bert_Server
+accuracy_level : 99.9%
+optimization_level : plugin-enabled
+inference_server : custom
+system_name : GIGABYTE_G492-ZD0_A100-SXM-80GBx8
+test_mode : PerformanceOnly
+gpu_num_bundles : 2
+log_dir : /work/build/logs/2021.03.11-18.19.02
+&&&& RUNNING BERT_HARNESS # ./build/bin/harness_bert
+I0311 18:30:34.264355 30192 main_bert.cc:149] Found 8 GPUs
+I0311 18:30:34.600703 30192 bert_server.cc:182] Engine Path: ./build/engines/A100-SXM-80GBx8/bert/Server/bert-Server-gpu-fp16_S_384_B_24_P_2_vs.high_accuracy.plan
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+I0311 18:30:57.145043 30192 bert_server.cc:230] Engines Creation Completed
+I0311 18:30:57.184269 30192 bert_server.cc:234] Use CUDA graphs
+I0311 18:30:57.185772 30192 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:30:57.185786 30192 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:30:57.185809 30192 bert_core_vs.cc:309] Engine - Profile 0 maxDims 9216 Bmax=24 Smax=384
+I0311 18:30:57.294786 30192 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:30:57.294849 30192 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:30:57.295943 30192 bert_core_vs.cc:356] Setup complete
+I0311 18:30:57.297509 30192 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:30:57.297519 30192 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:30:57.297528 30192 bert_core_vs.cc:309] Engine - Profile 0 maxDims 9216 Bmax=24 Smax=384
+I0311 18:30:57.368702 30192 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:30:57.368752 30192 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:30:57.369364 30192 bert_core_vs.cc:356] Setup complete
+I0311 18:30:57.370416 30192 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:30:57.370487 30192 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:30:57.370493 30192 bert_core_vs.cc:309] Engine - Profile 0 maxDims 9216 Bmax=24 Smax=384
+I0311 18:30:57.674804 30192 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:30:57.674865 30192 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:30:57.676038 30192 bert_core_vs.cc:356] Setup complete
+I0311 18:30:57.678862 30192 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:30:57.678879 30192 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:30:57.678902 30192 bert_core_vs.cc:309] Engine - Profile 0 maxDims 9216 Bmax=24 Smax=384
+I0311 18:30:58.013979 30192 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:30:58.014045 30192 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:30:58.015309 30192 bert_core_vs.cc:356] Setup complete
+I0311 18:30:58.017076 30192 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:30:58.017097 30192 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:30:58.017117 30192 bert_core_vs.cc:309] Engine - Profile 0 maxDims 9216 Bmax=24 Smax=384
+I0311 18:30:58.132217 30192 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:30:58.132287 30192 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:30:58.134016 30192 bert_core_vs.cc:356] Setup complete
+I0311 18:30:58.135818 30192 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:30:58.135829 30192 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:30:58.135834 30192 bert_core_vs.cc:309] Engine - Profile 0 maxDims 9216 Bmax=24 Smax=384
+I0311 18:30:58.282013 30192 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:30:58.282066 30192 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:30:58.283866 30192 bert_core_vs.cc:356] Setup complete
+I0311 18:30:58.285696 30192 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:30:58.285707 30192 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:30:58.285712 30192 bert_core_vs.cc:309] Engine - Profile 0 maxDims 9216 Bmax=24 Smax=384
+I0311 18:30:58.704954 30192 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:30:58.705020 30192 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:30:58.710216 30192 bert_core_vs.cc:356] Setup complete
+I0311 18:30:58.712177 30192 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:30:58.712196 30192 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:30:58.712239 30192 bert_core_vs.cc:309] Engine - Profile 0 maxDims 9216 Bmax=24 Smax=384
+I0311 18:30:59.071496 30192 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:30:59.071559 30192 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:30:59.073830 30192 bert_core_vs.cc:356] Setup complete
+I0311 18:31:04.102751 30211 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:31:04.631954 30213 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:31:05.052807 30215 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:31:05.458725 30217 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:31:05.645881 30219 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:31:05.813828 30221 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:31:06.104357 30223 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:31:06.234431 30225 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:31:06.236068 30192 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:31:06.236114 30192 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:31:06.236138 30192 bert_core_vs.cc:309] Engine - Profile 1 maxDims 9216 Bmax=24 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:31:06.291949 30192 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:31:06.291986 30192 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:31:06.292929 30192 bert_core_vs.cc:356] Setup complete
+I0311 18:31:06.295142 30192 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:31:06.295153 30192 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:31:06.295161 30192 bert_core_vs.cc:309] Engine - Profile 1 maxDims 9216 Bmax=24 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:31:06.363209 30192 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:31:06.363246 30192 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:31:06.363922 30192 bert_core_vs.cc:356] Setup complete
+I0311 18:31:06.365837 30192 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:31:06.365850 30192 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:31:06.365895 30192 bert_core_vs.cc:309] Engine - Profile 1 maxDims 9216 Bmax=24 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:31:06.554615 30192 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:31:06.554653 30192 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:31:06.579985 30192 bert_core_vs.cc:356] Setup complete
+I0311 18:31:06.586179 30192 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:31:06.586218 30192 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:31:06.586302 30192 bert_core_vs.cc:309] Engine - Profile 1 maxDims 9216 Bmax=24 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:31:06.864192 30192 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:31:06.864240 30192 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:31:06.865052 30192 bert_core_vs.cc:356] Setup complete
+I0311 18:31:06.867079 30192 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:31:06.867136 30192 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:31:06.867151 30192 bert_core_vs.cc:309] Engine - Profile 1 maxDims 9216 Bmax=24 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:31:07.236778 30192 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:31:07.236829 30192 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:31:07.240314 30192 bert_core_vs.cc:356] Setup complete
+I0311 18:31:07.242439 30192 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:31:07.242456 30192 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:31:07.242543 30192 bert_core_vs.cc:309] Engine - Profile 1 maxDims 9216 Bmax=24 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:31:07.632036 30192 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:31:07.632078 30192 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:31:07.643338 30192 bert_core_vs.cc:356] Setup complete
+I0311 18:31:07.651635 30192 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:31:07.651657 30192 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:31:07.651675 30192 bert_core_vs.cc:309] Engine - Profile 1 maxDims 9216 Bmax=24 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:31:08.207706 30192 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:31:08.207769 30192 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:31:08.209205 30192 bert_core_vs.cc:356] Setup complete
+I0311 18:31:08.211549 30192 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:31:08.211571 30192 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:31:08.211645 30192 bert_core_vs.cc:309] Engine - Profile 1 maxDims 9216 Bmax=24 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:31:08.610085 30192 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:31:08.610131 30192 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:31:08.611780 30192 bert_core_vs.cc:356] Setup complete
+I0311 18:31:15.053099 30227 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:31:15.596982 30229 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:31:15.932991 30231 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:31:16.379774 30233 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:31:16.814234 30235 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:31:17.195169 30237 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:31:17.508224 30239 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:31:17.511574 30241 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:31:17.512248 30192 bert_server.cc:262] Apply soft drop policy with threshold = 0.99
+I0311 18:31:17.991866 30192 main_bert.cc:176] Starting running actual test.
+I0311 18:41:21.584548 30245 bert_server.cc:137] Total number of soft drop tasks: 4882 out of 492864 total tasks
+I0311 18:41:21.585610 30249 bert_server.cc:137] Total number of soft drop tasks: 4718 out of 487774 total tasks
+I0311 18:41:21.586203 30248 bert_server.cc:137] Total number of soft drop tasks: 4819 out of 490894 total tasks
+I0311 18:41:21.586653 30256 bert_server.cc:137] Total number of soft drop tasks: 4657 out of 481768 total tasks
+I0311 18:41:21.587378 30253 bert_server.cc:137] Total number of soft drop tasks: 4855 out of 490244 total tasks
+I0311 18:41:21.589135 30252 bert_server.cc:137] Total number of soft drop tasks: 4819 out of 489869 total tasks
+I0311 18:41:21.589205 30244 bert_server.cc:137] Total number of soft drop tasks: 4842 out of 493626 total tasks
+I0311 18:41:21.591362 30246 bert_server.cc:137] Total number of soft drop tasks: 4946 out of 497622 total tasks
+I0311 18:41:21.592487 30254 bert_server.cc:137] Total number of soft drop tasks: 4901 out of 493320 total tasks
+I0311 18:41:21.593582 30243 bert_server.cc:137] Total number of soft drop tasks: 4932 out of 492860 total tasks
+I0311 18:41:21.598811 30257 bert_server.cc:137] Total number of soft drop tasks: 4619 out of 483594 total tasks
+I0311 18:41:21.601913 30255 bert_server.cc:137] Total number of soft drop tasks: 4777 out of 494264 total tasks
+I0311 18:41:21.604351 30242 bert_server.cc:137] Total number of soft drop tasks: 4814 out of 494945 total tasks
+I0311 18:41:21.604591 30247 bert_server.cc:137] Total number of soft drop tasks: 4767 out of 495011 total tasks
+I0311 18:41:21.606676 30251 bert_server.cc:137] Total number of soft drop tasks: 4831 out of 491098 total tasks
+I0311 18:41:21.613165 30250 bert_server.cc:137] Total number of soft drop tasks: 4937 out of 489931 total tasks
+I0311 18:41:32.128305 30192 main_bert.cc:189] Finished running actual test.
+================================================
+MLPerf Results Summary
+================================================
+SUT name : BERT SERVER
+Scenario : Server
+Mode     : PerformanceOnly
+Scheduled samples per second : 13099.47
+Result is : VALID
+  Performance constraints satisfied : Yes
+  Min duration satisfied : Yes
+  Min queries satisfied : Yes
+
+================================================
+Additional Stats
+================================================
+Completed samples per second    : 13098.25
+
+Min latency (ns)                : 5102155
+Max latency (ns)                : 606709300849
+Mean latency (ns)               : 3027932748
+50.00 percentile latency (ns)   : 54593696
+90.00 percentile latency (ns)   : 63491427
+95.00 percentile latency (ns)   : 65644409
+97.00 percentile latency (ns)   : 67249273
+99.00 percentile latency (ns)   : 75983892
+99.90 percentile latency (ns)   : 544447969746
+
+================================================
+Test Parameters Used
+================================================
+samples_per_query : 1
+target_qps : 13100
+target_latency (ns): 130000000
+max_async_queries : 0
+min_duration (ms): 600000
+max_duration (ms): 0
+min_query_count : 270336
+max_query_count : 0
+qsl_rng_seed : 7322528924094909334
+sample_index_rng_seed : 1570999273408051088
+schedule_rng_seed : 3507442325620259414
+accuracy_log_rng_seed : 0
+accuracy_log_probability : 0
+accuracy_log_sampling_target : 0
+print_timestamps : 0
+performance_issue_unique : 0
+performance_issue_same : 0
+performance_issue_same_index : 0
+performance_sample_count : 10833
+
+No warnings encountered during test.
+
+No errors encountered during test.
+[2021-03-11 18:41:40,891 main.py:280 INFO] Result: result_scheduled_samples_per_sec: 13099.5, Result is VALID
+
+======================= Perf harness results: =======================
+
+GIGABYTE_G492-ZD0_A100-SXM-80GBx8-default-Server:
+    bert: result_scheduled_samples_per_sec: 25791.8, Result is VALID
+
+GIGABYTE_G492-ZD0_A100-SXM-80GBx8-high_accuracy-Server:
+    bert: result_scheduled_samples_per_sec: 13099.5, Result is VALID
+
+
+======================= Accuracy results: =======================
+
+GIGABYTE_G492-ZD0_A100-SXM-80GBx8-default-Server:
+    bert: No accuracy results in PerformanceOnly mode.
+
+GIGABYTE_G492-ZD0_A100-SXM-80GBx8-high_accuracy-Server:
+    bert: No accuracy results in PerformanceOnly mode.
+
+[2021-03-11 18:41:44,416 __init__.py:255 INFO] Running command: CUDA_VISIBILE_ORDER=PCI_BUS_ID nvidia-smi --query-gpu=gpu_name,pci.device_id,uuid --format=csv
+[2021-03-11 18:41:44,492 main.py:694 INFO] Detected System ID: A100-SXM-80GBx8
+[2021-03-11 18:41:44,499 main.py:527 INFO] Using config files: configs/bert/Server/config.json
+[2021-03-11 18:41:44,500 __init__.py:341 INFO] Parsing config file configs/bert/Server/config.json ...
+[2021-03-11 18:41:44,500 main.py:540 INFO] Processing config "A100-SXM-80GBx8_bert_Server"
+[2021-03-11 18:41:44,500 main.py:224 INFO] Running harness for bert benchmark in Server scenario...
+[2021-03-11 18:41:45,649 __init__.py:255 INFO] Running command: ./build/bin/harness_bert --logfile_outdir="/work/build/logs/2021.03.11-18.41.41/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/bert-99/Server" --logfile_prefix="mlperf_log_" --performance_sample_count=10833 --test_mode="PerformanceOnly" --gpu_batch_size=48 --tensor_path="${PREPROCESSED_DATA_DIR}/squad_tokenized/input_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/segment_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/input_mask.npy" --use_graphs=true --gpu_inference_streams=2 --gpu_copy_streams=1 --graphs_max_seqlen=240 --soft_drop=0.99 --server_num_issue_query_threads=0 --gpu_engines="./build/engines/A100-SXM-80GBx8/bert/Server/bert-Server-gpu-int8_S_384_B_48_P_2_vs.default.plan" --mlperf_conf_path="measurements/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/bert-99/Server/mlperf.conf" --user_conf_path="measurements/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/bert-99/Server/user.conf" --scenario Server --model bert
+[2021-03-11 18:41:45,649 __init__.py:261 INFO] Overriding Environment
+coalesced_tensor : True
+enable_interleaved : False
+gpu_copy_streams : 1
+gpu_inference_streams : 2
+input_dtype : int32
+input_format : linear
+precision : int8
+tensor_path : ${PREPROCESSED_DATA_DIR}/squad_tokenized/input_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/segment_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/input_mask.npy
+use_cuda_thread_per_device : False
+use_graphs : True
+active_sms : 60
+config_ver : default
+gemm_plugin_fairshare_cache_size : 120
+gpu_batch_size : 48
+graphs_max_seqlen : 240
+server_num_issue_query_threads : 0
+server_target_qps : 25800
+soft_drop : 0.99
+use_small_tile_gemm_plugin : True
+system_id : A100-SXM-80GBx8
+scenario : Server
+benchmark : bert
+config_name : A100-SXM-80GBx8_bert_Server
+accuracy_level : 99%
+optimization_level : plugin-enabled
+inference_server : custom
+system_name : GIGABYTE_G492-ZD0_A100-SXM-80GBx8
+test_mode : PerformanceOnly
+gpu_num_bundles : 2
+log_dir : /work/build/logs/2021.03.11-18.41.41
+&&&& RUNNING BERT_HARNESS # ./build/bin/harness_bert
+I0311 18:41:45.810855 30379 main_bert.cc:149] Found 8 GPUs
+I0311 18:41:46.162367 30379 bert_server.cc:182] Engine Path: ./build/engines/A100-SXM-80GBx8/bert/Server/bert-Server-gpu-int8_S_384_B_48_P_2_vs.default.plan
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+I0311 18:42:12.791101 30379 bert_server.cc:230] Engines Creation Completed
+I0311 18:42:12.826246 30379 bert_server.cc:234] Use CUDA graphs
+I0311 18:42:12.827960 30379 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 18:42:12.827975 30379 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:42:12.828007 30379 bert_core_vs.cc:309] Engine - Profile 0 maxDims 18432 Bmax=48 Smax=384
+I0311 18:42:13.550997 30379 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:42:13.551075 30379 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 18:42:13.552877 30379 bert_core_vs.cc:356] Setup complete
+I0311 18:42:13.554731 30379 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 18:42:13.554742 30379 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:42:13.554760 30379 bert_core_vs.cc:309] Engine - Profile 0 maxDims 18432 Bmax=48 Smax=384
+I0311 18:42:15.110841 30379 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:42:15.110915 30379 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 18:42:15.112310 30379 bert_core_vs.cc:356] Setup complete
+I0311 18:42:15.114073 30379 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 18:42:15.114085 30379 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:42:15.114136 30379 bert_core_vs.cc:309] Engine - Profile 0 maxDims 18432 Bmax=48 Smax=384
+I0311 18:42:17.125495 30379 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:42:17.125597 30379 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 18:42:17.126849 30379 bert_core_vs.cc:356] Setup complete
+I0311 18:42:17.128351 30379 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 18:42:17.128374 30379 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:42:17.128391 30379 bert_core_vs.cc:309] Engine - Profile 0 maxDims 18432 Bmax=48 Smax=384
+I0311 18:42:17.526063 30398 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 18:42:18.562083 30379 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:42:18.562176 30379 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 18:42:18.564244 30379 bert_core_vs.cc:356] Setup complete
+I0311 18:42:18.565941 30379 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 18:42:18.565953 30379 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:42:18.565963 30379 bert_core_vs.cc:309] Engine - Profile 0 maxDims 18432 Bmax=48 Smax=384
+I0311 18:42:19.304580 30400 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 18:42:20.568042 30379 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:42:20.568125 30379 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 18:42:20.570123 30379 bert_core_vs.cc:356] Setup complete
+I0311 18:42:20.572254 30379 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 18:42:20.572271 30379 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:42:20.572306 30379 bert_core_vs.cc:309] Engine - Profile 0 maxDims 18432 Bmax=48 Smax=384
+I0311 18:42:21.484189 30402 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 18:42:22.416347 30379 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:42:22.416426 30379 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 18:42:22.417908 30379 bert_core_vs.cc:356] Setup complete
+I0311 18:42:22.420483 30379 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 18:42:22.420495 30379 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:42:22.420504 30379 bert_core_vs.cc:309] Engine - Profile 0 maxDims 18432 Bmax=48 Smax=384
+I0311 18:42:23.326920 30404 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 18:42:24.717154 30379 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:42:24.717219 30379 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 18:42:24.719112 30379 bert_core_vs.cc:356] Setup complete
+I0311 18:42:24.720578 30379 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 18:42:24.720590 30379 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:42:24.720629 30379 bert_core_vs.cc:309] Engine - Profile 0 maxDims 18432 Bmax=48 Smax=384
+I0311 18:42:25.236340 30406 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 18:42:26.991708 30379 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:42:26.991793 30379 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 18:42:26.993384 30379 bert_core_vs.cc:356] Setup complete
+I0311 18:42:27.243551 30408 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 18:42:29.284024 30410 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 18:42:30.716068 30412 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 18:42:30.717612 30379 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 18:42:30.717643 30379 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:42:30.717664 30379 bert_core_vs.cc:309] Engine - Profile 1 maxDims 18432 Bmax=48 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:42:31.240023 30379 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:42:31.240082 30379 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 18:42:31.242215 30379 bert_core_vs.cc:356] Setup complete
+I0311 18:42:31.244200 30379 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 18:42:31.244213 30379 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:42:31.244287 30379 bert_core_vs.cc:309] Engine - Profile 1 maxDims 18432 Bmax=48 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:42:32.107095 30379 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:42:32.107159 30379 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 18:42:32.108485 30379 bert_core_vs.cc:356] Setup complete
+I0311 18:42:32.110286 30379 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 18:42:32.110334 30379 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:42:32.110406 30379 bert_core_vs.cc:309] Engine - Profile 1 maxDims 18432 Bmax=48 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:42:33.882289 30379 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:42:33.882357 30379 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 18:42:33.884070 30379 bert_core_vs.cc:356] Setup complete
+I0311 18:42:33.885783 30379 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 18:42:33.885823 30379 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:42:33.885912 30379 bert_core_vs.cc:309] Engine - Profile 1 maxDims 18432 Bmax=48 Smax=384
+I0311 18:42:35.793038 30414 bert_core_vs.cc:256] Created 201 CUDA graphs
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:42:36.730480 30379 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:42:36.730557 30379 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 18:42:36.776688 30379 bert_core_vs.cc:356] Setup complete
+I0311 18:42:36.779248 30379 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 18:42:36.779281 30379 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:42:36.779386 30379 bert_core_vs.cc:309] Engine - Profile 1 maxDims 18432 Bmax=48 Smax=384
+I0311 18:42:37.203312 30416 bert_core_vs.cc:256] Created 201 CUDA graphs
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:42:38.485096 30379 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:42:38.485185 30379 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 18:42:38.486788 30379 bert_core_vs.cc:356] Setup complete
+I0311 18:42:38.488843 30379 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 18:42:38.488860 30379 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:42:38.488873 30379 bert_core_vs.cc:309] Engine - Profile 1 maxDims 18432 Bmax=48 Smax=384
+I0311 18:42:39.082064 30418 bert_core_vs.cc:256] Created 201 CUDA graphs
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:42:39.923390 30379 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:42:39.923439 30379 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 18:42:39.950742 30379 bert_core_vs.cc:356] Setup complete
+I0311 18:42:39.953886 30379 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 18:42:39.953909 30379 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:42:39.953928 30379 bert_core_vs.cc:309] Engine - Profile 1 maxDims 18432 Bmax=48 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:42:41.769171 30379 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:42:41.769232 30379 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 18:42:41.771296 30379 bert_core_vs.cc:356] Setup complete
+I0311 18:42:41.775107 30379 bert_core_vs.cc:274] Engine - Device Memory requirements: 152174592
+I0311 18:42:41.775125 30379 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:42:41.775159 30379 bert_core_vs.cc:309] Engine - Profile 1 maxDims 18432 Bmax=48 Smax=384
+I0311 18:42:41.948580 30420 bert_core_vs.cc:256] Created 201 CUDA graphs
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:42:43.501305 30379 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:42:43.501371 30379 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 48
+I0311 18:42:43.503492 30379 bert_core_vs.cc:356] Setup complete
+I0311 18:42:43.950256 30422 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 18:42:45.596443 30424 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 18:42:47.170914 30426 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 18:42:48.140588 30428 bert_core_vs.cc:256] Created 201 CUDA graphs
+I0311 18:42:48.140950 30379 bert_server.cc:262] Apply soft drop policy with threshold = 0.99
+I0311 18:42:48.609067 30379 main_bert.cc:176] Starting running actual test.
+I0311 18:52:55.410840 30430 bert_server.cc:137] Total number of soft drop tasks: 9474 out of 977171 total tasks
+I0311 18:52:55.411366 30432 bert_server.cc:137] Total number of soft drop tasks: 9423 out of 977323 total tasks
+I0311 18:52:55.413302 30431 bert_server.cc:137] Total number of soft drop tasks: 9459 out of 976626 total tasks
+I0311 18:52:55.413501 30435 bert_server.cc:137] Total number of soft drop tasks: 9076 out of 948735 total tasks
+I0311 18:52:55.417474 30440 bert_server.cc:137] Total number of soft drop tasks: 9523 out of 971004 total tasks
+I0311 18:52:55.420317 30437 bert_server.cc:137] Total number of soft drop tasks: 9288 out of 970834 total tasks
+I0311 18:52:55.420718 30439 bert_server.cc:137] Total number of soft drop tasks: 9315 out of 966650 total tasks
+I0311 18:52:55.421003 30444 bert_server.cc:137] Total number of soft drop tasks: 9150 out of 957443 total tasks
+I0311 18:52:55.421203 30434 bert_server.cc:137] Total number of soft drop tasks: 9271 out of 960951 total tasks
+I0311 18:52:55.424856 30436 bert_server.cc:137] Total number of soft drop tasks: 9212 out of 950997 total tasks
+I0311 18:52:55.425561 30441 bert_server.cc:137] Total number of soft drop tasks: 9577 out of 977181 total tasks
+I0311 18:52:55.425938 30443 bert_server.cc:137] Total number of soft drop tasks: 9451 out of 959540 total tasks
+I0311 18:52:55.426290 30442 bert_server.cc:137] Total number of soft drop tasks: 9413 out of 976504 total tasks
+I0311 18:52:55.431859 30433 bert_server.cc:137] Total number of soft drop tasks: 9492 out of 960521 total tasks
+I0311 18:52:55.435969 30438 bert_server.cc:137] Total number of soft drop tasks: 9589 out of 966838 total tasks
+I0311 18:52:55.438387 30429 bert_server.cc:137] Total number of soft drop tasks: 9462 out of 976771 total tasks
+I0311 18:53:09.502331 30379 main_bert.cc:189] Finished running actual test.
+================================================
+MLPerf Results Summary
+================================================
+SUT name : BERT SERVER
+Scenario : Server
+Mode     : PerformanceOnly
+Scheduled samples per second : 25791.81
+Result is : VALID
+  Performance constraints satisfied : Yes
+  Min duration satisfied : Yes
+  Min queries satisfied : Yes
+
+================================================
+Additional Stats
+================================================
+Completed samples per second    : 25789.49
+
+Min latency (ns)                : 5400176
+Max latency (ns)                : 606566168916
+Mean latency (ns)               : 2993177941
+50.00 percentile latency (ns)   : 55097830
+90.00 percentile latency (ns)   : 62497524
+95.00 percentile latency (ns)   : 64225246
+97.00 percentile latency (ns)   : 65503688
+99.00 percentile latency (ns)   : 71522306
+99.90 percentile latency (ns)   : 541863208482
+
+================================================
+Test Parameters Used
+================================================
+samples_per_query : 1
+target_qps : 25800
+target_latency (ns): 130000000
+max_async_queries : 0
+min_duration (ms): 600000
+max_duration (ms): 0
+min_query_count : 270336
+max_query_count : 0
+qsl_rng_seed : 7322528924094909334
+sample_index_rng_seed : 1570999273408051088
+schedule_rng_seed : 3507442325620259414
+accuracy_log_rng_seed : 0
+accuracy_log_probability : 0
+accuracy_log_sampling_target : 0
+print_timestamps : 0
+performance_issue_unique : 0
+performance_issue_same : 0
+performance_issue_same_index : 0
+performance_sample_count : 10833
+
+No warnings encountered during test.
+
+No errors encountered during test.
+[2021-03-11 18:53:20,398 main.py:280 INFO] Result: result_scheduled_samples_per_sec: 25791.8, Result is VALID
+[2021-03-11 18:53:20,398 main.py:224 INFO] Running harness for bert benchmark in Server scenario...
+[2021-03-11 18:53:20,404 __init__.py:255 INFO] Running command: ./build/bin/harness_bert --logfile_outdir="/work/build/logs/2021.03.11-18.41.41/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/bert-99.9/Server" --logfile_prefix="mlperf_log_" --performance_sample_count=10833 --test_mode="PerformanceOnly" --gpu_batch_size=24 --tensor_path="${PREPROCESSED_DATA_DIR}/squad_tokenized/input_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/segment_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/input_mask.npy" --use_graphs=true --gpu_inference_streams=2 --gpu_copy_streams=1 --graphs_max_seqlen=240 --soft_drop=0.99 --server_num_issue_query_threads=0 --gpu_engines="./build/engines/A100-SXM-80GBx8/bert/Server/bert-Server-gpu-fp16_S_384_B_24_P_2_vs.high_accuracy.plan" --mlperf_conf_path="measurements/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/bert-99.9/Server/mlperf.conf" --user_conf_path="measurements/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/bert-99.9/Server/user.conf" --scenario Server --model bert
+[2021-03-11 18:53:20,404 __init__.py:261 INFO] Overriding Environment
+coalesced_tensor : True
+enable_interleaved : False
+gpu_copy_streams : 1
+gpu_inference_streams : 2
+input_dtype : int32
+input_format : linear
+precision : fp16
+tensor_path : ${PREPROCESSED_DATA_DIR}/squad_tokenized/input_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/segment_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/input_mask.npy
+use_cuda_thread_per_device : False
+use_graphs : True
+active_sms : 60
+config_ver : high_accuracy
+gemm_plugin_fairshare_cache_size : 120
+gpu_batch_size : 24
+graphs_max_seqlen : 240
+server_num_issue_query_threads : 0
+server_target_qps : 13100
+soft_drop : 0.99
+use_small_tile_gemm_plugin : True
+system_id : A100-SXM-80GBx8
+scenario : Server
+benchmark : bert
+config_name : A100-SXM-80GBx8_bert_Server
+accuracy_level : 99.9%
+optimization_level : plugin-enabled
+inference_server : custom
+system_name : GIGABYTE_G492-ZD0_A100-SXM-80GBx8
+test_mode : PerformanceOnly
+gpu_num_bundles : 2
+log_dir : /work/build/logs/2021.03.11-18.41.41
+&&&& RUNNING BERT_HARNESS # ./build/bin/harness_bert
+I0311 18:53:20.563894 30447 main_bert.cc:149] Found 8 GPUs
+I0311 18:53:20.902901 30447 bert_server.cc:182] Engine Path: ./build/engines/A100-SXM-80GBx8/bert/Server/bert-Server-gpu-fp16_S_384_B_24_P_2_vs.high_accuracy.plan
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+I0311 18:53:45.647604 30447 bert_server.cc:230] Engines Creation Completed
+I0311 18:53:45.686975 30447 bert_server.cc:234] Use CUDA graphs
+I0311 18:53:45.688364 30447 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:53:45.688377 30447 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:53:45.688400 30447 bert_core_vs.cc:309] Engine - Profile 0 maxDims 9216 Bmax=24 Smax=384
+I0311 18:53:45.792574 30447 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:53:45.792632 30447 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:53:45.793561 30447 bert_core_vs.cc:356] Setup complete
+I0311 18:53:45.795214 30447 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:53:45.795228 30447 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:53:45.795234 30447 bert_core_vs.cc:309] Engine - Profile 0 maxDims 9216 Bmax=24 Smax=384
+I0311 18:53:45.911777 30447 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:53:45.911825 30447 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:53:45.912420 30447 bert_core_vs.cc:356] Setup complete
+I0311 18:53:45.914594 30447 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:53:45.914611 30447 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:53:45.914635 30447 bert_core_vs.cc:309] Engine - Profile 0 maxDims 9216 Bmax=24 Smax=384
+I0311 18:53:46.238204 30447 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:53:46.238268 30447 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:53:46.239440 30447 bert_core_vs.cc:356] Setup complete
+I0311 18:53:46.240859 30447 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:53:46.240881 30447 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:53:46.240897 30447 bert_core_vs.cc:309] Engine - Profile 0 maxDims 9216 Bmax=24 Smax=384
+I0311 18:53:46.445017 30447 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:53:46.445070 30447 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:53:46.446045 30447 bert_core_vs.cc:356] Setup complete
+I0311 18:53:46.447232 30447 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:53:46.447242 30447 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:53:46.447247 30447 bert_core_vs.cc:309] Engine - Profile 0 maxDims 9216 Bmax=24 Smax=384
+I0311 18:53:46.571414 30447 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:53:46.571462 30447 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:53:46.588249 30447 bert_core_vs.cc:356] Setup complete
+I0311 18:53:46.590387 30447 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:53:46.590409 30447 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:53:46.590427 30447 bert_core_vs.cc:309] Engine - Profile 0 maxDims 9216 Bmax=24 Smax=384
+I0311 18:53:46.988339 30447 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:53:46.988391 30447 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:53:46.989248 30447 bert_core_vs.cc:356] Setup complete
+I0311 18:53:46.990392 30447 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:53:46.990402 30447 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:53:46.990440 30447 bert_core_vs.cc:309] Engine - Profile 0 maxDims 9216 Bmax=24 Smax=384
+I0311 18:53:47.545440 30447 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:53:47.545502 30447 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:53:47.546505 30447 bert_core_vs.cc:356] Setup complete
+I0311 18:53:47.548550 30447 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:53:47.548561 30447 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:53:47.548590 30447 bert_core_vs.cc:309] Engine - Profile 0 maxDims 9216 Bmax=24 Smax=384
+I0311 18:53:47.927532 30447 bert_core_vs.cc:313] Setting Opt.Prof. to 0
+I0311 18:53:47.927600 30447 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:53:47.928855 30447 bert_core_vs.cc:356] Setup complete
+I0311 18:53:52.622943 30466 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:53:53.111119 30468 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:53:54.012960 30470 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:53:54.248941 30472 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:53:54.252190 30474 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:53:54.598440 30476 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:53:55.049321 30478 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:53:55.052706 30480 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:53:55.054586 30447 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:53:55.054620 30447 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:53:55.054644 30447 bert_core_vs.cc:309] Engine - Profile 1 maxDims 9216 Bmax=24 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:53:55.136350 30447 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:53:55.136401 30447 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:53:55.137866 30447 bert_core_vs.cc:356] Setup complete
+I0311 18:53:55.143493 30447 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:53:55.143513 30447 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:53:55.143527 30447 bert_core_vs.cc:309] Engine - Profile 1 maxDims 9216 Bmax=24 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:53:55.267421 30447 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:53:55.267460 30447 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:53:55.268285 30447 bert_core_vs.cc:356] Setup complete
+I0311 18:53:55.270452 30447 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:53:55.270467 30447 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:53:55.270515 30447 bert_core_vs.cc:309] Engine - Profile 1 maxDims 9216 Bmax=24 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:53:55.480768 30447 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:53:55.480829 30447 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:53:55.507493 30447 bert_core_vs.cc:356] Setup complete
+I0311 18:53:55.510385 30447 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:53:55.510396 30447 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:53:55.510406 30447 bert_core_vs.cc:309] Engine - Profile 1 maxDims 9216 Bmax=24 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:53:55.676293 30447 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:53:55.676335 30447 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:53:55.690711 30447 bert_core_vs.cc:356] Setup complete
+I0311 18:53:55.693167 30447 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:53:55.693225 30447 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:53:55.693238 30447 bert_core_vs.cc:309] Engine - Profile 1 maxDims 9216 Bmax=24 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:53:56.035652 30447 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:53:56.035697 30447 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:53:56.105046 30447 bert_core_vs.cc:356] Setup complete
+I0311 18:53:56.107259 30447 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:53:56.107287 30447 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:53:56.107323 30447 bert_core_vs.cc:309] Engine - Profile 1 maxDims 9216 Bmax=24 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:53:56.414649 30447 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:53:56.414700 30447 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:53:56.460304 30447 bert_core_vs.cc:356] Setup complete
+I0311 18:53:56.462595 30447 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:53:56.462625 30447 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:53:56.462641 30447 bert_core_vs.cc:309] Engine - Profile 1 maxDims 9216 Bmax=24 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:53:56.803450 30447 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:53:56.803501 30447 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:53:56.876461 30447 bert_core_vs.cc:356] Setup complete
+I0311 18:53:56.879595 30447 bert_core_vs.cc:274] Engine - Device Memory requirements: 151585280
+I0311 18:53:56.879622 30447 bert_core_vs.cc:282] Engine - Number of Optimization Profiles: 2
+I0311 18:53:56.879638 30447 bert_core_vs.cc:309] Engine - Profile 1 maxDims 9216 Bmax=24 Smax=384
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+I0311 18:53:57.262954 30447 bert_core_vs.cc:313] Setting Opt.Prof. to 1
+I0311 18:53:57.263008 30447 bert_core_vs.cc:326] Context creation complete. Max supported batchSize: 24
+I0311 18:53:57.512003 30447 bert_core_vs.cc:356] Setup complete
+I0311 18:54:03.767278 30482 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:54:04.281898 30484 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:54:04.912362 30486 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:54:05.371621 30488 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:54:05.609552 30492 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:54:05.619644 30490 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:54:06.092304 30494 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:54:06.219218 30496 bert_core_vs.cc:256] Created 204 CUDA graphs
+I0311 18:54:06.219652 30447 bert_server.cc:262] Apply soft drop policy with threshold = 0.99
+I0311 18:54:06.687695 30447 main_bert.cc:176] Starting running actual test.
+I0311 19:04:10.134232 30504 bert_server.cc:137] Total number of soft drop tasks: 4553 out of 487783 total tasks
+I0311 19:04:10.134893 30498 bert_server.cc:137] Total number of soft drop tasks: 4865 out of 495855 total tasks
+I0311 19:04:10.136253 30506 bert_server.cc:137] Total number of soft drop tasks: 4818 out of 488979 total tasks
+I0311 19:04:10.140142 30510 bert_server.cc:137] Total number of soft drop tasks: 4815 out of 493691 total tasks
+I0311 19:04:10.142257 30507 bert_server.cc:137] Total number of soft drop tasks: 4643 out of 488758 total tasks
+I0311 19:04:10.143102 30503 bert_server.cc:137] Total number of soft drop tasks: 4804 out of 490817 total tasks
+I0311 19:04:10.147611 30502 bert_server.cc:137] Total number of soft drop tasks: 4855 out of 496314 total tasks
+I0311 19:04:10.148078 30497 bert_server.cc:137] Total number of soft drop tasks: 4979 out of 492680 total tasks
+I0311 19:04:10.148568 30499 bert_server.cc:137] Total number of soft drop tasks: 4847 out of 492047 total tasks
+I0311 19:04:10.148824 30512 bert_server.cc:137] Total number of soft drop tasks: 4752 out of 481187 total tasks
+I0311 19:04:10.152631 30508 bert_server.cc:137] Total number of soft drop tasks: 4749 out of 491469 total tasks
+I0311 19:04:10.153614 30511 bert_server.cc:137] Total number of soft drop tasks: 4836 out of 483997 total tasks
+I0311 19:04:10.154135 30501 bert_server.cc:137] Total number of soft drop tasks: 4887 out of 496540 total tasks
+I0311 19:04:10.154462 30500 bert_server.cc:137] Total number of soft drop tasks: 4799 out of 494412 total tasks
+I0311 19:04:10.154958 30509 bert_server.cc:137] Total number of soft drop tasks: 5007 out of 493264 total tasks
+I0311 19:04:10.156333 30505 bert_server.cc:137] Total number of soft drop tasks: 4634 out of 491891 total tasks
+I0311 19:04:20.894371 30447 main_bert.cc:189] Finished running actual test.
+================================================
+MLPerf Results Summary
+================================================
+SUT name : BERT SERVER
+Scenario : Server
+Mode     : PerformanceOnly
+Scheduled samples per second : 13099.47
+Result is : VALID
+  Performance constraints satisfied : Yes
+  Min duration satisfied : Yes
+  Min queries satisfied : Yes
+
+================================================
+Additional Stats
+================================================
+Completed samples per second    : 13098.66
+
+Min latency (ns)                : 4972939
+Max latency (ns)                : 606809228401
+Mean latency (ns)               : 3022063897
+50.00 percentile latency (ns)   : 54591063
+90.00 percentile latency (ns)   : 63464459
+95.00 percentile latency (ns)   : 65533999
+97.00 percentile latency (ns)   : 67054075
+99.00 percentile latency (ns)   : 75351012
+99.90 percentile latency (ns)   : 544881962859
+
+================================================
+Test Parameters Used
+================================================
+samples_per_query : 1
+target_qps : 13100
+target_latency (ns): 130000000
+max_async_queries : 0
+min_duration (ms): 600000
+max_duration (ms): 0
+min_query_count : 270336
+max_query_count : 0
+qsl_rng_seed : 7322528924094909334
+sample_index_rng_seed : 1570999273408051088
+schedule_rng_seed : 3507442325620259414
+accuracy_log_rng_seed : 0
+accuracy_log_probability : 0
+accuracy_log_sampling_target : 0
+print_timestamps : 0
+performance_issue_unique : 0
+performance_issue_same : 0
+performance_issue_same_index : 0
+performance_sample_count : 10833
+
+No warnings encountered during test.
+
+No errors encountered during test.
+[2021-03-11 19:04:29,564 main.py:280 INFO] Result: result_scheduled_samples_per_sec: 13099.5, Result is VALID
+
+======================= Perf harness results: =======================
+
+GIGABYTE_G492-ZD0_A100-SXM-80GBx8-default-Server:
+    bert: result_scheduled_samples_per_sec: 25791.8, Result is VALID
+
+GIGABYTE_G492-ZD0_A100-SXM-80GBx8-high_accuracy-Server:
+    bert: result_scheduled_samples_per_sec: 13099.5, Result is VALID
+
+
+======================= Accuracy results: =======================
+
+GIGABYTE_G492-ZD0_A100-SXM-80GBx8-default-Server:
+    bert: No accuracy results in PerformanceOnly mode.
+
+GIGABYTE_G492-ZD0_A100-SXM-80GBx8-high_accuracy-Server:
+    bert: No accuracy results in PerformanceOnly mode.
+

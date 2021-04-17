@@ -1,0 +1,83 @@
+{
+    "A100-PCIex2": {
+        "active_sms": 60,
+        "config_ver": {
+            "high_accuracy": {
+                "precision": "fp16",
+                "server_target_qps": 2510
+            },
+            "high_accuracy_triton": {
+                "precision": "fp16",
+                "server_target_qps": 2370,
+                "use_triton": true
+            },
+            "triton": {
+                "server_target_qps": 4390,
+                "use_triton": true
+            }
+        },
+        "enable_interleaved": false,
+        "gemm_plugin_fairshare_cache_size": 120,
+        "gpu_batch_size": 64,
+        "graphs_max_seqlen": 200,
+        "server_num_issue_query_threads": 2,
+        "server_target_qps": 5400,
+        "soft_drop": 1.0,
+        "use_small_tile_gemm_plugin": true
+    },
+    "A100-PCIex4": {
+        "active_sms": 60,
+        "config_ver": {
+            "high_accuracy": {
+                "precision": "fp16",
+                "server_target_qps": 4588
+            },
+            "high_accuracy_triton": {
+                "precision": "fp16",
+                "server_target_qps": 2370,
+                "use_triton": true
+            },
+            "triton": {
+                "server_target_qps": 4390,
+                "use_triton": true
+            }
+        },
+        "enable_interleaved": false,
+        "gemm_plugin_fairshare_cache_size": 120,
+        "gpu_batch_size": 64,
+        "graphs_max_seqlen": 200,
+        "server_num_issue_query_threads": 2,
+        "server_target_qps": 10486,
+        "soft_drop": 1.0,
+        "use_small_tile_gemm_plugin": true
+    },
+    "A10x4": {
+        "active_sms": 100,
+        "config_ver": {
+            "high_accuracy": {
+                "gpu_batch_size": 8,
+                "precision": "fp16",
+                "server_target_qps": 1840
+            },
+            "high_accuracy_triton": {
+                "gpu_batch_size": 8,
+                "precision": "fp16",
+                "server_target_qps": 160,
+                "use_triton": true
+            },
+            "triton": {
+                "server_target_qps": 324,
+                "use_triton": true
+            }
+        },
+        "enable_interleaved": false,
+        "gemm_plugin_fairshare_cache_size": 120,
+        "gpu_batch_size": 16,
+        "graphs_max_seqlen": 240,
+        "server_num_issue_query_threads": 0,
+        "server_target_qps": 3920,
+        "soft_drop": 0.993,
+        "use_small_tile_gemm_plugin": true
+    },
+    "scenario": "Server"
+}

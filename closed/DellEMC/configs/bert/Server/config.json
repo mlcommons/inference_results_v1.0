@@ -1,0 +1,192 @@
+{
+    "DSS8440_A100-PCIE-40GBx10": {
+	"active_sms": 115,
+	"config_ver": {
+		"high_accuracy": {
+			"gpu_batch_size": 75,
+			"precision": "fp16",
+			"server_target_qps": 12119
+		}
+	},
+	"gpu_batch_size": 75,
+	"graphs_max_seqlen": 240,
+	"server_num_issue_query_threads": 0,
+	"server_target_qps": 26756,
+	"soft_drop": 1.0
+	},
+    "DSS8440_A40x10": {
+        "active_sms": 60,
+        "config_ver": {
+            "high_accuracy": {
+                "precision": "fp16",
+                "server_target_qps": 5800
+            }
+        },
+        "enable_interleaved": false,
+        "gemm_plugin_fairshare_cache_size": 120,
+        "gpu_batch_size": 64,
+        "gpu_copy_streams": 1,
+        "gpu_inference_streams": 2,
+        "graphs_max_seqlen": 200,
+        "server_num_issue_query_threads": 20,
+        "server_target_qps": 13900,
+        "soft_drop": 1.0,
+        "use_small_tile_gemm_plugin": true
+    },
+    "R740_A100-PCIe-40GBx3": {
+        "active_sms": 60,
+        "config_ver": {
+            "high_accuracy": {
+                "precision": "fp16",
+                "server_target_qps": 2430
+            }
+	},
+	"enable_interleaved": false,
+        "gemm_plugin_fairshare_cache_size": 120,
+        "gpu_batch_size": 64,
+        "graphs_max_seqlen": 200,
+        "server_num_issue_query_threads": 2,
+        "server_target_qps": 7600,
+        "soft_drop": 1.0,
+        "use_small_tile_gemm_plugin": true
+    },
+    "R750xa_A100-PCIE-40GBx4": {
+        "active_sms": 60,
+        "config_ver": {
+            "high_accuracy": {
+                "precision": "fp16",
+                "server_target_qps": 5200
+            }
+        },
+        "enable_interleaved": false,
+        "gemm_plugin_fairshare_cache_size": 120,
+        "gpu_batch_size": 64,
+        "gpu_copy_streams": 1,
+        "gpu_inference_streams": 2,
+        "graphs_max_seqlen": 200,
+        "server_num_issue_query_threads": 8,
+        "server_target_qps": 10900,
+        "soft_drop": 1.0,
+        "use_small_tile_gemm_plugin": true
+    },
+    "R7525_A100-PCIe-40GBx2": {
+        "active_sms": 60,
+        "config_ver": {
+            "high_accuracy": {
+                "precision": "fp16",
+                "server_target_qps": 2430
+            }
+        },
+        "enable_interleaved": false,
+        "gemm_plugin_fairshare_cache_size": 120,
+        "gpu_batch_size": 64,
+        "graphs_max_seqlen": 200,
+        "server_num_issue_query_threads": 2,
+        "server_target_qps": 5160,
+        "soft_drop": 1.0,
+        "use_small_tile_gemm_plugin": true
+    },
+    "R7525_QuadroRTX8000x3": {
+        "active_sms": 100,
+        "coalesced_tensor": true,
+        "config_ver": {
+            "high_accuracy": {
+                "precision": "fp16",
+                "server_target_qps": 1650,
+                "gpu_batch_size": 28,
+                "gpu_inference_streams": 2
+            }
+	},
+	"enable_interleaved": false,
+        "gpu_batch_size": 32,
+        "gpu_copy_streams": 3,
+        "gpu_inference_streams": 1,
+        "graphs_max_seqlen": 200,
+        "input_dtype": "int32",
+        "input_format": "linear",
+        "precision": "int8",
+        "server_num_issue_query_threads": 3,
+        "server_target_qps": 2600,
+        "soft_drop": 0.993,
+        "use_cuda_thread_per_device": false,
+        "use_graphs": true
+    },
+    "XE2420_T4x4": {
+        "active_sms": 100,
+        "config_ver": {
+            "high_accuracy": {
+                "active_sms": 100,
+                "gpu_batch_size": 8,
+                "gpu_inference_streams": 1,
+                "precision": "fp16",
+                "server_num_issue_query_threads": 4,
+                "server_target_qps": 700
+            }
+        },
+        "gpu_batch_size": 16,
+        "graphs_max_seqlen": 260,
+        "server_num_issue_query_threads": 8,
+        "server_target_qps": 1200,
+        "soft_drop": 0.992
+    },
+    "XE8545_A100-SXM4-40GBx4": {
+        "config_ver": {
+                "7763":{
+                    "system_name": "XE8545_7763_A100-SXM4-40GBx4_TRT",
+                    "server_target_qps": 12700
+            },
+            "high_accuracy_7763":{
+                "system_name": "XE8545_7763_A100-SXM4-40GBx4_TRT",
+                "precision": "fp16",
+                "server_target_qps": 6300
+            },
+	    "7713":{
+                    "system_name": "XE8545_7713_A100-SXM4-40GBx4_TRT"
+            },
+            "high_accuracy_7713":{
+                "system_name": "XE8545_7713_A100-SXM4-40GBx4_TRT",
+                "precision": "fp16",
+                "server_target_qps": 6300
+            }
+        },
+         "active_sms": 121,
+         "gpu_batch_size": 70,
+         "graphs_max_seqlen": 240,
+         "server_num_issue_query_threads": 0,
+         "server_target_qps": 12800,
+         "soft_drop": 0.99,
+	 "start_from_device": true
+    },
+    "XE8545_A100-SXM4-80GBx4": {
+        "config_ver": {
+            "7763": {
+                    "system_name": "XE8545_7763_A100-SXM4-80GBx4_TRT"
+            },
+            "high_accuracy_7763": {
+                "system_name": "XE8545_7763_A100-SXM4-80GBx4_TRT",
+                "gpu_batch_size": 24,
+                "precision": "fp16",
+                "server_target_qps": 6850
+            }
+        },
+        "extends": [
+            "XE8545_A100-SXM4-40GBx4"
+        ],
+        "server_target_qps": 13100,
+        "gpu_batch_size": 48
+    },
+    "benchmark": "bert",
+    "default": {
+        "coalesced_tensor": true,
+        "enable_interleaved": true,
+        "gpu_copy_streams": 1,
+        "gpu_inference_streams": 2,
+        "input_dtype": "int32",
+        "input_format": "linear",
+        "precision": "int8",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/squad_tokenized/input_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/segment_ids.npy,${PREPROCESSED_DATA_DIR}/squad_tokenized/input_mask.npy",
+        "use_cuda_thread_per_device": false,
+        "use_graphs": true
+    },
+    "scenario": "Server"
+}

@@ -1,0 +1,127 @@
+{
+    "DSS8440_A40x10": {
+        "config_ver": {
+            "high_accuracy": {}
+        },
+        "extends": [
+            "int8_base"
+        ],
+        "gpu_offline_expected_qps": 172,
+        "gpu_batch_size": 2,
+        "gpu_copy_streams": 1
+    },
+    "R740_A100-PCIe-40GBx3": {
+        "config_ver": {
+            "high_accuracy": {}
+        },
+        "extends": [
+            "int8_base"
+        ],
+        "gpu_batch_size": 2,
+        "gpu_copy_streams": 2,
+        "gpu_offline_expected_qps": 153
+    },
+    "R750xa_A100-PCIE-40GBx4": {
+        "config_ver": {
+            "high_accuracy": {}
+        },
+        "extends": [
+            "int8_base"
+        ],
+        "gpu_offline_expected_qps": 211,
+        "gpu_batch_size": 2,
+        "gpu_copy_streams": 1
+    },
+    "R7525_QuadroRTX8000x3": {
+        "config_ver": {
+            "high_accuracy": {}
+        },
+        "gpu_batch_size": 2,
+        "gpu_copy_streams": 2,
+        "gpu_offline_expected_qps": 54,
+        "input_dtype": "int8",
+        "input_format": "cdhw32",
+        "min_query_count": 24576,
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/brats/brats_npy/int8_cdhw32"
+    },
+    "XE2420_T4x1": {
+        "config_ver": {
+            "high_accuracy": {}
+        },
+        "extends": [
+            "int8_base"
+        ],
+        "gpu_batch_size": 2,
+        "gpu_copy_streams": 2,
+        "gpu_offline_expected_qps": 8
+    },
+    "XE2420_T4x4": {
+        "config_ver": {
+            "high_accuracy": {}
+        },
+        "extends": [
+            "int8_base"
+        ],
+        "gpu_batch_size": 2,
+        "gpu_copy_streams": 2,
+        "gpu_offline_expected_qps": 8
+    },
+    "XE8545_A100-SXM4-40GBx4": {
+        "config_ver": {
+            "7763": {
+                    "system_name": "XE8545_7763_A100-SXM4-40GBx4_TRT"
+            },
+            "high_accuracy_7763": {
+                    "system_name": "XE8545_7763_A100-SXM4-40GBx4_TRT"
+            },
+	    "7713": {
+                    "system_name": "XE8545_7713_A100-SXM4-40GBx4_TRT"
+            },
+            "high_accuracy_7713": {
+                    "system_name": "XE8545_7713_A100-SXM4-40GBx4_TRT"
+            }
+        },
+        "extends": [
+            "int8_base"
+        ],
+        "gpu_batch_size": 2,
+        "gpu_copy_streams": 8,
+        "gpu_offline_expected_qps": 233,
+        "start_from_device": false,
+        "numa_config": "0:48-63,176-191&1:16-31,144-159&2:112-127,240-255&3:80-95,208-223"
+    },
+    "XE8545_A100-SXM4-80GBx4": {
+             "config_ver": {
+            "7763": {
+                    "system_name": "XE8545_7763_A100-SXM4-80GBx4_TRT"
+            },
+            "high_accuracy_7763": {
+                    "system_name": "XE8545_7763_A100-SXM4-80GBx4_TRT"
+            }
+        },
+        "extends": [
+            "XE8545_A100-SXM4-40GBx4"
+        ],
+        "gpu_batch_size": 3,
+	"numa_config": "0:48-63,176-191&1:16-31,144-159&2:112-127,240-255&3:80-95,208-223"
+    },
+    "benchmark": "3d-unet",
+    "default": {
+        "gpu_inference_streams": 1,
+        "map_path": "data_maps/brats/val_map.txt",
+        "precision": "int8",
+        "use_graphs": false
+    },
+    "fp16_base": {
+        "input_dtype": "fp16",
+        "input_format": "linear",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/brats/brats_npy/fp16_linear",
+        "workspace_size": 1073741824
+    },
+    "int8_base": {
+        "input_dtype": "int8",
+        "input_format": "cdhw32",
+        "tensor_path": "${PREPROCESSED_DATA_DIR}/brats/brats_npy/int8_cdhw32"
+    },
+    "scenario": "Offline"
+}

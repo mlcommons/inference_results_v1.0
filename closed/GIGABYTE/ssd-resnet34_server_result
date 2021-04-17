@@ -1,0 +1,784 @@
+[2021-03-11 00:14:43,088 __init__.py:255 INFO] Running command: CUDA_VISIBILE_ORDER=PCI_BUS_ID nvidia-smi --query-gpu=gpu_name,pci.device_id,uuid --format=csv
+[2021-03-11 00:14:43,165 main.py:694 INFO] Detected System ID: A100-SXM-80GBx8
+[2021-03-11 00:14:43,172 main.py:527 INFO] Using config files: configs/ssd-resnet34/Server/config.json
+[2021-03-11 00:14:43,172 __init__.py:341 INFO] Parsing config file configs/ssd-resnet34/Server/config.json ...
+[2021-03-11 00:14:43,172 main.py:540 INFO] Processing config "A100-SXM-80GBx8_ssd-resnet34_Server"
+[2021-03-11 00:14:43,172 main.py:224 INFO] Running harness for ssd-resnet34 benchmark in Server scenario...
+[2021-03-11 00:14:43,179 harness.py:246 INFO] Updated LD_PRELOAD: /usr/lib/x86_64-linux-gnu/libjemalloc.so.2
+[2021-03-11 00:14:43,179 __init__.py:255 INFO] Running command: ./build/bin/harness_default --plugins="build/plugins/NMSOptPlugin/libnmsoptplugin.so" --logfile_outdir="/work/build/logs/2021.03.11-00.14.39/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/ssd-resnet34/Server" --logfile_prefix="mlperf_log_" --performance_sample_count=64 --test_mode="PerformanceOnly" --deque_timeout_us=30000 --gpu_copy_streams=4 --gpu_inference_streams=4 --start_from_device=true --use_cuda_thread_per_device=true --use_deque_limit=true --gpu_batch_size=8 --map_path="data_maps/coco/val_map.txt" --tensor_path="${PREPROCESSED_DATA_DIR}/coco/val2017/SSDResNet34/int8_linear" --use_graphs=false --gpu_engines="./build/engines/A100-SXM-80GBx8/ssd-resnet34/Server/ssd-resnet34-Server-gpu-b8-int8.default.plan" --mlperf_conf_path="measurements/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/ssd-resnet34/Server/mlperf.conf" --user_conf_path="measurements/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/ssd-resnet34/Server/user.conf" --max_dlas=0 --scenario Server --model ssd-resnet34 --response_postprocess coco
+[2021-03-11 00:14:43,179 __init__.py:261 INFO] Overriding Environment
+active_sms : 100
+gpu_copy_streams : 4
+input_dtype : int8
+input_format : linear
+map_path : data_maps/coco/val_map.txt
+precision : int8
+tensor_path : ${PREPROCESSED_DATA_DIR}/coco/val2017/SSDResNet34/int8_linear
+use_deque_limit : True
+use_graphs : False
+config_ver : default
+deque_timeout_us : 30000
+gpu_batch_size : 8
+gpu_inference_streams : 4
+server_target_qps : 7650
+start_from_device : True
+use_cuda_thread_per_device : True
+system_id : A100-SXM-80GBx8
+scenario : Server
+benchmark : ssd-resnet34
+config_name : A100-SXM-80GBx8_ssd-resnet34_Server
+accuracy_level : 99%
+optimization_level : plugin-enabled
+inference_server : lwis
+system_name : GIGABYTE_G492-ZD0_A100-SXM-80GBx8
+test_mode : PerformanceOnly
+gpu_num_bundles : 2
+log_dir : /work/build/logs/2021.03.11-00.14.39
+&&&& RUNNING Default_Harness # ./build/bin/harness_default
+[I] mlperf.conf path: measurements/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/ssd-resnet34/Server/mlperf.conf
+[I] user.conf path: measurements/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/ssd-resnet34/Server/user.conf
+Creating QSL.
+Finished Creating QSL.
+Setting up SUT.
+[I] Device:0: ./build/engines/A100-SXM-80GBx8/ssd-resnet34/Server/ssd-resnet34-Server-gpu-b8-int8.default.plan has been successfully loaded.
+[I] Device:1: ./build/engines/A100-SXM-80GBx8/ssd-resnet34/Server/ssd-resnet34-Server-gpu-b8-int8.default.plan has been successfully loaded.
+[I] Device:2: ./build/engines/A100-SXM-80GBx8/ssd-resnet34/Server/ssd-resnet34-Server-gpu-b8-int8.default.plan has been successfully loaded.
+[I] Device:3: ./build/engines/A100-SXM-80GBx8/ssd-resnet34/Server/ssd-resnet34-Server-gpu-b8-int8.default.plan has been successfully loaded.
+[I] Device:4: ./build/engines/A100-SXM-80GBx8/ssd-resnet34/Server/ssd-resnet34-Server-gpu-b8-int8.default.plan has been successfully loaded.
+[I] Device:5: ./build/engines/A100-SXM-80GBx8/ssd-resnet34/Server/ssd-resnet34-Server-gpu-b8-int8.default.plan has been successfully loaded.
+[I] Device:6: ./build/engines/A100-SXM-80GBx8/ssd-resnet34/Server/ssd-resnet34-Server-gpu-b8-int8.default.plan has been successfully loaded.
+[I] Device:7: ./build/engines/A100-SXM-80GBx8/ssd-resnet34/Server/ssd-resnet34-Server-gpu-b8-int8.default.plan has been successfully loaded.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[I] Creating batcher thread: 0 EnableBatcherThreadPerDevice: false
+[I] Creating cuda thread: 0
+[I] Creating cuda thread: 1
+[I] Creating cuda thread: 2
+[I] Creating cuda thread: 3
+[I] Creating cuda thread: 4
+[I] Creating cuda thread: 5
+[I] Creating cuda thread: 6
+[I] Creating cuda thread: 7
+Finished setting up SUT.
+Starting warmup. Running for a minimum of 5 seconds.
+Finished warmup. Ran for 6.86401s.
+Starting running actual test.
+================================================
+MLPerf Results Summary
+================================================
+SUT name : LWIS_Server
+Scenario : Server
+Mode     : PerformanceOnly
+Scheduled samples per second : 7654.41
+Result is : VALID
+  Performance constraints satisfied : Yes
+  Min duration satisfied : Yes
+  Min queries satisfied : Yes
+
+================================================
+Additional Stats
+================================================
+Completed samples per second    : 7653.93
+
+Min latency (ns)                : 9024365
+Max latency (ns)                : 83459047
+Mean latency (ns)               : 30504722
+50.00 percentile latency (ns)   : 29226127
+90.00 percentile latency (ns)   : 48701007
+95.00 percentile latency (ns)   : 55373911
+97.00 percentile latency (ns)   : 59072701
+99.00 percentile latency (ns)   : 66730857
+99.90 percentile latency (ns)   : 76308945
+
+================================================
+Test Parameters Used
+================================================
+samples_per_query : 1
+target_qps : 7650
+target_latency (ns): 100000000
+max_async_queries : 0
+min_duration (ms): 600000
+max_duration (ms): 0
+min_query_count : 270336
+max_query_count : 0
+qsl_rng_seed : 7322528924094909334
+sample_index_rng_seed : 1570999273408051088
+schedule_rng_seed : 3507442325620259414
+accuracy_log_rng_seed : 0
+accuracy_log_probability : 0
+accuracy_log_sampling_target : 0
+print_timestamps : 0
+performance_issue_unique : 0
+performance_issue_same : 0
+performance_issue_same_index : 0
+performance_sample_count : 64
+
+No warnings encountered during test.
+
+No errors encountered during test.
+Finished running actual test.
+Device Device:0 processed:
+  72027 batches of size 8
+  Memcpy Calls: 0
+  PerSampleCudaMemcpy Calls: 576216
+  BatchedCudaMemcpy Calls: 0
+Device Device:1 processed:
+  72279 batches of size 8
+  Memcpy Calls: 0
+  PerSampleCudaMemcpy Calls: 578232
+  BatchedCudaMemcpy Calls: 0
+Device Device:2 processed:
+  71635 batches of size 8
+  Memcpy Calls: 0
+  PerSampleCudaMemcpy Calls: 573080
+  BatchedCudaMemcpy Calls: 0
+Device Device:3 processed:
+  70979 batches of size 8
+  Memcpy Calls: 0
+  PerSampleCudaMemcpy Calls: 567832
+  BatchedCudaMemcpy Calls: 0
+Device Device:4 processed:
+  71688 batches of size 8
+  Memcpy Calls: 0
+  PerSampleCudaMemcpy Calls: 573504
+  BatchedCudaMemcpy Calls: 0
+Device Device:5 processed:
+  71959 batches of size 8
+  Memcpy Calls: 0
+  PerSampleCudaMemcpy Calls: 575672
+  BatchedCudaMemcpy Calls: 0
+Device Device:6 processed:
+  72228 batches of size 8
+  Memcpy Calls: 0
+  PerSampleCudaMemcpy Calls: 577824
+  BatchedCudaMemcpy Calls: 0
+Device Device:7 processed:
+  1 batches of size 6
+  71285 batches of size 8
+  Memcpy Calls: 0
+  PerSampleCudaMemcpy Calls: 570286
+  BatchedCudaMemcpy Calls: 0
+&&&& PASSED Default_Harness # ./build/bin/harness_default
+[2021-03-11 00:25:20,702 main.py:280 INFO] Result: result_scheduled_samples_per_sec: 7654.41, Result is VALID
+
+======================= Perf harness results: =======================
+
+GIGABYTE_G492-ZD0_A100-SXM-80GBx8-default-Server:
+    ssd-resnet34: result_scheduled_samples_per_sec: 7654.41, Result is VALID
+
+
+======================= Accuracy results: =======================
+
+GIGABYTE_G492-ZD0_A100-SXM-80GBx8-default-Server:
+    ssd-resnet34: No accuracy results in PerformanceOnly mode.
+
+[2021-03-11 00:25:23,787 __init__.py:255 INFO] Running command: CUDA_VISIBILE_ORDER=PCI_BUS_ID nvidia-smi --query-gpu=gpu_name,pci.device_id,uuid --format=csv
+[2021-03-11 00:25:23,863 main.py:694 INFO] Detected System ID: A100-SXM-80GBx8
+[2021-03-11 00:25:23,871 main.py:527 INFO] Using config files: configs/ssd-resnet34/Server/config.json
+[2021-03-11 00:25:23,871 __init__.py:341 INFO] Parsing config file configs/ssd-resnet34/Server/config.json ...
+[2021-03-11 00:25:23,872 main.py:540 INFO] Processing config "A100-SXM-80GBx8_ssd-resnet34_Server"
+[2021-03-11 00:25:23,872 main.py:224 INFO] Running harness for ssd-resnet34 benchmark in Server scenario...
+[2021-03-11 00:25:23,878 harness.py:246 INFO] Updated LD_PRELOAD: /usr/lib/x86_64-linux-gnu/libjemalloc.so.2
+[2021-03-11 00:25:23,878 __init__.py:255 INFO] Running command: ./build/bin/harness_default --plugins="build/plugins/NMSOptPlugin/libnmsoptplugin.so" --logfile_outdir="/work/build/logs/2021.03.11-00.25.20/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/ssd-resnet34/Server" --logfile_prefix="mlperf_log_" --performance_sample_count=64 --test_mode="PerformanceOnly" --deque_timeout_us=30000 --gpu_copy_streams=4 --gpu_inference_streams=4 --start_from_device=true --use_cuda_thread_per_device=true --use_deque_limit=true --gpu_batch_size=8 --map_path="data_maps/coco/val_map.txt" --tensor_path="${PREPROCESSED_DATA_DIR}/coco/val2017/SSDResNet34/int8_linear" --use_graphs=false --gpu_engines="./build/engines/A100-SXM-80GBx8/ssd-resnet34/Server/ssd-resnet34-Server-gpu-b8-int8.default.plan" --mlperf_conf_path="measurements/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/ssd-resnet34/Server/mlperf.conf" --user_conf_path="measurements/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/ssd-resnet34/Server/user.conf" --max_dlas=0 --scenario Server --model ssd-resnet34 --response_postprocess coco
+[2021-03-11 00:25:23,878 __init__.py:261 INFO] Overriding Environment
+active_sms : 100
+gpu_copy_streams : 4
+input_dtype : int8
+input_format : linear
+map_path : data_maps/coco/val_map.txt
+precision : int8
+tensor_path : ${PREPROCESSED_DATA_DIR}/coco/val2017/SSDResNet34/int8_linear
+use_deque_limit : True
+use_graphs : False
+config_ver : default
+deque_timeout_us : 30000
+gpu_batch_size : 8
+gpu_inference_streams : 4
+server_target_qps : 7650
+start_from_device : True
+use_cuda_thread_per_device : True
+system_id : A100-SXM-80GBx8
+scenario : Server
+benchmark : ssd-resnet34
+config_name : A100-SXM-80GBx8_ssd-resnet34_Server
+accuracy_level : 99%
+optimization_level : plugin-enabled
+inference_server : lwis
+system_name : GIGABYTE_G492-ZD0_A100-SXM-80GBx8
+test_mode : PerformanceOnly
+gpu_num_bundles : 2
+log_dir : /work/build/logs/2021.03.11-00.25.20
+&&&& RUNNING Default_Harness # ./build/bin/harness_default
+[I] mlperf.conf path: measurements/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/ssd-resnet34/Server/mlperf.conf
+[I] user.conf path: measurements/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/ssd-resnet34/Server/user.conf
+Creating QSL.
+Finished Creating QSL.
+Setting up SUT.
+[I] Device:0: ./build/engines/A100-SXM-80GBx8/ssd-resnet34/Server/ssd-resnet34-Server-gpu-b8-int8.default.plan has been successfully loaded.
+[I] Device:1: ./build/engines/A100-SXM-80GBx8/ssd-resnet34/Server/ssd-resnet34-Server-gpu-b8-int8.default.plan has been successfully loaded.
+[I] Device:2: ./build/engines/A100-SXM-80GBx8/ssd-resnet34/Server/ssd-resnet34-Server-gpu-b8-int8.default.plan has been successfully loaded.
+[I] Device:3: ./build/engines/A100-SXM-80GBx8/ssd-resnet34/Server/ssd-resnet34-Server-gpu-b8-int8.default.plan has been successfully loaded.
+[I] Device:4: ./build/engines/A100-SXM-80GBx8/ssd-resnet34/Server/ssd-resnet34-Server-gpu-b8-int8.default.plan has been successfully loaded.
+[I] Device:5: ./build/engines/A100-SXM-80GBx8/ssd-resnet34/Server/ssd-resnet34-Server-gpu-b8-int8.default.plan has been successfully loaded.
+[I] Device:6: ./build/engines/A100-SXM-80GBx8/ssd-resnet34/Server/ssd-resnet34-Server-gpu-b8-int8.default.plan has been successfully loaded.
+[I] Device:7: ./build/engines/A100-SXM-80GBx8/ssd-resnet34/Server/ssd-resnet34-Server-gpu-b8-int8.default.plan has been successfully loaded.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[I] Creating batcher thread: 0 EnableBatcherThreadPerDevice: false
+[I] Creating cuda thread: 0
+[I] Creating cuda thread: 1
+[I] Creating cuda thread: 2
+[I] Creating cuda thread: 3
+[I] Creating cuda thread: 4
+[I] Creating cuda thread: 5
+[I] Creating cuda thread: 6
+[I] Creating cuda thread: 7
+Finished setting up SUT.
+Starting warmup. Running for a minimum of 5 seconds.
+Finished warmup. Ran for 6.8835s.
+Starting running actual test.
+================================================
+MLPerf Results Summary
+================================================
+SUT name : LWIS_Server
+Scenario : Server
+Mode     : PerformanceOnly
+Scheduled samples per second : 7654.41
+Result is : VALID
+  Performance constraints satisfied : Yes
+  Min duration satisfied : Yes
+  Min queries satisfied : Yes
+
+================================================
+Additional Stats
+================================================
+Completed samples per second    : 7653.92
+
+Min latency (ns)                : 9044887
+Max latency (ns)                : 102571609
+Mean latency (ns)               : 32063256
+50.00 percentile latency (ns)   : 30209054
+90.00 percentile latency (ns)   : 52737745
+95.00 percentile latency (ns)   : 61365466
+97.00 percentile latency (ns)   : 66601856
+99.00 percentile latency (ns)   : 74376734
+99.90 percentile latency (ns)   : 83311756
+
+================================================
+Test Parameters Used
+================================================
+samples_per_query : 1
+target_qps : 7650
+target_latency (ns): 100000000
+max_async_queries : 0
+min_duration (ms): 600000
+max_duration (ms): 0
+min_query_count : 270336
+max_query_count : 0
+qsl_rng_seed : 7322528924094909334
+sample_index_rng_seed : 1570999273408051088
+schedule_rng_seed : 3507442325620259414
+accuracy_log_rng_seed : 0
+accuracy_log_probability : 0
+accuracy_log_sampling_target : 0
+print_timestamps : 0
+performance_issue_unique : 0
+performance_issue_same : 0
+performance_issue_same_index : 0
+performance_sample_count : 64
+
+No warnings encountered during test.
+
+No errors encountered during test.
+Finished running actual test.
+Device Device:0 processed:
+  72049 batches of size 8
+  Memcpy Calls: 0
+  PerSampleCudaMemcpy Calls: 576392
+  BatchedCudaMemcpy Calls: 0
+Device Device:1 processed:
+  72296 batches of size 8
+  Memcpy Calls: 0
+  PerSampleCudaMemcpy Calls: 578368
+  BatchedCudaMemcpy Calls: 0
+Device Device:2 processed:
+  71626 batches of size 8
+  Memcpy Calls: 0
+  PerSampleCudaMemcpy Calls: 573008
+  BatchedCudaMemcpy Calls: 0
+Device Device:3 processed:
+  70952 batches of size 8
+  Memcpy Calls: 0
+  PerSampleCudaMemcpy Calls: 567616
+  BatchedCudaMemcpy Calls: 0
+Device Device:4 processed:
+  71696 batches of size 8
+  Memcpy Calls: 0
+  PerSampleCudaMemcpy Calls: 573568
+  BatchedCudaMemcpy Calls: 0
+Device Device:5 processed:
+  71958 batches of size 8
+  Memcpy Calls: 0
+  PerSampleCudaMemcpy Calls: 575664
+  BatchedCudaMemcpy Calls: 0
+Device Device:6 processed:
+  72234 batches of size 8
+  Memcpy Calls: 0
+  PerSampleCudaMemcpy Calls: 577872
+  BatchedCudaMemcpy Calls: 0
+Device Device:7 processed:
+  1 batches of size 6
+  71269 batches of size 8
+  Memcpy Calls: 0
+  PerSampleCudaMemcpy Calls: 570158
+  BatchedCudaMemcpy Calls: 0
+&&&& PASSED Default_Harness # ./build/bin/harness_default
+[2021-03-11 00:36:01,223 main.py:280 INFO] Result: result_scheduled_samples_per_sec: 7654.41, Result is VALID
+
+======================= Perf harness results: =======================
+
+GIGABYTE_G492-ZD0_A100-SXM-80GBx8-default-Server:
+    ssd-resnet34: result_scheduled_samples_per_sec: 7654.41, Result is VALID
+
+
+======================= Accuracy results: =======================
+
+GIGABYTE_G492-ZD0_A100-SXM-80GBx8-default-Server:
+    ssd-resnet34: No accuracy results in PerformanceOnly mode.
+
+[2021-03-11 00:36:04,220 __init__.py:255 INFO] Running command: CUDA_VISIBILE_ORDER=PCI_BUS_ID nvidia-smi --query-gpu=gpu_name,pci.device_id,uuid --format=csv
+[2021-03-11 00:36:04,298 main.py:694 INFO] Detected System ID: A100-SXM-80GBx8
+[2021-03-11 00:36:04,305 main.py:527 INFO] Using config files: configs/ssd-resnet34/Server/config.json
+[2021-03-11 00:36:04,305 __init__.py:341 INFO] Parsing config file configs/ssd-resnet34/Server/config.json ...
+[2021-03-11 00:36:04,305 main.py:540 INFO] Processing config "A100-SXM-80GBx8_ssd-resnet34_Server"
+[2021-03-11 00:36:04,306 main.py:224 INFO] Running harness for ssd-resnet34 benchmark in Server scenario...
+[2021-03-11 00:36:04,312 harness.py:246 INFO] Updated LD_PRELOAD: /usr/lib/x86_64-linux-gnu/libjemalloc.so.2
+[2021-03-11 00:36:04,312 __init__.py:255 INFO] Running command: ./build/bin/harness_default --plugins="build/plugins/NMSOptPlugin/libnmsoptplugin.so" --logfile_outdir="/work/build/logs/2021.03.11-00.36.01/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/ssd-resnet34/Server" --logfile_prefix="mlperf_log_" --performance_sample_count=64 --test_mode="PerformanceOnly" --deque_timeout_us=30000 --gpu_copy_streams=4 --gpu_inference_streams=4 --start_from_device=true --use_cuda_thread_per_device=true --use_deque_limit=true --gpu_batch_size=8 --map_path="data_maps/coco/val_map.txt" --tensor_path="${PREPROCESSED_DATA_DIR}/coco/val2017/SSDResNet34/int8_linear" --use_graphs=false --gpu_engines="./build/engines/A100-SXM-80GBx8/ssd-resnet34/Server/ssd-resnet34-Server-gpu-b8-int8.default.plan" --mlperf_conf_path="measurements/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/ssd-resnet34/Server/mlperf.conf" --user_conf_path="measurements/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/ssd-resnet34/Server/user.conf" --max_dlas=0 --scenario Server --model ssd-resnet34 --response_postprocess coco
+[2021-03-11 00:36:04,312 __init__.py:261 INFO] Overriding Environment
+active_sms : 100
+gpu_copy_streams : 4
+input_dtype : int8
+input_format : linear
+map_path : data_maps/coco/val_map.txt
+precision : int8
+tensor_path : ${PREPROCESSED_DATA_DIR}/coco/val2017/SSDResNet34/int8_linear
+use_deque_limit : True
+use_graphs : False
+config_ver : default
+deque_timeout_us : 30000
+gpu_batch_size : 8
+gpu_inference_streams : 4
+server_target_qps : 7650
+start_from_device : True
+use_cuda_thread_per_device : True
+system_id : A100-SXM-80GBx8
+scenario : Server
+benchmark : ssd-resnet34
+config_name : A100-SXM-80GBx8_ssd-resnet34_Server
+accuracy_level : 99%
+optimization_level : plugin-enabled
+inference_server : lwis
+system_name : GIGABYTE_G492-ZD0_A100-SXM-80GBx8
+test_mode : PerformanceOnly
+gpu_num_bundles : 2
+log_dir : /work/build/logs/2021.03.11-00.36.01
+&&&& RUNNING Default_Harness # ./build/bin/harness_default
+[I] mlperf.conf path: measurements/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/ssd-resnet34/Server/mlperf.conf
+[I] user.conf path: measurements/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/ssd-resnet34/Server/user.conf
+Creating QSL.
+Finished Creating QSL.
+Setting up SUT.
+[I] Device:0: ./build/engines/A100-SXM-80GBx8/ssd-resnet34/Server/ssd-resnet34-Server-gpu-b8-int8.default.plan has been successfully loaded.
+[I] Device:1: ./build/engines/A100-SXM-80GBx8/ssd-resnet34/Server/ssd-resnet34-Server-gpu-b8-int8.default.plan has been successfully loaded.
+[I] Device:2: ./build/engines/A100-SXM-80GBx8/ssd-resnet34/Server/ssd-resnet34-Server-gpu-b8-int8.default.plan has been successfully loaded.
+[I] Device:3: ./build/engines/A100-SXM-80GBx8/ssd-resnet34/Server/ssd-resnet34-Server-gpu-b8-int8.default.plan has been successfully loaded.
+[I] Device:4: ./build/engines/A100-SXM-80GBx8/ssd-resnet34/Server/ssd-resnet34-Server-gpu-b8-int8.default.plan has been successfully loaded.
+[I] Device:5: ./build/engines/A100-SXM-80GBx8/ssd-resnet34/Server/ssd-resnet34-Server-gpu-b8-int8.default.plan has been successfully loaded.
+[I] Device:6: ./build/engines/A100-SXM-80GBx8/ssd-resnet34/Server/ssd-resnet34-Server-gpu-b8-int8.default.plan has been successfully loaded.
+[I] Device:7: ./build/engines/A100-SXM-80GBx8/ssd-resnet34/Server/ssd-resnet34-Server-gpu-b8-int8.default.plan has been successfully loaded.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[I] Creating batcher thread: 0 EnableBatcherThreadPerDevice: false
+[I] Creating cuda thread: 0
+[I] Creating cuda thread: 1
+[I] Creating cuda thread: 2
+[I] Creating cuda thread: 3
+[I] Creating cuda thread: 4
+[I] Creating cuda thread: 5
+[I] Creating cuda thread: 6
+[I] Creating cuda thread: 7
+Finished setting up SUT.
+Starting warmup. Running for a minimum of 5 seconds.
+Finished warmup. Ran for 6.85454s.
+Starting running actual test.
+================================================
+MLPerf Results Summary
+================================================
+SUT name : LWIS_Server
+Scenario : Server
+Mode     : PerformanceOnly
+Scheduled samples per second : 7654.41
+Result is : VALID
+  Performance constraints satisfied : Yes
+  Min duration satisfied : Yes
+  Min queries satisfied : Yes
+
+================================================
+Additional Stats
+================================================
+Completed samples per second    : 7653.92
+
+Min latency (ns)                : 9021387
+Max latency (ns)                : 120039561
+Mean latency (ns)               : 32949046
+50.00 percentile latency (ns)   : 31290419
+90.00 percentile latency (ns)   : 53840637
+95.00 percentile latency (ns)   : 62115448
+97.00 percentile latency (ns)   : 66869117
+99.00 percentile latency (ns)   : 74849681
+99.90 percentile latency (ns)   : 84911486
+
+================================================
+Test Parameters Used
+================================================
+samples_per_query : 1
+target_qps : 7650
+target_latency (ns): 100000000
+max_async_queries : 0
+min_duration (ms): 600000
+max_duration (ms): 0
+min_query_count : 270336
+max_query_count : 0
+qsl_rng_seed : 7322528924094909334
+sample_index_rng_seed : 1570999273408051088
+schedule_rng_seed : 3507442325620259414
+accuracy_log_rng_seed : 0
+accuracy_log_probability : 0
+accuracy_log_sampling_target : 0
+print_timestamps : 0
+performance_issue_unique : 0
+performance_issue_same : 0
+performance_issue_same_index : 0
+performance_sample_count : 64
+
+No warnings encountered during test.
+
+No errors encountered during test.
+Finished running actual test.
+Device Device:0 processed:
+  72067 batches of size 8
+  Memcpy Calls: 0
+  PerSampleCudaMemcpy Calls: 576536
+  BatchedCudaMemcpy Calls: 0
+Device Device:1 processed:
+  72234 batches of size 8
+  Memcpy Calls: 0
+  PerSampleCudaMemcpy Calls: 577872
+  BatchedCudaMemcpy Calls: 0
+Device Device:2 processed:
+  71639 batches of size 8
+  Memcpy Calls: 0
+  PerSampleCudaMemcpy Calls: 573112
+  BatchedCudaMemcpy Calls: 0
+Device Device:3 processed:
+  1 batches of size 6
+  70966 batches of size 8
+  Memcpy Calls: 0
+  PerSampleCudaMemcpy Calls: 567734
+  BatchedCudaMemcpy Calls: 0
+Device Device:4 processed:
+  71691 batches of size 8
+  Memcpy Calls: 0
+  PerSampleCudaMemcpy Calls: 573528
+  BatchedCudaMemcpy Calls: 0
+Device Device:5 processed:
+  71960 batches of size 8
+  Memcpy Calls: 0
+  PerSampleCudaMemcpy Calls: 575680
+  BatchedCudaMemcpy Calls: 0
+Device Device:6 processed:
+  72265 batches of size 8
+  Memcpy Calls: 0
+  PerSampleCudaMemcpy Calls: 578120
+  BatchedCudaMemcpy Calls: 0
+Device Device:7 processed:
+  71258 batches of size 8
+  Memcpy Calls: 0
+  PerSampleCudaMemcpy Calls: 570064
+  BatchedCudaMemcpy Calls: 0
+&&&& PASSED Default_Harness # ./build/bin/harness_default
+[2021-03-11 00:46:41,692 main.py:280 INFO] Result: result_scheduled_samples_per_sec: 7654.41, Result is VALID
+
+======================= Perf harness results: =======================
+
+GIGABYTE_G492-ZD0_A100-SXM-80GBx8-default-Server:
+    ssd-resnet34: result_scheduled_samples_per_sec: 7654.41, Result is VALID
+
+
+======================= Accuracy results: =======================
+
+GIGABYTE_G492-ZD0_A100-SXM-80GBx8-default-Server:
+    ssd-resnet34: No accuracy results in PerformanceOnly mode.
+
+[2021-03-11 00:46:44,768 __init__.py:255 INFO] Running command: CUDA_VISIBILE_ORDER=PCI_BUS_ID nvidia-smi --query-gpu=gpu_name,pci.device_id,uuid --format=csv
+[2021-03-11 00:46:44,845 main.py:694 INFO] Detected System ID: A100-SXM-80GBx8
+[2021-03-11 00:46:44,852 main.py:527 INFO] Using config files: configs/ssd-resnet34/Server/config.json
+[2021-03-11 00:46:44,852 __init__.py:341 INFO] Parsing config file configs/ssd-resnet34/Server/config.json ...
+[2021-03-11 00:46:44,853 main.py:540 INFO] Processing config "A100-SXM-80GBx8_ssd-resnet34_Server"
+[2021-03-11 00:46:44,853 main.py:224 INFO] Running harness for ssd-resnet34 benchmark in Server scenario...
+[2021-03-11 00:46:44,860 harness.py:246 INFO] Updated LD_PRELOAD: /usr/lib/x86_64-linux-gnu/libjemalloc.so.2
+[2021-03-11 00:46:44,860 __init__.py:255 INFO] Running command: ./build/bin/harness_default --plugins="build/plugins/NMSOptPlugin/libnmsoptplugin.so" --logfile_outdir="/work/build/logs/2021.03.11-00.46.41/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/ssd-resnet34/Server" --logfile_prefix="mlperf_log_" --performance_sample_count=64 --test_mode="PerformanceOnly" --deque_timeout_us=30000 --gpu_copy_streams=4 --gpu_inference_streams=4 --start_from_device=true --use_cuda_thread_per_device=true --use_deque_limit=true --gpu_batch_size=8 --map_path="data_maps/coco/val_map.txt" --tensor_path="${PREPROCESSED_DATA_DIR}/coco/val2017/SSDResNet34/int8_linear" --use_graphs=false --gpu_engines="./build/engines/A100-SXM-80GBx8/ssd-resnet34/Server/ssd-resnet34-Server-gpu-b8-int8.default.plan" --mlperf_conf_path="measurements/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/ssd-resnet34/Server/mlperf.conf" --user_conf_path="measurements/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/ssd-resnet34/Server/user.conf" --max_dlas=0 --scenario Server --model ssd-resnet34 --response_postprocess coco
+[2021-03-11 00:46:44,860 __init__.py:261 INFO] Overriding Environment
+active_sms : 100
+gpu_copy_streams : 4
+input_dtype : int8
+input_format : linear
+map_path : data_maps/coco/val_map.txt
+precision : int8
+tensor_path : ${PREPROCESSED_DATA_DIR}/coco/val2017/SSDResNet34/int8_linear
+use_deque_limit : True
+use_graphs : False
+config_ver : default
+deque_timeout_us : 30000
+gpu_batch_size : 8
+gpu_inference_streams : 4
+server_target_qps : 7650
+start_from_device : True
+use_cuda_thread_per_device : True
+system_id : A100-SXM-80GBx8
+scenario : Server
+benchmark : ssd-resnet34
+config_name : A100-SXM-80GBx8_ssd-resnet34_Server
+accuracy_level : 99%
+optimization_level : plugin-enabled
+inference_server : lwis
+system_name : GIGABYTE_G492-ZD0_A100-SXM-80GBx8
+test_mode : PerformanceOnly
+gpu_num_bundles : 2
+log_dir : /work/build/logs/2021.03.11-00.46.41
+&&&& RUNNING Default_Harness # ./build/bin/harness_default
+[I] mlperf.conf path: measurements/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/ssd-resnet34/Server/mlperf.conf
+[I] user.conf path: measurements/GIGABYTE_G492-ZD0_A100-SXM-80GBx8/ssd-resnet34/Server/user.conf
+Creating QSL.
+Finished Creating QSL.
+Setting up SUT.
+[I] Device:0: ./build/engines/A100-SXM-80GBx8/ssd-resnet34/Server/ssd-resnet34-Server-gpu-b8-int8.default.plan has been successfully loaded.
+[I] Device:1: ./build/engines/A100-SXM-80GBx8/ssd-resnet34/Server/ssd-resnet34-Server-gpu-b8-int8.default.plan has been successfully loaded.
+[I] Device:2: ./build/engines/A100-SXM-80GBx8/ssd-resnet34/Server/ssd-resnet34-Server-gpu-b8-int8.default.plan has been successfully loaded.
+[I] Device:3: ./build/engines/A100-SXM-80GBx8/ssd-resnet34/Server/ssd-resnet34-Server-gpu-b8-int8.default.plan has been successfully loaded.
+[I] Device:4: ./build/engines/A100-SXM-80GBx8/ssd-resnet34/Server/ssd-resnet34-Server-gpu-b8-int8.default.plan has been successfully loaded.
+[I] Device:5: ./build/engines/A100-SXM-80GBx8/ssd-resnet34/Server/ssd-resnet34-Server-gpu-b8-int8.default.plan has been successfully loaded.
+[I] Device:6: ./build/engines/A100-SXM-80GBx8/ssd-resnet34/Server/ssd-resnet34-Server-gpu-b8-int8.default.plan has been successfully loaded.
+[I] Device:7: ./build/engines/A100-SXM-80GBx8/ssd-resnet34/Server/ssd-resnet34-Server-gpu-b8-int8.default.plan has been successfully loaded.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[W] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[I] Creating batcher thread: 0 EnableBatcherThreadPerDevice: false
+[I] Creating cuda thread: 0
+[I] Creating cuda thread: 1
+[I] Creating cuda thread: 2
+[I] Creating cuda thread: 3
+[I] Creating cuda thread: 4
+[I] Creating cuda thread: 5
+[I] Creating cuda thread: 6
+[I] Creating cuda thread: 7
+Finished setting up SUT.
+Starting warmup. Running for a minimum of 5 seconds.
+Finished warmup. Ran for 6.92076s.
+Starting running actual test.
+================================================
+MLPerf Results Summary
+================================================
+SUT name : LWIS_Server
+Scenario : Server
+Mode     : PerformanceOnly
+Scheduled samples per second : 7654.41
+Result is : VALID
+  Performance constraints satisfied : Yes
+  Min duration satisfied : Yes
+  Min queries satisfied : Yes
+
+================================================
+Additional Stats
+================================================
+Completed samples per second    : 7653.92
+
+Min latency (ns)                : 9023839
+Max latency (ns)                : 101209429
+Mean latency (ns)               : 30903845
+50.00 percentile latency (ns)   : 29229012
+90.00 percentile latency (ns)   : 50272711
+95.00 percentile latency (ns)   : 58587344
+97.00 percentile latency (ns)   : 63051989
+99.00 percentile latency (ns)   : 70461661
+99.90 percentile latency (ns)   : 81578872
+
+================================================
+Test Parameters Used
+================================================
+samples_per_query : 1
+target_qps : 7650
+target_latency (ns): 100000000
+max_async_queries : 0
+min_duration (ms): 600000
+max_duration (ms): 0
+min_query_count : 270336
+max_query_count : 0
+qsl_rng_seed : 7322528924094909334
+sample_index_rng_seed : 1570999273408051088
+schedule_rng_seed : 3507442325620259414
+accuracy_log_rng_seed : 0
+accuracy_log_probability : 0
+accuracy_log_sampling_target : 0
+print_timestamps : 0
+performance_issue_unique : 0
+performance_issue_same : 0
+performance_issue_same_index : 0
+performance_sample_count : 64
+
+No warnings encountered during test.
+
+No errors encountered during test.
+Finished running actual test.
+Device Device:0 processed:
+  72012 batches of size 8
+  Memcpy Calls: 0
+  PerSampleCudaMemcpy Calls: 576096
+  BatchedCudaMemcpy Calls: 0
+Device Device:1 processed:
+  1 batches of size 6
+  72175 batches of size 8
+  Memcpy Calls: 0
+  PerSampleCudaMemcpy Calls: 577406
+  BatchedCudaMemcpy Calls: 0
+Device Device:2 processed:
+  71653 batches of size 8
+  Memcpy Calls: 0
+  PerSampleCudaMemcpy Calls: 573224
+  BatchedCudaMemcpy Calls: 0
+Device Device:3 processed:
+  71016 batches of size 8
+  Memcpy Calls: 0
+  PerSampleCudaMemcpy Calls: 568128
+  BatchedCudaMemcpy Calls: 0
+Device Device:4 processed:
+  71685 batches of size 8
+  Memcpy Calls: 0
+  PerSampleCudaMemcpy Calls: 573480
+  BatchedCudaMemcpy Calls: 0
+Device Device:5 processed:
+  71927 batches of size 8
+  Memcpy Calls: 0
+  PerSampleCudaMemcpy Calls: 575416
+  BatchedCudaMemcpy Calls: 0
+Device Device:6 processed:
+  72213 batches of size 8
+  Memcpy Calls: 0
+  PerSampleCudaMemcpy Calls: 577704
+  BatchedCudaMemcpy Calls: 0
+Device Device:7 processed:
+  71399 batches of size 8
+  Memcpy Calls: 0
+  PerSampleCudaMemcpy Calls: 571192
+  BatchedCudaMemcpy Calls: 0
+&&&& PASSED Default_Harness # ./build/bin/harness_default
+[2021-03-11 00:57:22,172 main.py:280 INFO] Result: result_scheduled_samples_per_sec: 7654.41, Result is VALID
+
+======================= Perf harness results: =======================
+
+GIGABYTE_G492-ZD0_A100-SXM-80GBx8-default-Server:
+    ssd-resnet34: result_scheduled_samples_per_sec: 7654.41, Result is VALID
+
+
+======================= Accuracy results: =======================
+
+GIGABYTE_G492-ZD0_A100-SXM-80GBx8-default-Server:
+    ssd-resnet34: No accuracy results in PerformanceOnly mode.
+
