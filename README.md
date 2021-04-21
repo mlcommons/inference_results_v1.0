@@ -1,4 +1,4 @@
-# MLPerf Inference v1.0
+# MLPerf™ Inference v1.0
 
 ## GitHub Submission HOWTO
 
