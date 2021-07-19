@@ -24,6 +24,8 @@ class Architecture(Enum):
     Turing = "Turing"
     Xavier = "Xavier"
     Ampere = "Ampere"
+    # add arhitecture
+    Volta = "Volta"
 
     Intel_CPU_x86_64 = "Intel CPU x86_64"
 
@@ -267,6 +269,8 @@ class KnownSystems:
     """
     Global List of supported systems
     """
+    ## add Global list of supported systems
+    V100S_PCIE_32GB = SystemClass("V100S-PCIE-32GB", ["Tesla V100S-PCIE-32GB"], ["1DF6"], Architecture.Volta, [1, 4, 8])
 
     A100_PCIe_40GB = SystemClass("A100-PCIe", ["A100-PCIE-40GB"], ["20F1", "20BF"], Architecture.Ampere, [1, 2, 8])
     A100_SXM4_40GB = SystemClass("A100-SXM4-40GB", ["A100-SXM4-40GB"], ["20B0"], Architecture.Ampere, [1, 8],
