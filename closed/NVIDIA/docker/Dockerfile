@@ -186,6 +186,10 @@ RUN python3 -m pip install nvidia-pyindex \
 # Explicitly downgrade numpy since cocoeval requires numpy 1.16.x.
 RUN python3 -m pip install numpy==1.16.0
 
+# Explicitly downgrade to previous batchgenerator to fix MultiThreadedAugmenter issue
+# see https://github.com/mlcommons/inference_results_v1.0/issues/11
+RUN python3 -m pip install batchgenerators==0.21
+
 # Power-dev needs Python 3.7, but we still want default python3 to be 3.6.
 RUN apt install -y python3.7 \
  && rm -rf /usr/bin/python3 \
